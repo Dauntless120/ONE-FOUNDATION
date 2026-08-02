@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ONE FOUNDATION Wellness — Church Partnership</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ─────────────────────────────────────────────
+   RESET & ROOT
+───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:         #07090d;
+  --bg2:        #0c1018;
+  --bg3:        #111620;
+  --gold:       #c9a566;
+  --gold-lt:    #e3c07e;
+  --gold-dim:   rgba(201,165,102,0.15);
+  --cream:      #ede8dc;
+  --blue:       #2d6a9f;
+  --blue-lt:    #4a8fbf;
+  --muted:      #4e5669;
+  --muted-lt:   #8a939f;
+  --border:     rgba(255,255,255,0.06);
+  --border-g:   rgba(201,165,102,0.2);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ─────────────────────────────────────────────
+   SCROLL REVEAL
+───────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.85s cubic-bezier(0.16,1,0.3,1),
+              transform 0.85s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.d1 { transition-delay: 0.12s; }
+.d2 { transition-delay: 0.24s; }
+.d3 { transition-delay: 0.36s; }
+.d4 { transition-delay: 0.48s; }
+.d5 { transition-delay: 0.60s; }
+
+/* ─────────────────────────────────────────────
+   LAYOUT
+───────────────────────────────────────────── */
+.section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 7rem 2rem;
+}
+.container      { max-width: 1080px; margin: 0 auto; width: 100%; }
+.container--mid { max-width: 820px;  margin: 0 auto; width: 100%; }
+.container--sm  { max-width: 640px;  margin: 0 auto; width: 100%; }
+
+/* ─────────────────────────────────────────────
+   SHARED TYPE
+───────────────────────────────────────────── */
+.eyebrow {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.4rem;
+}
+.rule {
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  margin-bottom: 1.4rem;
+  opacity: 0.6;
+}
+
+/* ─────────────────────────────────────────────
+   ① HERO
+───────────────────────────────────────────── */
+#hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* animated gradient orb */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% -5%,  rgba(45,106,159,0.22) 0%, transparent 65%),
+    radial-gradient(ellipse 45% 35% at 85% 90%,  rgba(201,165,102,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 15% 85%,  rgba(45,106,159,0.08) 0%, transparent 50%),
+    var(--bg);
+  animation: orb 10s ease-in-out infinite alternate;
+}
+@keyframes orb {
+  0%   { opacity: 0.75; transform: scale(1);    }
+  100% { opacity: 1;    transform: scale(1.04); }
+}
+
+/* grain overlay */
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  max-width: 960px;
+}
+
+.hero-eyebrow {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.4s forwards;
+}
+
+.hero-wordmark {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 0.88;
+  letter-spacing: -0.035em;
+  margin-bottom: 0.6rem;
+}
+
+.hero-wordmark .w1 {
+  display: block;
+  font-size: clamp(4rem, 14vw, 10.5rem);
+  color: var(--cream);
+  opacity: 1;
+  position: relative;
+}
+
+/* ── word flash ── */
+#word-flash {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  text-align: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.8rem, 10vw, 8rem);
+  color: var(--cream);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  line-height: 0.88;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+/* ── one-bar (rises with ONE, spans ~Foundation width) ── */
+#one-bar {
+  display: block;
+  width: clamp(20rem, 48vw, 34rem);
+  height: 2px;
+  margin: 0.55rem auto 0.35rem;
+  background: linear-gradient(to right, transparent, var(--gold) 18%, var(--gold) 82%, transparent);
+  transform: translateY(220px);
+  opacity: 0;
+  transition: transform 3s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.5s ease;
+}
+#one-bar.placed {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ── brick letters ── */
+.brick-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  line-height: 1.05;
+}
+.brick-letter {
+  display: inline-block;
+  transform: translateY(108%);
+  opacity: 0;
+  transition: transform 3s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.6s ease;
+}
+.brick-letter.placed {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.hero-wordmark .w2 {
+  display: block;
+  font-size: clamp(2.6rem, 8.5vw, 6.5rem);
+  color: var(--gold);
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideL 1s cubic-bezier(0.16,1,0.3,1) 0.5s forwards;
+}
+
+.hero-wordmark .w3 {
+  display: block;
+  font-size: clamp(1.1rem, 3.5vw, 2.5rem);
+  font-weight: 300;
+  letter-spacing: 0.22em;
+  color: var(--muted-lt);
+  margin-top: 0.8rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.9s forwards;
+}
+
+.hero-divider {
+  width: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  margin: 2.2rem auto;
+  animation: expandW 0.9s ease 15.5s forwards;
+}
+
+.hero-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.05rem, 2.4vw, 1.45rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted-lt);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 15.7s forwards;
+}
+
+.hero-verse {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(0.8rem, 1.4vw, 0.92rem);
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 15.9s forwards;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 16.4s forwards;
+}
+.scroll-hint span {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.scroll-hint-line {
+  width: 1px;
+  height: 46px;
+  background: linear-gradient(to bottom, var(--gold) 0%, transparent 100%);
+  animation: pulse 2.2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.25; transform: scaleY(0.7); }
+  50%       { opacity: 0.9;  transform: scaleY(1);   }
+}
+
+/* ─────────────────────────────────────────────
+   ② THE GAP
+───────────────────────────────────────────── */
+#gap {
+  background: var(--bg2);
+  border-top: 1px solid var(--border-g);
+}
+
+.gap-headline {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 5.5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--cream);
+  margin-bottom: 1.8rem;
+}
+.gap-headline em {
+  color: var(--gold);
+  font-style: normal;
+}
+
+.gap-body {
+  font-size: 1.05rem;
+  color: var(--muted-lt);
+  line-height: 1.85;
+  margin-bottom: 2.8rem;
+  max-width: 580px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 3rem;
+}
+.tag {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--border-g);
+  color: var(--gold);
+  border-radius: 2px;
+  transition: background 0.25s, border-color 0.25s;
+}
+.tag:hover { background: var(--gold-dim); border-color: var(--gold); }
+
+.gap-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.2rem, 2.8vw, 1.65rem);
+  font-style: italic;
+  color: var(--cream);
+  border-left: 2px solid var(--gold);
+  padding-left: 1.6rem;
+  line-height: 1.55;
+  max-width: 680px;
+}
+
+/* ─────────────────────────────────────────────
+   ③ CAROUSEL
+───────────────────────────────────────────── */
+#carousel-section {
+  background: var(--bg);
+  text-align: center;
+  padding: 7rem 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.carousel-wrap {
+  position: relative;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.8rem;
+}
+
+.carousel-slide {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+  pointer-events: none;
+}
+.carousel-slide.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.carousel-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.5rem, 4.2vw, 3rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+  max-width: 860px;
+  margin: 0 auto;
+}
+.carousel-text em {
+  color: var(--gold);
+  font-style: normal;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.55rem;
+}
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--muted);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  border: none;
+}
+.dot.active {
+  background: var(--gold);
+  transform: scale(1.5);
+}
+
+/* ─────────────────────────────────────────────
+   ④ HOW IT WORKS
+───────────────────────────────────────────── */
+#how {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+}
+
+.how-headline {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--cream);
+  margin-bottom: 0.9rem;
+  line-height: 1.1;
+}
+.how-sub {
+  color: var(--muted-lt);
+  font-size: 1rem;
+  margin-bottom: 4rem;
+  max-width: 480px;
+  line-height: 1.7;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.5rem;
+}
+
+.step {
+  padding: 2.2rem 1.8rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  background: rgba(255,255,255,0.015);
+  transition: border-color 0.3s, background 0.3s, transform 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.step::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--gold), var(--blue-lt));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.step:hover {
+  border-color: var(--border-g);
+  background: rgba(201,165,102,0.03);
+  transform: translateY(-3px);
+}
+.step:hover::before { transform: scaleX(1); }
+
+.step-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: rgba(201,165,102,0.12);
+  line-height: 1;
+  margin-bottom: 1.1rem;
+  transition: color 0.3s;
+}
+.step:hover .step-num { color: rgba(201,165,102,0.3); }
+
+.step-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+}
+
+.step-desc {
+  font-size: 0.88rem;
+  color: var(--muted-lt);
+  line-height: 1.75;
+}
+
+/* connector dots between steps on wide screens */
+@media (min-width: 900px) {
+  .steps { position: relative; }
+  .step-connector {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    align-items: center;
+  }
+  .step-connector span {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: 0.3;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   ⑤ THE VISION — FOUNDATION & PILLARS
+───────────────────────────────────────────── */
+#flywheel {
+  background: var(--bg3);
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 7rem 2rem;
+}
+
+.flywheel-headline {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--cream);
+  margin-bottom: 0.9rem;
+  line-height: 1.1;
+}
+.flywheel-sub {
+  font-size: 1rem;
+  color: var(--muted-lt);
+  margin-bottom: 4rem;
+}
+
+/* ── Architecture Diagram ── */
+.arch-wrap {
+  max-width: 700px;
+  margin: 0 auto 4.5rem;
+  user-select: none;
+}
+
+/* Capstone */
+.arch-capstone {
+  padding: 1.6rem 2rem 1.4rem;
+  background: rgba(201,165,102,0.09);
+  border: 1px solid rgba(201,165,102,0.38);
+  border-top: 3px solid var(--gold);
+  border-bottom: none;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(-28px);
+  transition: opacity 0.85s ease, transform 0.85s cubic-bezier(0.16,1,0.3,1);
+}
+.arch-capstone.revealed { opacity: 1; transform: translateY(0); }
+
+.arch-cap-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-lt);
+  margin-bottom: 0.4rem;
+}
+.arch-cap-sub {
+  font-size: 0.88rem;
+  font-family: 'Inter', sans-serif;
+  color: var(--muted-lt);
+  letter-spacing: 0.06em;
+}
+
+/* Pillars grid */
+.arch-pillars {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background: rgba(201,165,102,0.2);
+  gap: 1px;
+  border-left:  1px solid rgba(201,165,102,0.3);
+  border-right: 1px solid rgba(201,165,102,0.3);
+}
+
+.arch-pillar {
+  background: var(--bg2);
+  padding: 2rem 1.2rem 1.8rem;
+  text-align: center;
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 2s cubic-bezier(0.16,1,0.3,1);
+}
+.arch-pillar.revealed { clip-path: inset(0% 0 0 0); }
+
+.arch-pil-cap {
+  width: 28px;
+  height: 2px;
+  background: var(--gold);
+  opacity: 0.55;
+  margin: 0 auto 1.2rem;
+}
+
+.arch-pil-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+
+.arch-pil-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(0.85rem, 1.6vw, 1rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--cream);
+  line-height: 1.35;
+  margin-bottom: 0.85rem;
+}
+
+.arch-pil-desc {
+  font-size: clamp(0.82rem, 1.3vw, 0.92rem);
+  color: var(--muted-lt);
+  line-height: 1.75;
+}
+
+/* Foundation */
+.arch-foundation {
+  padding: 1.5rem 2rem;
+  background: linear-gradient(to bottom, rgba(201,165,102,0.07), transparent);
+  border: 1px solid rgba(201,165,102,0.4);
+  border-top: 3px solid var(--gold);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.85s ease, transform 0.85s cubic-bezier(0.16,1,0.3,1);
+}
+.arch-foundation.revealed {
+  opacity: 1;
+  transform: translateY(0);
+  animation: foundGlow 5s ease-in-out 3s infinite;
+}
+@keyframes foundGlow {
+  0%, 100% { box-shadow: none; }
+  50%       { box-shadow: 0 8px 44px rgba(201,165,102,0.16); }
+}
+
+.arch-fnd-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.2rem, 3vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.35rem;
+}
+.arch-fnd-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--muted-lt);
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 560px) {
+  .arch-pillars { grid-template-columns: 1fr; }
+}
+
+/* ─────────────────────────────────────────────
+   ⑥ CTA
+───────────────────────────────────────────── */
+#cta {
+  background: var(--bg);
+  text-align: center;
+  border-top: 1px solid var(--border-g);
+}
+
+.cta-headline {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--cream);
+  margin-bottom: 1.5rem;
+}
+
+.cta-body {
+  font-size: 1.05rem;
+  color: var(--muted-lt);
+  max-width: 480px;
+  margin: 0 auto 3rem;
+  line-height: 1.8;
+}
+
+.cta-btn {
+  display: inline-block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #07090d;
+  background: var(--gold);
+  padding: 1.05rem 2.8rem;
+  border-radius: 2px;
+  transition: background 0.28s, transform 0.22s, box-shadow 0.28s;
+  box-shadow: 0 6px 28px rgba(201,165,102,0.28);
+}
+.cta-btn:hover {
+  background: var(--gold-lt);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 36px rgba(201,165,102,0.42);
+}
+.cta-btn:active { transform: translateY(0); }
+
+.cta-note {
+  display: block;
+  margin-top: 1.4rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.78rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+.cta-verse {
+  margin-top: 5rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--border);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--muted-lt);
+  line-height: 1.7;
+}
+.cta-verse cite {
+  display: block;
+  margin-top: 0.6rem;
+  font-style: normal;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.cta-footer {
+  margin-top: 3rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+sup.footnote-ref {
+  font-size: 0.6em;
+  vertical-align: super;
+  color: var(--gold);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  margin-left: 1px;
+}
+
+.citations {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  color: var(--muted);
+  line-height: 1.7;
+  text-align: left;
+}
+.citations p { margin-bottom: 0.4rem; }
+.citations strong {
+  color: var(--muted-lt);
+  font-weight: 500;
+}
+
+/* ─────────────────────────────────────────────
+   KEYFRAMES
+───────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideR {
+  from { opacity: 0; transform: translateX(-50px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideL {
+  from { opacity: 0; transform: translateX(50px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes expandW {
+  from { width: 0; opacity: 0; }
+  to   { width: 240px; opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ═══════════════════════════════════════════
+     ① HERO
+═══════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+
+  <div class="hero-content">
+    <h1 class="hero-wordmark">
+      <span class="w1" id="w1-block">
+        <span id="word-flash" aria-hidden="true"></span>
+        <span class="brick-wrap"><span class="brick-letter" id="bl-O">O</span></span><span class="brick-wrap"><span class="brick-letter" id="bl-N">N</span></span><span class="brick-wrap"><span class="brick-letter" id="bl-E">E</span></span>
+      </span>
+      <span id="one-bar"></span>
+      <span class="w2">Foundation</span>
+      <span class="w3">Wellness</span>
+    </h1>
+
+    <div class="hero-divider"></div>
+
+    <p class="hero-tagline">
+      Join us in building the largest vocational wellness ministry movement, grounded in 4 simple truths.
+    </p>
+
+    <p class="hero-verse">
+      "No one can lay a foundation other than that which is laid, which is Jesus Christ."
+      &nbsp;—&nbsp; 1 Corinthians 3:11
+    </p>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-hint-line"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     ② THE GAP
+═══════════════════════════════════════════ -->
+<section id="gap" class="section">
+  <div class="container">
+    <p class="eyebrow reveal">The Challenge</p>
+
+    <h2 class="gap-headline reveal d1">
+      Your community and congregation are<br>
+      carrying some <em>heavy stuff.</em>
+    </h2>
+
+    <p class="gap-body reveal d2">
+      We partner and collaborate with your existing ministries to provide professional clinical
+      care, when and where evidenced-based therapeutic techniques can accelerate hope and healing.
+      Today nearly 1 in 5 Americans are dealing with depression, trauma, addiction, grief, and
+      relationship crisis often leading to a mental health diagnosis. And they are looking for a
+      licensed therapist to treat them.
+    </p>
+
+    <div class="tags reveal d3">
+      <span class="tag">Anxiety</span>
+      <span class="tag">Depression</span>
+      <span class="tag">Addiction</span>
+      <span class="tag">Grief</span>
+      <span class="tag">Trauma</span>
+      <span class="tag">Marriage Crisis</span>
+      <span class="tag">Teen Mental Health</span>
+      <span class="tag">Loneliness</span>
+    </div>
+
+    <blockquote class="gap-quote reveal d4">
+      "There is a projected 90,000 mental health professional shortage for the endlessly growing need in America
+      and we are going to do something about it<sup class="footnote-ref">1</sup> — together
+      with God's help, vocational missionaries with a license to counsel, and the local church."
+    </blockquote>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     ③ CAROUSEL — VALUE PROPOSITIONS
+═══════════════════════════════════════════ -->
+<section id="carousel-section">
+  <div class="container--mid">
+    <p class="eyebrow reveal" style="text-align:center; font-size:1rem; letter-spacing:0.12em;">4 Truths we believe everyone must know to build lasting life wellness</p>
+
+    <div class="carousel-wrap reveal d1" id="carousel-wrap">
+      <div class="carousel-slide active">
+        <p class="carousel-text">
+          <em>Truth 1 —</em> God knows everything about you,
+          loves you, and has a purpose for you.
+        </p>
+      </div>
+      <div class="carousel-slide">
+        <p class="carousel-text">
+          <em>Truth 2 —</em> Sin has separated every person
+          from God — and from the life He designed.
+        </p>
+      </div>
+      <div class="carousel-slide">
+        <p class="carousel-text">
+          <em>Truth 3 —</em> Jesus Christ is God's plan
+          to restore and redeem us.
+        </p>
+      </div>
+      <div class="carousel-slide">
+        <p class="carousel-text">
+          <em>Truth 4 —</em> Each person must personally receive
+          Christ to experience lasting life wellness.
+        </p>
+      </div>
+    </div>
+
+    <div class="carousel-dots reveal d2" role="tablist" aria-label="Value statements">
+      <button class="dot active" data-idx="0" aria-label="Statement 1"></button>
+      <button class="dot" data-idx="1" aria-label="Statement 2"></button>
+      <button class="dot" data-idx="2" aria-label="Statement 3"></button>
+      <button class="dot" data-idx="3" aria-label="Statement 4"></button>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     ④ HOW IT WORKS
+═══════════════════════════════════════════ -->
+<section id="how" class="section">
+  <div class="container">
+    <p class="eyebrow reveal">Would You Consider Partnering With Us</p>
+    <h2 class="how-headline reveal d1">To build a self-sustaining,<br>vocational wellness ministry?</h2>
+    <p class="how-sub reveal d2">
+      We believe the local church is God's design for delivering the Gospel and caring
+      for whole people. We help you leverage available space to deliver specialized care at no cost to you.
+    </p>
+
+    <div class="steps">
+      <div class="step reveal d1">
+        <div class="step-num">01</div>
+        <p class="step-title">Connect</p>
+        <p class="step-desc">
+          Let's have a conversation — no commitment. We want to understand
+          your needs and develop this ministry with you.
+        </p>
+      </div>
+
+      <div class="step reveal d2">
+        <div class="step-num">02</div>
+        <p class="step-title">Prepare</p>
+        <p class="step-desc">
+          We assist you with preparing a space for counseling and providing a vetted therapist
+          who will add to your overall mission effectiveness — while ensuring liability remains
+          absolutely separate through a formalized mutual agreement.
+        </p>
+      </div>
+
+      <div class="step reveal d3">
+        <div class="step-num">03</div>
+        <p class="step-title">Embed</p>
+        <p class="step-desc">
+          Your therapist can now be booked and is fully supported through our provider clinic
+          for sessions in your spaces. You now have a self-supported mental health professional
+          as an embedded extension of your ministry team.
+        </p>
+      </div>
+
+      <div class="step reveal d4">
+        <div class="step-num">04</div>
+        <p class="step-title">Grow</p>
+        <p class="step-desc">
+          ONE FOUNDATION continues to support, develop, and manage
+          a successful wellness ministry for as long as the need persists.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     ⑤ THE VISION
+═══════════════════════════════════════════ -->
+<section id="flywheel">
+  <div class="container--mid">
+    <p class="eyebrow reveal" style="text-align:center; font-size:1rem; letter-spacing:0.1em;">Accelerate your impact and Sustain the results</p>
+    <p class="flywheel-sub reveal d1">One foundation. Three pillars. One mission — to turn the tide.</p>
+
+    <div class="arch-wrap reveal d3">
+
+      <!-- Capstone -->
+      <div class="arch-capstone" id="arch-capstone">
+        <p class="arch-cap-label">Lasting Wellness</p>
+        <p class="arch-cap-sub">For Individuals &nbsp;·&nbsp; Families &nbsp;·&nbsp; Communities &nbsp;·&nbsp; America</p>
+      </div>
+
+      <!-- Three Pillars -->
+      <div class="arch-pillars">
+        <div class="arch-pillar" id="arch-p1">
+          <div class="arch-pil-cap"></div>
+          <p class="arch-pil-num">Pillar I</p>
+          <p class="arch-pil-title">Church Ministry</p>
+          <p class="arch-pil-desc">Your pastoral care, community trust, and spiritual foundation</p>
+        </div>
+        <div class="arch-pillar" id="arch-p2">
+          <div class="arch-pil-cap"></div>
+          <p class="arch-pil-num">Pillar II</p>
+          <p class="arch-pil-title">Embedded Clinical Care</p>
+          <p class="arch-pil-desc">Licensed therapists serving in your dedicated space</p>
+        </div>
+        <div class="arch-pillar" id="arch-p3">
+          <div class="arch-pil-cap"></div>
+          <p class="arch-pil-num">Pillar III</p>
+          <p class="arch-pil-title">Community Reach</p>
+          <p class="arch-pil-desc">Accessible, professional wellness for all who need it</p>
+        </div>
+      </div>
+
+      <!-- Foundation -->
+      <div class="arch-foundation" id="arch-foundation">
+        <p class="arch-fnd-title">ONE FOUNDATION</p>
+        <p class="arch-fnd-sub">Jesus Christ &nbsp;·&nbsp; 1 Corinthians 3:11</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     ⑥ CALL TO ACTION
+═══════════════════════════════════════════ -->
+<section id="cta" class="section">
+  <div class="container--sm">
+    <p class="eyebrow reveal" style="text-align:center;">Take the Next Step</p>
+
+    <h2 class="cta-headline reveal d1">
+      Ready to strengthen your ministry's impact<br>
+      with an embedded mental health professional?
+    </h2>
+
+    <p class="cta-body reveal d2">
+      We'd love to start with a conversation. Tell us about your church,
+      your community, and the gaps you're seeing. No commitment —
+      just a real talk about what's possible.
+    </p>
+
+    <div class="reveal d3">
+      <a href="https://calendar.app.google/Z2SFkFehdC56rCW57" target="_blank" rel="noopener" class="cta-btn">
+        Book A Conversation
+      </a>
+    </div>
+
+    <div class="cta-verse reveal d4">
+      "For no one can lay any foundation other than the one already laid, which is Jesus Christ."
+      <cite>1 Corinthians 3:11</cite>
+    </div>
+
+    <p class="cta-footer reveal d5">
+      One Foundation Wellness &nbsp;·&nbsp; Founded by Dave Denning, MBA, SPHR &amp; Dr. Reta Kae Denning
+      &nbsp;·&nbsp; Founding Clinical Partner: Life Wellness Clinic, PLLC &nbsp;·&nbsp; Aaron Delay, LPC-MHSP &amp; Heather Delay, FNP-C
+      &nbsp;·&nbsp; Memphis–Bartlett, TN &nbsp;·&nbsp; <a href="tel:2486603926" style="color:inherit;text-decoration:none;">248-660-3926</a>
+    </p>
+
+    <div class="citations reveal d5">
+      <p><strong>1.</strong> U.S. Health Resources &amp; Services Administration (HRSA). <em>Behavioral Health Workforce Projections, 2016–2030</em> and subsequent updates. HRSA projects a shortage of approximately 88,000 mental health counselors by 2030–2037, driven by rising demand and workforce attrition. See also: U.S. Bureau of Labor Statistics, <em>Occupational Outlook Handbook — Mental Health Counselors</em>, which projects faster-than-average job growth in the field.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════════ -->
+<script>
+/* ── Word Flash → Brick Build sequence ── */
+(function() {
+  const WORDS       = ['IDENTITY','PURPOSE','BELONGING','LIFE','FAMILY',
+                       'FRIENDS','HOPE','CAREER','SUCCESS','SECURITY','ETERNITY'];
+  const WORD_MS     = 1000;  // total time per flash word (~1 second)
+  const FADE_MS     = 150;   // fade in / fade out duration
+  const START_DELAY = 2000;  // wait for FOUNDATION + WELLNESS to land first
+
+  const flashEl  = document.getElementById('word-flash');
+  const bricks   = document.querySelectorAll('.brick-letter');
+  const oneBar   = document.getElementById('one-bar');
+
+  let idx = 0;
+
+  function showWord() {
+    if (idx >= WORDS.length) {
+      // All words done — fade out flasher, then build ONE
+      flashEl.style.opacity = '0';
+      setTimeout(() => {
+        flashEl.style.display = 'none';
+        // All letters rise together — no stagger; bar rises with them
+        bricks.forEach(b => b.classList.add('placed'));
+        oneBar.classList.add('placed');
+      }, FADE_MS + 40);
+      return;
+    }
+
+    flashEl.textContent = WORDS[idx];
+    flashEl.style.opacity = '1';
+
+    setTimeout(() => {
+      flashEl.style.opacity = '0';
+      setTimeout(() => {
+        idx++;
+        showWord();
+      }, FADE_MS);
+    }, WORD_MS - FADE_MS);
+  }
+
+  setTimeout(showWord, START_DELAY);
+})();
+
+/* ── Scroll Reveal ── */
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+revealEls.forEach(el => observer.observe(el));
+
+
+/* ── Carousel ── */
+const slides      = document.querySelectorAll('.carousel-slide');
+const dots        = document.querySelectorAll('.dot');
+const carouselEl  = document.getElementById('carousel-wrap');
+let cur     = 0;
+let timer;
+let paused  = false;
+
+function goTo(idx) {
+  slides[cur].classList.remove('active');
+  dots[cur].classList.remove('active');
+  cur = (idx + slides.length) % slides.length;
+  slides[cur].classList.add('active');
+  dots[cur].classList.add('active');
+}
+
+function startTimer() {
+  clearInterval(timer);
+  timer = setInterval(() => { if (!paused) goTo(cur + 1); }, 5500);
+}
+
+// Hold to pause
+['mousedown','touchstart'].forEach(ev =>
+  carouselEl.addEventListener(ev, () => { paused = true; }, { passive: true })
+);
+['mouseup','mouseleave','touchend','touchcancel'].forEach(ev =>
+  carouselEl.addEventListener(ev, () => { paused = false; }, { passive: true })
+);
+
+dots.forEach(d => d.addEventListener('click', () => {
+  goTo(parseInt(d.dataset.idx));
+  startTimer();
+}));
+
+// Carousel doesn't auto-rotate until section is 75% visible for 2 seconds
+let carouselStarted = false;
+let carouselVisTimer = null;
+const carouselSec = document.getElementById('carousel-section');
+const carouselObs = new IntersectionObserver(entries => {
+  const entry = entries[0];
+  if (entry.isIntersecting && entry.intersectionRatio >= 0.75) {
+    if (!carouselVisTimer) {
+      carouselVisTimer = setTimeout(() => {
+        if (!carouselStarted) { carouselStarted = true; startTimer(); }
+        carouselObs.disconnect();
+      }, 2000);
+    }
+  } else {
+    clearTimeout(carouselVisTimer);
+    carouselVisTimer = null;
+  }
+}, { threshold: [0.75] });
+carouselObs.observe(carouselSec);
+
+
+/* ── Foundation & Pillars reveal ── */
+const archFoundation = document.getElementById('arch-foundation');
+const archPillars    = document.querySelectorAll('.arch-pillar');
+const archCapstone   = document.getElementById('arch-capstone');
+
+const archObs = new IntersectionObserver(entries => {
+  if (!entries[0].isIntersecting) return;
+  // 1. Foundation rises
+  setTimeout(() => archFoundation.classList.add('revealed'), 0);
+  // 2. Pillars rise with slight stagger (all start within ~300ms)
+  archPillars.forEach((p, i) => {
+    setTimeout(() => p.classList.add('revealed'), 500 + i * 300);
+  });
+  // 3. Capstone descends after pillars are up (500ms start + 2×300ms stagger + 2000ms anim)
+  setTimeout(() => archCapstone.classList.add('revealed'), 3400);
+  archObs.disconnect();
+}, { threshold: 0.2 });
+
+archObs.observe(document.getElementById('flywheel'));
+</script>
+
+</body>
+</html>
