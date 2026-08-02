@@ -775,6 +775,26 @@ body {
   color: var(--muted);
 }
 
+.cta-phone {
+  display: block;
+  margin-top: 1.4rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  text-transform: none;
+}
+.cta-phone-label {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.3rem;
+}
+
 sup.footnote-ref {
   font-size: 0.6em;
   vertical-align: super;
@@ -819,6 +839,32 @@ sup.footnote-ref {
   from { width: 0; opacity: 0; }
   to   { width: 240px; opacity: 1; }
 }
+
+/* ── "WE BUILD LIVES ON" phrase reveal ── */
+#phrase-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.28em;
+  pointer-events: none;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(0.9rem, 2.8vw, 2rem);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--cream);
+  white-space: nowrap;
+}
+.pw {
+  opacity: 0;
+  filter: blur(18px);
+  transition: opacity 0.45s ease, filter 0.45s ease;
+}
+.pw.in-focus {
+  opacity: 1;
+  filter: blur(0);
+}
 </style>
 </head>
 
@@ -835,11 +881,17 @@ sup.footnote-ref {
     <h1 class="hero-wordmark">
       <span class="w1" id="w1-block">
         <span id="word-flash" aria-hidden="true"></span>
+        <div id="phrase-wrap" aria-hidden="true">
+          <span class="pw">WE</span>
+          <span class="pw">BUILD</span>
+          <span class="pw">LIVES</span>
+          <span class="pw">ON</span>
+        </div>
         <span class="brick-wrap"><span class="brick-letter" id="bl-O">O</span></span><span class="brick-wrap"><span class="brick-letter" id="bl-N">N</span></span><span class="brick-wrap"><span class="brick-letter" id="bl-E">E</span></span>
       </span>
       <span id="one-bar"></span>
       <span class="w2">Foundation</span>
-      <span class="w3">Wellness</span>
+      <span class="w3">Wellness Ministry</span>
     </h1>
 
     <div class="hero-divider"></div>
@@ -1079,10 +1131,14 @@ sup.footnote-ref {
     </div>
 
     <p class="cta-footer reveal d5">
-      One Foundation Wellness &nbsp;·&nbsp; Founded by Dave Denning, MBA, SPHR &amp; Dr. Reta Kae Denning
+      ONE FOUNDATION WELLNESS MINISTRY &nbsp;·&nbsp; Founded by Dave Denning, MBA, SPHR &amp; Dr. Reta Kae Denning
       &nbsp;·&nbsp; Founding Clinical Partner: Life Wellness Clinic, PLLC &nbsp;·&nbsp; Aaron Delay, LPC-MHSP &amp; Heather Delay, FNP-C
-      &nbsp;·&nbsp; Memphis–Bartlett, TN &nbsp;·&nbsp; <a href="tel:2486603926" style="color:inherit;text-decoration:none;">248-660-3926</a>
+      &nbsp;·&nbsp; Memphis–Bartlett, TN
     </p>
+    <div class="reveal d5" style="text-align:center;">
+      <span class="cta-phone-label">Contact the Ministry</span>
+      <a href="tel:2486603926" class="cta-phone">248-660-3926</a>
+    </div>
 
     <div class="citations reveal d5">
       <p><strong>1.</strong> U.S. Health Resources &amp; Services Administration (HRSA). <em>Behavioral Health Workforce Projections, 2016–2030</em> and subsequent updates. HRSA projects a shortage of approximately 88,000 mental health counselors by 2030–2037, driven by rising demand and workforce attrition. See also: U.S. Bureau of Labor Statistics, <em>Occupational Outlook Handbook — Mental Health Counselors</em>, which projects faster-than-average job growth in the field.</p>
@@ -1097,9 +1153,9 @@ sup.footnote-ref {
 <script>
 /* ── Word Flash → Brick Build sequence ── */
 (function() {
-  const WORDS       = ['IDENTITY','PURPOSE','BELONGING','LIFE','FAMILY',
-                       'FRIENDS','HOPE','CAREER','SUCCESS','SECURITY','ETERNITY'];
-  const WORD_MS     = 1000;  // total time per flash word (~1 second)
+  const WORDS       = ['IDENTITY','PURPOSE','BELONGING','LOVE',
+                       'PEACE','SECURITY','ETERNITY'];
+  const WORD_MS     = 750;   // total time per flash word (~0.75 second)
   const FADE_MS     = 150;   // fade in / fade out duration
   const START_DELAY = 2000;  // wait for FOUNDATION + WELLNESS to land first
 
@@ -1111,13 +1167,11 @@ sup.footnote-ref {
 
   function showWord() {
     if (idx >= WORDS.length) {
-      // All words done — fade out flasher, then build ONE
+      // All words done — fade out flasher, then show phrase, then build ONE
       flashEl.style.opacity = '0';
       setTimeout(() => {
         flashEl.style.display = 'none';
-        // All letters rise together — no stagger; bar rises with them
-        bricks.forEach(b => b.classList.add('placed'));
-        oneBar.classList.add('placed');
+        showPhrase();
       }, FADE_MS + 40);
       return;
     }
@@ -1132,6 +1186,25 @@ sup.footnote-ref {
         showWord();
       }, FADE_MS);
     }, WORD_MS - FADE_MS);
+  }
+
+  function showPhrase() {
+    const phraseWords = document.querySelectorAll('.pw');
+    const STAGGER = 260;   // ms between each word blurring in
+    const HOLD    = 380;   // ms at full focus before blurring out
+    const BLUR_T  = 450;   // must match CSS transition duration
+
+    phraseWords.forEach((w, i) => {
+      setTimeout(() => w.classList.add('in-focus'),    i * STAGGER);
+      setTimeout(() => w.classList.remove('in-focus'), i * STAGGER + BLUR_T + HOLD);
+    });
+
+    // Fire ONE after last word fully fades out
+    const total = (phraseWords.length - 1) * STAGGER + BLUR_T + HOLD + BLUR_T + 80;
+    setTimeout(() => {
+      bricks.forEach(b => b.classList.add('placed'));
+      oneBar.classList.add('placed');
+    }, total);
   }
 
   setTimeout(showWord, START_DELAY);
