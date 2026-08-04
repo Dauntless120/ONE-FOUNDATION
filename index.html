@@ -457,9 +457,9 @@ body {
 
 .step {
   padding: 2.2rem 1.8rem;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(201,165,102,0.25);
   border-radius: 3px;
-  background: rgba(255,255,255,0.015);
+  background: rgba(201,165,102,0.06);
   transition: border-color 0.3s, background 0.3s, transform 0.3s;
   position: relative;
   overflow: hidden;
@@ -475,8 +475,8 @@ body {
   transition: transform 0.4s ease;
 }
 .step:hover {
-  border-color: var(--border-g);
-  background: rgba(201,165,102,0.03);
+  border-color: var(--gold);
+  background: rgba(201,165,102,0.1);
   transform: translateY(-3px);
 }
 .step:hover::before { transform: scaleX(1); }
@@ -485,12 +485,12 @@ body {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 3.2rem;
   font-weight: 700;
-  color: rgba(201,165,102,0.12);
+  color: rgba(201,165,102,0.45);
   line-height: 1;
   margin-bottom: 1.1rem;
   transition: color 0.3s;
 }
-.step:hover .step-num { color: rgba(201,165,102,0.3); }
+.step:hover .step-num { color: rgba(201,165,102,0.7); }
 
 .step-title {
   font-family: 'Space Grotesk', sans-serif;
@@ -498,13 +498,13 @@ body {
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-lt);
   margin-bottom: 0.8rem;
 }
 
 .step-desc {
   font-size: 0.88rem;
-  color: var(--muted-lt);
+  color: rgba(237,232,220,0.72);
   line-height: 1.75;
 }
 
@@ -753,7 +753,7 @@ body {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.05rem;
   font-style: italic;
-  color: var(--muted-lt);
+  color: var(--gold);
   line-height: 1.7;
 }
 .cta-verse cite {
@@ -1086,8 +1086,8 @@ sup.footnote-ref {
         <div class="arch-pillar" id="arch-p3">
           <div class="arch-pil-cap"></div>
           <p class="arch-pil-num">Pillar III</p>
-          <p class="arch-pil-title">Community Reach</p>
-          <p class="arch-pil-desc">Accessible, professional wellness for all who need it</p>
+          <p class="arch-pil-title">Real Community & Teamwork</p>
+          <p class="arch-pil-desc">Meaningful, supportive relationships, for everyone</p>
         </div>
       </div>
 
