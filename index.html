@@ -177,8 +177,9 @@ body {
   text-transform: uppercase;
   line-height: 0.88;
   opacity: 0;
+  filter: blur(18px);
   pointer-events: none;
-  transition: opacity 0.15s ease;
+  transition: opacity 0.28s ease, filter 0.28s ease;
 }
 
 /* ── one-bar (rises with ONE, spans ~Foundation width) ── */
@@ -242,7 +243,7 @@ body {
   height: 1px;
   background: linear-gradient(to right, transparent, var(--gold), transparent);
   margin: 2.2rem auto;
-  animation: expandW 0.9s ease 15.5s forwards;
+  animation: expandW 0.9s ease 10s forwards;
 }
 
 .hero-tagline {
@@ -253,16 +254,16 @@ body {
   color: var(--muted-lt);
   margin-bottom: 2rem;
   opacity: 0;
-  animation: fadeUp 0.8s ease 15.7s forwards;
+  animation: fadeUp 0.8s ease 10.2s forwards;
 }
 
 .hero-verse {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(0.8rem, 1.4vw, 0.92rem);
-  color: var(--muted);
+  color: var(--gold);
   letter-spacing: 0.04em;
   opacity: 0;
-  animation: fadeUp 0.8s ease 15.9s forwards;
+  animation: fadeUp 0.8s ease 10.4s forwards;
 }
 
 .scroll-hint {
@@ -897,7 +898,8 @@ sup.footnote-ref {
     <div class="hero-divider"></div>
 
     <p class="hero-tagline">
-      Join the vocational wellness ministry movement, that will actually turn the tide on America's mental health crisis.
+      Join the vocational wellness ministry movement, that will actually<br>
+      turn the tide on America's mental health crisis.
     </p>
 
     <p class="hero-verse">
@@ -1155,8 +1157,8 @@ sup.footnote-ref {
 (function() {
   const WORDS       = ['IDENTITY','PURPOSE','BELONGING','LOVE',
                        'PEACE','SECURITY','ETERNITY'];
-  const WORD_MS     = 750;   // total time per flash word (~0.75 second)
-  const FADE_MS     = 150;   // fade in / fade out duration
+  const WORD_MS     = 950;   // total time per flash word
+  const FADE_MS     = 250;   // blur-in / blur-out duration (matches CSS transition)
   const START_DELAY = 2000;  // wait for FOUNDATION + WELLNESS to land first
 
   const flashEl  = document.getElementById('word-flash');
@@ -1169,6 +1171,7 @@ sup.footnote-ref {
     if (idx >= WORDS.length) {
       // All words done — fade out flasher, then show phrase, then build ONE
       flashEl.style.opacity = '0';
+      flashEl.style.filter  = 'blur(18px)';
       setTimeout(() => {
         flashEl.style.display = 'none';
         showPhrase();
@@ -1177,10 +1180,12 @@ sup.footnote-ref {
     }
 
     flashEl.textContent = WORDS[idx];
+    flashEl.style.filter  = 'blur(0)';
     flashEl.style.opacity = '1';
 
     setTimeout(() => {
       flashEl.style.opacity = '0';
+      flashEl.style.filter  = 'blur(18px)';
       setTimeout(() => {
         idx++;
         showWord();
