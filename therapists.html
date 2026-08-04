@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ONE FOUNDATION Wellness — Church Partnership</title>
+<title>ONE FOUNDATION Wellness — For Therapists</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -103,7 +103,6 @@ body {
   text-align: center;
 }
 
-/* animated gradient orb */
 .hero-bg {
   position: absolute;
   inset: 0;
@@ -119,7 +118,6 @@ body {
   100% { opacity: 1;    transform: scale(1.04); }
 }
 
-/* grain overlay */
 .hero-grain {
   position: absolute;
   inset: 0;
@@ -133,18 +131,6 @@ body {
   z-index: 2;
   padding: 2rem;
   max-width: 960px;
-}
-
-.hero-eyebrow {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 2.5rem;
-  opacity: 0;
-  animation: fadeUp 0.8s ease 0.4s forwards;
 }
 
 .hero-wordmark {
@@ -181,7 +167,7 @@ body {
   transition: opacity 0.15s ease;
 }
 
-/* ── one-bar (rises with ONE, spans ~Foundation width) ── */
+/* ── one-bar ── */
 #one-bar {
   display: block;
   width: clamp(20rem, 48vw, 34rem);
@@ -242,7 +228,7 @@ body {
   height: 1px;
   background: linear-gradient(to right, transparent, var(--gold), transparent);
   margin: 2.2rem auto;
-  animation: expandW 0.9s ease 15.5s forwards;
+  animation: expandW 0.9s ease 10s forwards;
 }
 
 .hero-tagline {
@@ -253,7 +239,7 @@ body {
   color: var(--muted-lt);
   margin-bottom: 2rem;
   opacity: 0;
-  animation: fadeUp 0.8s ease 15.7s forwards;
+  animation: fadeUp 0.8s ease 10.2s forwards;
 }
 
 .hero-verse {
@@ -262,7 +248,7 @@ body {
   color: var(--muted);
   letter-spacing: 0.04em;
   opacity: 0;
-  animation: fadeUp 0.8s ease 15.9s forwards;
+  animation: fadeUp 0.8s ease 10.4s forwards;
 }
 
 .scroll-hint {
@@ -275,14 +261,7 @@ body {
   align-items: center;
   gap: 0.6rem;
   opacity: 0;
-  animation: fadeUp 0.7s ease 16.4s forwards;
-}
-.scroll-hint span {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.6rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--muted);
+  animation: fadeUp 0.7s ease 11s forwards;
 }
 .scroll-hint-line {
   width: 1px;
@@ -507,28 +486,6 @@ body {
   line-height: 1.75;
 }
 
-/* connector dots between steps on wide screens */
-@media (min-width: 900px) {
-  .steps { position: relative; }
-  .step-connector {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    align-items: center;
-  }
-  .step-connector span {
-    width: 3px;
-    height: 3px;
-    border-radius: 50%;
-    background: var(--gold);
-    opacity: 0.3;
-  }
-}
-
 /* ─────────────────────────────────────────────
    ⑤ THE VISION — FOUNDATION & PILLARS
 ───────────────────────────────────────────── */
@@ -539,29 +496,18 @@ body {
   padding: 7rem 2rem;
 }
 
-.flywheel-headline {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(1.8rem, 4.5vw, 3.2rem);
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  color: var(--cream);
-  margin-bottom: 0.9rem;
-  line-height: 1.1;
-}
 .flywheel-sub {
   font-size: 1rem;
   color: var(--muted-lt);
   margin-bottom: 4rem;
 }
 
-/* ── Architecture Diagram ── */
 .arch-wrap {
   max-width: 700px;
   margin: 0 auto 4.5rem;
   user-select: none;
 }
 
-/* Capstone */
 .arch-capstone {
   padding: 1.6rem 2rem 1.4rem;
   background: rgba(201,165,102,0.09);
@@ -591,7 +537,6 @@ body {
   letter-spacing: 0.06em;
 }
 
-/* Pillars grid */
 .arch-pillars {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -645,7 +590,6 @@ body {
   line-height: 1.75;
 }
 
-/* Foundation */
 .arch-foundation {
   padding: 1.5rem 2rem;
   background: linear-gradient(to bottom, rgba(201,165,102,0.07), transparent);
@@ -736,15 +680,6 @@ body {
 }
 .cta-btn:active { transform: translateY(0); }
 
-.cta-note {
-  display: block;
-  margin-top: 1.4rem;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.78rem;
-  color: var(--muted);
-  letter-spacing: 0.05em;
-}
-
 .cta-verse {
   margin-top: 5rem;
   padding-top: 3rem;
@@ -815,10 +750,7 @@ sup.footnote-ref {
   text-align: left;
 }
 .citations p { margin-bottom: 0.4rem; }
-.citations strong {
-  color: var(--muted-lt);
-  font-weight: 500;
-}
+.citations strong { color: var(--muted-lt); font-weight: 500; }
 
 /* ─────────────────────────────────────────────
    KEYFRAMES
@@ -826,10 +758,6 @@ sup.footnote-ref {
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes slideR {
-  from { opacity: 0; transform: translateX(-50px); }
-  to   { opacity: 1; transform: translateX(0); }
 }
 @keyframes slideL {
   from { opacity: 0; transform: translateX(50px); }
@@ -870,9 +798,7 @@ sup.footnote-ref {
 
 <body>
 
-<!-- ═══════════════════════════════════════════
-     ① HERO
-═══════════════════════════════════════════ -->
+<!-- ① HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-grain"></div>
@@ -897,8 +823,8 @@ sup.footnote-ref {
     <div class="hero-divider"></div>
 
     <p class="hero-tagline">
-      Join the vocational wellness ministry movement, that will actually 
-       turn the tide on America's mental health crisis.
+      Join the vocational wellness ministry movement, that will actually<br>
+      turn the tide on America's mental health crisis.
     </p>
 
     <p class="hero-verse">
@@ -913,9 +839,7 @@ sup.footnote-ref {
 </section>
 
 
-<!-- ═══════════════════════════════════════════
-     ② THE GAP
-═══════════════════════════════════════════ -->
+<!-- ② THE GAP -->
 <section id="gap" class="section">
   <div class="container">
     <p class="eyebrow reveal">The Challenge</p>
@@ -930,7 +854,7 @@ sup.footnote-ref {
       care, when and where evidenced-based therapeutic techniques can accelerate hope and healing.
       Today nearly 1 in 5 Americans are dealing with depression, trauma, addiction, grief, and
       relationship crisis often leading to a mental health diagnosis. They are looking for a licensed
-      therapist but we want them to have so much more. Nothing replaces Jesus and the community of a local church.
+      therapist but we want them to have so much more. Nothing replaces Jesus and the community of the local church.
     </p>
 
     <div class="tags reveal d3">
@@ -953,9 +877,7 @@ sup.footnote-ref {
 </section>
 
 
-<!-- ═══════════════════════════════════════════
-     ③ CAROUSEL — VALUE PROPOSITIONS
-═══════════════════════════════════════════ -->
+<!-- ③ CAROUSEL -->
 <section id="carousel-section">
   <div class="container--mid">
     <p class="eyebrow reveal" style="text-align:center; font-size:1rem; letter-spacing:0.12em;">4 Truths we believe every person must know to build lasting life wellness</p>
@@ -997,16 +919,14 @@ sup.footnote-ref {
 </section>
 
 
-<!-- ═══════════════════════════════════════════
-     ④ HOW IT WORKS
-═══════════════════════════════════════════ -->
+<!-- ④ HOW IT WORKS -->
 <section id="how" class="section">
   <div class="container">
     <p class="eyebrow reveal">Would You Consider Partnering With Us</p>
     <h2 class="how-headline reveal d1">To build a self-sustaining,<br>vocational wellness ministry?</h2>
     <p class="how-sub reveal d2">
       We believe the local church is God's design for delivering the Gospel and caring
-      for whole people. We help you partner with the local church to sustainably deliver clinical care with competitive pay and opportunity to build a meaningful career with a Gospel impact.
+      for whole people. When you join us, you'll be embedded into a local ministry team to sustainably deliver clinical care while building a meaningful career with a Gospel impact. You're joining a community of likeminded people, with an incredible opportunity to contribute specialized skills, all with competitive pay, significant autonomy, and schedule flexibility!
     </p>
 
     <div class="steps">
@@ -1018,39 +938,31 @@ sup.footnote-ref {
           your goals, needs, and develop a rewarding vocational ministry career with you.
         </p>
       </div>
-
       <div class="step reveal d2">
         <div class="step-num">02</div>
         <p class="step-title">Prepare</p>
         <p class="step-desc">
-          We prepare you to serve in a local church who partners with our Minsistry. 
-          Our partner clinic will support all your clinical functions including 
-          insurance credentialling, EHR, scheduling support to your desired availability, 
-          a receptionist, medical billing, and pay roll.       
-      
+          We prepare you to serve in one of our partnering churches and our partnering clinic will support all your administrative functions including
+          insurance credentialing, EHR, scheduling support to your desired availability,
+          a receptionist, medical billing, and payroll.
         </p>
       </div>
-
       <div class="step reveal d3">
         <div class="step-num">03</div>
         <p class="step-title">Embed</p>
         <p class="step-desc">
           We will provide you with an orientation to our local church partner and
-          a warm introduction to their collaborative ministry teams. 
-          You can now be booked for sessions at your local church and are fully supported through our provider clinic.
-          You are now a fully supported mental health professional
-          embedded as a specialized care ministry extension.
+          a warm introduction to their collaborative ministry teams.
+          You can then be booked for sessions on site and are fully supported through our provider clinic.
+          You are now an embedded mental health professional sustainably delivering specialized care with eternal impact among a diverse team sharing the mission.
         </p>
       </div>
-
       <div class="step reveal d4">
         <div class="step-num">04</div>
         <p class="step-title">Grow</p>
         <p class="step-desc">
-          ONE FOUNDATION continues to support, develop, and manage
-          a successful wellness ministry for as long as the need persists.
-          We want to grow our ministry and grow our ability to provide exceptional care to our partnering
-          Therapists in everyway, only made possible by our continued growth.  
+          As ONE FOUNDATION continues to grow and meaningfully cares for faith communities and their neighbors, so does its ability to care for its partnering therapists.
+          We don't just serve our clients, we serve the therapists.
         </p>
       </div>
     </div>
@@ -1058,23 +970,17 @@ sup.footnote-ref {
 </section>
 
 
-<!-- ═══════════════════════════════════════════
-     ⑤ THE VISION
-═══════════════════════════════════════════ -->
+<!-- ⑤ THE VISION -->
 <section id="flywheel">
   <div class="container--mid">
     <p class="eyebrow reveal" style="text-align:center; font-size:1rem; letter-spacing:0.1em;">Accelerate your impact and Sustain the results</p>
     <p class="flywheel-sub reveal d1">One foundation. Three pillars. One mission — to turn the tide.</p>
 
     <div class="arch-wrap reveal d3">
-
-      <!-- Capstone -->
       <div class="arch-capstone" id="arch-capstone">
         <p class="arch-cap-label">Lasting Wellness</p>
         <p class="arch-cap-sub">For Individuals &nbsp;·&nbsp; Families &nbsp;·&nbsp; Communities &nbsp;·&nbsp; America</p>
       </div>
-
-      <!-- Three Pillars -->
       <div class="arch-pillars">
         <div class="arch-pillar" id="arch-p1">
           <div class="arch-pil-cap"></div>
@@ -1095,22 +1001,16 @@ sup.footnote-ref {
           <p class="arch-pil-desc">Accessible, professional wellness for all who need it</p>
         </div>
       </div>
-
-      <!-- Foundation -->
       <div class="arch-foundation" id="arch-foundation">
         <p class="arch-fnd-title">ONE FOUNDATION</p>
         <p class="arch-fnd-sub">Jesus Christ &nbsp;·&nbsp; 1 Corinthians 3:11</p>
       </div>
-
     </div>
-
   </div>
 </section>
 
 
-<!-- ═══════════════════════════════════════════
-     ⑥ CALL TO ACTION
-═══════════════════════════════════════════ -->
+<!-- ⑥ CALL TO ACTION -->
 <section id="cta" class="section">
   <div class="container--sm">
     <p class="eyebrow reveal" style="text-align:center;">Take the Next Step</p>
@@ -1154,17 +1054,15 @@ sup.footnote-ref {
 </section>
 
 
-<!-- ═══════════════════════════════════════════
-     SCRIPTS
-═══════════════════════════════════════════ -->
+<!-- SCRIPTS -->
 <script>
 /* ── Word Flash → Brick Build sequence ── */
 (function() {
   const WORDS       = ['IDENTITY','PURPOSE','BELONGING','LOVE',
                        'PEACE','SECURITY','ETERNITY'];
-  const WORD_MS     = 750;   // total time per flash word (~0.75 second)
-  const FADE_MS     = 150;   // fade in / fade out duration
-  const START_DELAY = 2000;  // wait for FOUNDATION + WELLNESS to land first
+  const WORD_MS     = 750;
+  const FADE_MS     = 150;
+  const START_DELAY = 2000;
 
   const flashEl  = document.getElementById('word-flash');
   const bricks   = document.querySelectorAll('.brick-letter');
@@ -1174,7 +1072,6 @@ sup.footnote-ref {
 
   function showWord() {
     if (idx >= WORDS.length) {
-      // All words done — fade out flasher, then show phrase, then build ONE
       flashEl.style.opacity = '0';
       setTimeout(() => {
         flashEl.style.display = 'none';
@@ -1182,31 +1079,23 @@ sup.footnote-ref {
       }, FADE_MS + 40);
       return;
     }
-
     flashEl.textContent = WORDS[idx];
     flashEl.style.opacity = '1';
-
     setTimeout(() => {
       flashEl.style.opacity = '0';
-      setTimeout(() => {
-        idx++;
-        showWord();
-      }, FADE_MS);
+      setTimeout(() => { idx++; showWord(); }, FADE_MS);
     }, WORD_MS - FADE_MS);
   }
 
   function showPhrase() {
     const phraseWords = document.querySelectorAll('.pw');
-    const STAGGER = 260;   // ms between each word blurring in
-    const HOLD    = 380;   // ms at full focus before blurring out
-    const BLUR_T  = 450;   // must match CSS transition duration
-
+    const STAGGER = 260;
+    const HOLD    = 380;
+    const BLUR_T  = 450;
     phraseWords.forEach((w, i) => {
       setTimeout(() => w.classList.add('in-focus'),    i * STAGGER);
       setTimeout(() => w.classList.remove('in-focus'), i * STAGGER + BLUR_T + HOLD);
     });
-
-    // Fire ONE after last word fully fades out
     const total = (phraseWords.length - 1) * STAGGER + BLUR_T + HOLD + BLUR_T + 80;
     setTimeout(() => {
       bricks.forEach(b => b.classList.add('placed'));
@@ -1224,14 +1113,11 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 revealEls.forEach(el => observer.observe(el));
 
-
 /* ── Carousel ── */
-const slides      = document.querySelectorAll('.carousel-slide');
-const dots        = document.querySelectorAll('.dot');
-const carouselEl  = document.getElementById('carousel-wrap');
-let cur     = 0;
-let timer;
-let paused  = false;
+const slides     = document.querySelectorAll('.carousel-slide');
+const dots       = document.querySelectorAll('.dot');
+const carouselEl = document.getElementById('carousel-wrap');
+let cur = 0, timer, paused = false;
 
 function goTo(idx) {
   slides[cur].classList.remove('active');
@@ -1240,28 +1126,21 @@ function goTo(idx) {
   slides[cur].classList.add('active');
   dots[cur].classList.add('active');
 }
-
 function startTimer() {
   clearInterval(timer);
   timer = setInterval(() => { if (!paused) goTo(cur + 1); }, 5500);
 }
-
-// Hold to pause
 ['mousedown','touchstart'].forEach(ev =>
   carouselEl.addEventListener(ev, () => { paused = true; }, { passive: true })
 );
 ['mouseup','mouseleave','touchend','touchcancel'].forEach(ev =>
   carouselEl.addEventListener(ev, () => { paused = false; }, { passive: true })
 );
-
 dots.forEach(d => d.addEventListener('click', () => {
-  goTo(parseInt(d.dataset.idx));
-  startTimer();
+  goTo(parseInt(d.dataset.idx)); startTimer();
 }));
 
-// Carousel doesn't auto-rotate until section is 75% visible for 2 seconds
-let carouselStarted = false;
-let carouselVisTimer = null;
+let carouselStarted = false, carouselVisTimer = null;
 const carouselSec = document.getElementById('carousel-section');
 const carouselObs = new IntersectionObserver(entries => {
   const entry = entries[0];
@@ -1279,25 +1158,19 @@ const carouselObs = new IntersectionObserver(entries => {
 }, { threshold: [0.75] });
 carouselObs.observe(carouselSec);
 
-
 /* ── Foundation & Pillars reveal ── */
 const archFoundation = document.getElementById('arch-foundation');
 const archPillars    = document.querySelectorAll('.arch-pillar');
 const archCapstone   = document.getElementById('arch-capstone');
-
 const archObs = new IntersectionObserver(entries => {
   if (!entries[0].isIntersecting) return;
-  // 1. Foundation rises
   setTimeout(() => archFoundation.classList.add('revealed'), 0);
-  // 2. Pillars rise with slight stagger (all start within ~300ms)
   archPillars.forEach((p, i) => {
     setTimeout(() => p.classList.add('revealed'), 500 + i * 300);
   });
-  // 3. Capstone descends after pillars are up (500ms start + 2×300ms stagger + 2000ms anim)
   setTimeout(() => archCapstone.classList.add('revealed'), 3400);
   archObs.disconnect();
 }, { threshold: 0.2 });
-
 archObs.observe(document.getElementById('flywheel'));
 </script>
 
