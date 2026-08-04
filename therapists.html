@@ -163,8 +163,9 @@ body {
   text-transform: uppercase;
   line-height: 0.88;
   opacity: 0;
+  filter: blur(18px);
   pointer-events: none;
-  transition: opacity 0.15s ease;
+  transition: opacity 0.28s ease, filter 0.28s ease;
 }
 
 /* ── one-bar ── */
@@ -245,7 +246,7 @@ body {
 .hero-verse {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(0.8rem, 1.4vw, 0.92rem);
-  color: var(--muted);
+  color: var(--gold);
   letter-spacing: 0.04em;
   opacity: 0;
   animation: fadeUp 0.8s ease 10.4s forwards;
@@ -1060,8 +1061,8 @@ sup.footnote-ref {
 (function() {
   const WORDS       = ['IDENTITY','PURPOSE','BELONGING','LOVE',
                        'PEACE','SECURITY','ETERNITY'];
-  const WORD_MS     = 750;
-  const FADE_MS     = 150;
+  const WORD_MS     = 950;   // total time per flash word
+  const FADE_MS     = 250;   // blur-in / blur-out duration (matches CSS transition)
   const START_DELAY = 2000;
 
   const flashEl  = document.getElementById('word-flash');
@@ -1073,6 +1074,7 @@ sup.footnote-ref {
   function showWord() {
     if (idx >= WORDS.length) {
       flashEl.style.opacity = '0';
+      flashEl.style.filter  = 'blur(18px)';
       setTimeout(() => {
         flashEl.style.display = 'none';
         showPhrase();
@@ -1080,9 +1082,11 @@ sup.footnote-ref {
       return;
     }
     flashEl.textContent = WORDS[idx];
+    flashEl.style.filter  = 'blur(0)';
     flashEl.style.opacity = '1';
     setTimeout(() => {
       flashEl.style.opacity = '0';
+      flashEl.style.filter  = 'blur(18px)';
       setTimeout(() => { idx++; showWord(); }, FADE_MS);
     }, WORD_MS - FADE_MS);
   }
