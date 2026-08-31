@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>ONE FOUNDATION — Partner Network</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ─────────────────────────────────────────────
+   RESET & ROOT  — palette matched to the promo page
+───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #07090d;
+  --bg2:      #0c1018;
+  --bg3:      #111620;
+  --gold:     #c9a566;
+  --gold-lt:  #e3c07e;
+  --gold-dim: rgba(201,165,102,0.15);
+  --cream:    #ede8dc;
+  --muted:    #4e5669;
+  --muted-lt: #8a939f;
+  --border:   rgba(255,255,255,0.06);
+  --border-g: rgba(201,165,102,0.2);
+}
+
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sheet { max-width: 960px; margin: 0 auto; padding: 2.5rem 1.75rem 4rem; }
+
+/* ─────────────────────────────────────────────
+   PRINT BAR
+───────────────────────────────────────────── */
+.printbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-bottom: 1.4rem;
+  margin-bottom: 2.2rem;
+  border-bottom: 1px solid var(--border);
+}
+.printbar--foot {
+  border-bottom: none;
+  border-top: 1px solid var(--border);
+  padding: 2.2rem 0 0;
+  margin: 3.5rem 0 0;
+  justify-content: center;
+}
+.printbar-note {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.btn-print {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: transparent;
+  border: 1px solid var(--border-g);
+  border-radius: 2px;
+  padding: 0.72rem 1.5rem;
+  cursor: pointer;
+  transition: background 0.25s, border-color 0.25s, color 0.25s, transform 0.2s;
+}
+.btn-print:hover {
+  background: var(--gold-dim);
+  border-color: var(--gold);
+  color: var(--gold-lt);
+  transform: translateY(-1px);
+}
+.btn-print:active { transform: translateY(0); }
+.btn-print svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.6; }
+
+/* ─────────────────────────────────────────────
+   MASTHEAD
+───────────────────────────────────────────── */
+.masthead {
+  border: 1px solid var(--border-g);
+  border-top: 3px solid var(--gold);
+  background: linear-gradient(to bottom, rgba(201,165,102,0.07), transparent);
+  padding: 2.4rem 2rem 2rem;
+  text-align: center;
+  margin-bottom: 2.6rem;
+}
+.mast-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.3rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--cream);
+  line-height: 1.15;
+}
+.mast-name span { color: var(--gold); }
+.mast-sub {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted-lt);
+  margin-top: 0.7rem;
+}
+.mast-tag {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--gold);
+  margin-top: 1rem;
+  letter-spacing: 0.04em;
+}
+
+/* ─────────────────────────────────────────────
+   SECTIONS
+───────────────────────────────────────────── */
+.eyebrow {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+.rule { width: 40px; height: 1px; background: var(--gold); opacity: 0.6; margin-bottom: 1.5rem; }
+
+.block { margin-bottom: 2.6rem; }
+.block p { color: rgba(237,232,220,0.80); margin-bottom: 1rem; font-size: 0.95rem; }
+.block p:last-child { margin-bottom: 0; }
+
+.h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--cream);
+  margin-bottom: 1.4rem;
+  line-height: 1.2;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+  margin-bottom: 2.6rem;
+}
+@media (max-width: 760px) { .grid2 { grid-template-columns: 1fr; } }
+
+.card {
+  border: 1px solid var(--border-g);
+  border-radius: 3px;
+  background: rgba(201,165,102,0.05);
+  padding: 1.8rem 1.6rem;
+}
+.card h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-lt);
+  margin-bottom: 1rem;
+}
+.card p { font-size: 0.92rem; color: rgba(237,232,220,0.78); margin-bottom: 0.9rem; }
+.card p:last-child { margin-bottom: 0; }
+
+.lead-in {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 1.3rem 0 0.6rem;
+}
+ul.ticks { list-style: none; margin: 0 0 0.4rem; }
+ul.ticks li {
+  position: relative;
+  padding-left: 1.15rem;
+  font-size: 0.9rem;
+  color: rgba(237,232,220,0.80);
+  margin-bottom: 0.42rem;
+  line-height: 1.55;
+}
+ul.ticks li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0.62em;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.75;
+}
+
+.pullquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--cream);
+  border-left: 2px solid var(--gold);
+  padding-left: 1.2rem;
+  margin-top: 1.4rem;
+}
+.pullquote cite {
+  display: block;
+  margin-top: 0.5rem;
+  font-style: normal;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.fn { font-size: 0.72rem; color: var(--muted); line-height: 1.6; margin-top: 0.9rem; }
+sup { font-size: 0.62em; color: var(--gold); font-weight: 600; }
+
+/* ── invitation / CTA ── */
+.invite {
+  border: 1px solid var(--border-g);
+  border-top: 3px solid var(--gold);
+  background: linear-gradient(to bottom, rgba(201,165,102,0.08), transparent);
+  padding: 2rem 1.8rem;
+  margin-top: 1.4rem;
+}
+.invite p { font-size: 0.93rem; color: rgba(237,232,220,0.85); }
+.cta-row {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  flex-wrap: wrap;
+  margin-top: 1.4rem;
+}
+.btn-book {
+  display: inline-block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #07090d;
+  background: var(--gold);
+  padding: 0.95rem 2rem;
+  border-radius: 2px;
+  transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+  box-shadow: 0 5px 22px rgba(201,165,102,0.24);
+}
+.btn-book:hover { background: var(--gold-lt); transform: translateY(-2px); }
+.qr-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+  margin-top: 1.6rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+@media (max-width: 640px) { .qr-row { grid-template-columns: 1fr; } }
+
+.qr-item { display: flex; align-items: center; gap: 0.9rem; }
+.qr-item img {
+  flex: 0 0 auto;
+  width: 88px; height: 88px;
+  background: #fff;
+  padding: 5px;
+  border-radius: 3px;
+}
+.qr-cap {
+  font-size: 0.82rem;
+  color: rgba(237,232,220,0.72);
+  line-height: 1.5;
+  margin: 0;
+}
+.qr-cap strong {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.35rem;
+}
+.qr-cap a {
+  color: var(--gold-lt);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-g);
+}
+.qr-cap a:hover { border-bottom-color: var(--gold); }
+
+/* ── beliefs ── */
+.belief {
+  border: 1px solid var(--border-g);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  background: rgba(201,165,102,0.04);
+}
+.belief-head {
+  background: rgba(201,165,102,0.13);
+  border-bottom: 1px solid var(--border-g);
+  padding: 0.95rem 1.4rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--gold-lt);
+  line-height: 1.4;
+}
+.belief-body { padding: 1.3rem 1.4rem 1.1rem; }
+.belief-body p { font-size: 0.92rem; color: rgba(237,232,220,0.78); margin-bottom: 0.8rem; }
+.refs {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  opacity: 0.85;
+}
+
+.closing-verse {
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--gold);
+  margin: 2.8rem 0 0;
+  padding-top: 2.2rem;
+  border-top: 1px solid var(--border);
+  line-height: 1.6;
+}
+
+.credits {
+  margin-top: 2.4rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.63rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+  line-height: 2;
+}
+
+.print-only { display: none; }
+
+/* ═════════════════════════════════════════════
+   PRINT  — light, tight, page-break aware
+═════════════════════════════════════════════ */
+@media print {
+  @page { size: letter; margin: 0.5in; }
+
+  html, body {
+    background: #fff !important;
+    color: #16181d !important;
+    font-size: 10pt;
+    line-height: 1.42;
+  }
+  .sheet { max-width: none; padding: 0; }
+  .no-print { display: none !important; }
+  .print-only { display: block; }
+
+  .masthead {
+    background: #fff !important;
+    border: 1px solid #b9964f;
+    border-top: 3px solid #a8842f;
+    padding: 0.55in 0.3in 0.4in;
+    margin-bottom: 0.28in;
+  }
+  .mast-name  { color: #16181d !important; font-size: 20pt; }
+  .mast-name span { color: #8a6a1f !important; }
+  .mast-sub   { color: #5c636e !important; font-size: 7.5pt; }
+  .mast-tag   { color: #8a6a1f !important; font-size: 11pt; }
+
+  .eyebrow { color: #8a6a1f !important; font-size: 7.5pt; }
+  .rule    { background: #a8842f; }
+  .h2      { color: #16181d !important; font-size: 14pt; margin-bottom: 0.14in; }
+
+  .block   { margin-bottom: 0.22in; }
+  .block p, .card p, .belief-body p, .invite p, ul.ticks li { color: #2b2f36 !important; font-size: 9.4pt; }
+  .invite p strong, .invite p em { color: #16181d !important; }
+
+  /* keep the two-up layout on paper — print px are narrower than the mobile breakpoint */
+  .grid2 {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.2in;
+    margin-bottom: 0.2in;
+    align-items: start;
+  }
+
+  .card, .invite, .belief {
+    background: #fff !important;
+    border: 1px solid #cbd2dc;
+  }
+  .belief { break-inside: avoid; page-break-inside: avoid; }
+  .card { padding: 0.17in; }
+  ul.ticks li { margin-bottom: 0.28em; }
+  .invite { border-top: 3px solid #a8842f; padding: 0.22in; }
+  .card h3, .lead-in { color: #8a6a1f !important; }
+  ul.ticks li::before { background: #a8842f; }
+
+  .belief-head {
+    background: #f4f1e9 !important;
+    border-bottom: 1px solid #cbd2dc;
+    color: #16181d !important;
+    font-size: 10.5pt;
+    padding: 0.12in 0.2in;
+  }
+  .belief-body { padding: 0.16in 0.2in 0.12in; }
+  .refs { color: #8a6a1f !important; font-size: 8pt; }
+
+  .pullquote { color: #16181d !important; border-left: 2px solid #a8842f; font-size: 10.5pt; }
+  .pullquote cite, .fn, .credits, .qr-label { color: #5c636e !important; }
+  .closing-verse { color: #8a6a1f !important; border-top: 1px solid #cbd2dc; font-size: 11.5pt; margin-top: 0.28in; padding-top: 0.24in; }
+  .credits { margin-top: 0.22in; font-size: 7pt; }
+
+  .btn-book {
+    background: #fff !important;
+    color: #16181d !important;
+    border: 1.5px solid #a8842f;
+    box-shadow: none;
+    padding: 0.09in 0.2in;
+    font-size: 8.5pt;
+  }
+  .qr-row {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.2in;
+    margin-top: 0.16in;
+    padding-top: 0.14in;
+    border-top: 1px solid #cbd2dc;
+    break-inside: avoid;
+  }
+  .qr-item img { padding: 0; width: 0.9in; height: 0.9in; }
+  .qr-cap { color: #2b2f36 !important; font-size: 8.6pt; }
+  .qr-cap strong { color: #8a6a1f !important; font-size: 7.5pt; }
+  .qr-cap a { color: #2b2f36 !important; border-bottom: none; }
+
+  .page-break { break-before: page; page-break-before: always; }
+  h2, .h2, .eyebrow { break-after: avoid; page-break-after: avoid; }
+}
+</style>
+</head>
+
+<body>
+<div class="sheet">
+
+  <!-- ── print bar (top) ── -->
+  <div class="printbar no-print">
+    <span class="printbar-note">Church Partner Overview</span>
+    <button class="btn-print" onclick="window.print()" aria-label="Print or save this page as a PDF">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7" rx="1"/></svg>
+      Print / Save as PDF
+    </button>
+  </div>
+
+  <!-- ── masthead ── -->
+  <header class="masthead">
+    <p class="mast-name">ONE FOUNDATION <span>| Partner Network</span></p>
+    <p class="mast-sub">Wellness Ministry Services LLC (in formation)</p>
+    <p class="mast-tag">Professional. Credentialed. Gospel-Centered.</p>
+  </header>
+
+  <!-- ── vision & mission ── -->
+  <section class="block">
+    <p class="eyebrow">Our Vision</p>
+    <div class="rule"></div>
+    <p>We exist to be the definitive faith-centered therapy network in America — delivering professional, community-embedded mental health care through world-class therapists who personally know that lasting life wellness is built on One Foundation (1&nbsp;Cor.&nbsp;3) and flows from a living relationship with Jesus Christ. We will build the largest unified Gospel-powered mental health workforce in the country, while meeting people exactly where society is already looking — one partnering clinic, one partnering church, and one foundation to build on together.</p>
+  </section>
+
+  <section class="block">
+    <p class="eyebrow">Our Mission</p>
+    <div class="rule"></div>
+    <p>We recruit, develop, deploy, and sustain world-class therapists who personally know lasting life wellness comes from knowing and loving the author and sustainer of life, Jesus Christ — who have the talent and discretion as mental health professionals to be bold with their faith when there is opportunity, and to be clandestine Gospel agents, prayer warriors, and esteemed members of their communities when there is not — who consistently ready themselves for opportunity while they faithfully deliver professional, clinical care, in obedience to the Great Commission.</p>
+  </section>
+
+  <!-- ── what we do ── -->
+  <h2 class="h2">What we do</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3>The Partnership</h3>
+      <p>We build teamwork between local churches and Therapists through ONE FOUNDATION's proprietary vocational ministry system allowing embedded mental health care delivery alongside your existing ministries — at no cost to you. Your community gains access to professional mental health care in a trusted, familiar environment. Your pastoral team gains a clinical partner for the care needs that differ from pastoral and biblical counseling.</p>
+
+      <p class="lead-in">You Provide</p>
+      <ul class="ticks">
+        <li>A private room for weekly sessions</li>
+        <li>A warm introduction to your congregation</li>
+      </ul>
+
+      <p class="lead-in">We Provide</p>
+      <ul class="ticks">
+        <li>Licensed, credentialed, Gospel-centered therapist</li>
+        <li>All clinical, legal, and insurance responsibility</li>
+        <li>HIPAA-compliant billing and records offsite</li>
+        <li>Optional mental wellness programming</li>
+        <li>Crisis triage and referral support</li>
+        <li>A partner who prays for your congregation</li>
+        <li>We point people toward the life of your church</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Why the Church?</h3>
+      <p>The local church is God's design for delivering the Gospel and caring for whole people. It is the most trusted institution in the neighborhood, and the most strategic platform for sustainable, relational, community-embedded mental health care.</p>
+      <p>America's mental health crisis will not get better without the local church taking an active role. This is an opportunity to collaborate with Christian Therapists who carry the true solution to where people are already looking in the therapy marketplace.</p>
+      <p>We are a vocational ministry movement that positions credentialed, Spirit-filled therapists as a natural extension of the church's care — mission-aligned, professionally credentialed, quietly showing up for the church and local community year after year in a sustainable, not burdensome way, by building on one foundation, Jesus Christ (1&nbsp;Cor.&nbsp;3:10–11).</p>
+      <blockquote class="pullquote">
+        The Spirit of the Lord is upon us — to bind up the brokenhearted, to proclaim freedom to the captives, and to comfort all who mourn.
+        <cite>Isaiah 61</cite>
+      </blockquote>
+    </div>
+  </div>
+
+  <!-- ── the problem / the opportunity ── -->
+  <h2 class="h2">What are we really trying to accomplish?</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3>The Problem</h3>
+      <p>1 in 5 Americans lives with mental illness, yet only 26% of mental health needs are being met. More than 122 million Americans live in areas with a shortage of mental health professionals<sup>1</sup>, and HRSA projects a deficit of nearly 90,000 counselors by 2037<sup>2</sup>. The need is not slowing down. The system is not catching up.</p>
+
+      <p class="lead-in">The Deeper Truth</p>
+      <p>A therapy company that does not carry the Gospel is managing symptoms at best, not delivering transformation. We carry the power of Christ for genuine change. "If anyone is in Christ, he is a new creation; the old has gone, the new has come." (2&nbsp;Cor.&nbsp;5:17) We are not a loud evangelical movement. Rather, we are intentionally and quietly meeting a tremendous need — professionally credentialed, marketplace-aligned — but carrying a deeper truth that is foundational to human flourishing.</p>
+      <p>We have this treasure in earthen vessels, to show that the surpassing power belongs to God and not to us. We don't apologize for it.</p>
+
+      <p class="fn">
+        <sup>1</sup> Kaiser Family Foundation, <em>Mental Health Care Health Professional Shortage Areas</em>, 2024. kff.org<br>
+        <sup>2</sup> Health Resources and Services Administration (HRSA), <em>State of the Behavioral Health Workforce</em>, November 2024. bhw.hrsa.gov
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Who We Are</h3>
+      <p>The Denning and Delay families have come together with a God-sized dream to transform the mental health market and deliver a sustainable force of Gospel-equipped, clinical professionals across America. This is a vocational ministry building for maximum impact.</p>
+
+      <p class="lead-in">The Opportunity</p>
+      <p>You get an embedded, credentialed, Gospel-centered therapist on your campus — no cost to you, no clinical liability for your church, no new ministry to manage. We handle everything. You provide space and a warm welcome. We become a specialized extension of your pastoral care team, and together we begin making a lasting difference in America's mental health crisis.</p>
+    </div>
+  </div>
+
+  <!-- ── invitation ── -->
+  <section class="invite">
+    <p class="eyebrow" style="margin-bottom:0.8rem;">Let's Go</p>
+    <p>We are inviting church leaders to become founding network partners — to help us develop this model in Memphis and carry it to communities across the nation. People do improve their wellness at a clinic, but we believe they are most likely to <em>stay</em> well in the local church. If the Lord is stirring something in you as you read this, we would be honored to start together using a <strong>30-day structured sprint</strong> to confirm this is right for you, with no cost and no obligation.</p>
+    <div class="cta-row">
+      <a class="btn-book" href="https://calendar.app.google/Z2SFkFehdC56rCW57" target="_blank" rel="noopener">Book a Conversation</a>
+    </div>
+
+    <div class="qr-row">
+      <div class="qr-item">
+        <img src="data:image/png;base64,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" alt="QR code to book a conversation">
+        <p class="qr-cap"><strong>Book a conversation</strong>Scan to find a time on the calendar.</p>
+      </div>
+      <div class="qr-item">
+        <img src="data:image/png;base64,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" alt="QR code to the pre-call survey">
+        <p class="qr-cap"><strong>Before we talk</strong>Help us prepare for our call by completing a short survey. <a href="https://docs.google.com/forms/d/e/1FAIpQLSeLv2jVkAcEyN7BpbQQDfOpoZqi-d9vMkG-HmOPyG84qS2khQ/viewform" target="_blank" rel="noopener">Open the survey</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── essential beliefs ── -->
+  <h2 class="h2" style="margin-top:2.8rem;">ONE FOUNDATION | Essential Beliefs</h2>
+  <p class="eyebrow" style="margin-top:-0.9rem;">About God, People, and the Only Foundation for Lasting Life Wellness</p>
+  <div class="rule"></div>
+
+  <section class="block">
+    <p>We are not here to debate what divides. We are decidedly working together to build on one foundation, Jesus Christ (1&nbsp;Cor.&nbsp;3:10–11). Day by day, we carry the peace and power of the Gospel into every session, showing up — credentialed, professional, and praying. With clients who are open, we share the core truths of the Gospel in plain language as stated below, and refer back to the church's ministries to continue the conversation. With all clients, we humbly carry this treasure knowing the power of God is in His people and the community a person needs to flourish is right in your church.</p>
+  </section>
+
+  <div class="belief">
+    <div class="belief-head">God knows everything about you, loves you, and has a purpose for you.</div>
+    <div class="belief-body">
+      <p>God made you on purpose, for a purpose, and He loves you completely. Before the anxious thoughts, before the wounds, before the weight of every hard season, God knew you and had a plan for you to flourish. The life He intends for you is one of genuine peace, wholeness, and relationship with Him.</p>
+      <p class="refs">John 3:16 &nbsp;•&nbsp; John 10:10 &nbsp;•&nbsp; Genesis 1:31</p>
+    </div>
+  </div>
+
+  <div class="belief">
+    <div class="belief-head">Sin has separated every person from God — and from the life He designed.</div>
+    <div class="belief-body">
+      <p>Every person who has ever lived has chosen their own way over God's way. The Bible calls this sin — and its consequence is separation from God, the very source of life and peace. This separation explains what every honest person already knows: something is broken. In ourselves, in our relationships, in the world. No amount of therapy, achievement, or self-improvement can close a gap that is, at its root, spiritual. We were made for closeness with God, and without Him, nothing else fully satisfies or fully heals. We were made to live according to God's design. Anything outside of His design only adds to our pain and to others. Good therapy helps. But it was never designed to do what only God can do.</p>
+      <p class="refs">Romans 3:23 &nbsp;•&nbsp; Romans 6:23 &nbsp;•&nbsp; Isaiah 59:2</p>
+    </div>
+  </div>
+
+  <div class="belief">
+    <div class="belief-head">Jesus Christ is God's plan to restore and redeem us.</div>
+    <div class="belief-body">
+      <p>God did not leave us in our separation. He crossed it. Jesus Christ, fully God and fully human, lived the life we could not live, died the death we deserved, and rose from the grave — defeating sin, death, and the power of everything that has broken us. He is the only bridge between a holy God and a broken humanity. Not one of many ways. The way. Salvation is not earned, achieved, or inherited. It is received — freely, by anyone who will believe.</p>
+      <p class="refs">John 14:6 &nbsp;•&nbsp; Romans 5:8 &nbsp;•&nbsp; 1 Corinthians 15:3–4 &nbsp;•&nbsp; Ephesians 2:8–9</p>
+    </div>
+  </div>
+
+  <div class="belief">
+    <div class="belief-head">Each person must personally receive Christ to experience lasting life wellness.</div>
+    <div class="belief-body">
+      <p>Knowing about Jesus is not the same as knowing Jesus. At some moment, every person must respond. To receive Christ is to personally acknowledge your need, place your trust in His death and resurrection as payment for your sin, and invite Him to take the throne of your life. This is not a religious ritual. It is the beginning of a living relationship with God — and the only foundation on which lasting peace, wholeness, and life transformation are built.</p>
+      <p class="refs">John 1:12 &nbsp;•&nbsp; Revelation 3:20 &nbsp;•&nbsp; Romans 10:9–10 &nbsp;•&nbsp; 2 Corinthians 5:17 &nbsp;•&nbsp; Romans 8:12–39</p>
+    </div>
+  </div>
+
+  <p class="closing-verse">"No one can lay a foundation other than that which is laid, which is Jesus Christ."<br>— 1 Corinthians 3:11</p>
+
+  <p class="credits">
+    ONE FOUNDATION Wellness Ministry Services LLC (in formation) &nbsp;·&nbsp; Lakeland, Tennessee<br>
+    Founders: Dave Denning, MBA, SPHR &nbsp;·&nbsp; Reta Kae Denning, Doctor of Strategic Leadership<br>
+    Clinical Partners: Aaron Delay, LPC-MHSP &nbsp;·&nbsp; Heather Delay, FNP-C
+  </p>
+
+  <!-- ── print bar (bottom) ── -->
+  <div class="printbar printbar--foot no-print">
+    <button class="btn-print" onclick="window.print()" aria-label="Print or save this page as a PDF">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7" rx="1"/></svg>
+      Print / Save as PDF
+    </button>
+  </div>
+
+</div>
+</body>
+</html>
