@@ -252,7 +252,7 @@ body {
   color: var(--muted-lt);
   margin-top: 0.8rem;
   opacity: 0;
-  animation: expandW 0.9s ease 11.6s forwards;
+  animation: fadeUp 0.8s ease 0.9s forwards;
 }
 
 .hero-divider {
@@ -260,7 +260,7 @@ body {
   height: 1px;
   background: linear-gradient(to right, transparent, var(--gold), transparent);
   margin: 2.2rem auto;
-  animation: expandW 0.9s ease 8.4s forwards;
+  animation: expandW 0.9s ease 11.6s forwards;
 }
 
 .hero-tagline {
@@ -956,7 +956,11 @@ sup.footnote-ref {
   .hero-divider  { margin: 1.8rem auto; }
   .hero-tagline  { font-size: 0.98rem; line-height: 1.55; margin-bottom: 1.6rem; }
   .hero-verse    { font-size: 0.84rem; line-height: 1.6; }
-  .hero-wordmark .w3 { letter-spacing: 0.16em; }
+  .hero-wordmark .w3 {
+    font-size: clamp(0.78rem, 4.4vw, 1.1rem);
+    letter-spacing: 0.12em;
+    white-space: nowrap;
+  }
   /* keep the gold rule tucked to the width of FOUNDATION */
   #one-bar { width: min(72vw, 20rem); }
   /* the wordmark lands sooner on a phone */
