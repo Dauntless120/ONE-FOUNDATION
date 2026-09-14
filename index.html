@@ -764,8 +764,15 @@ body {
   line-height: 1.8;
 }
 
+.cta-btn-wrap {
+  display: inline-block;
+  animation: cta-pulse 3.4s ease-in-out infinite;
+}
+.cta-btn-wrap:hover { animation-play-state: paused; }
+
 .cta-btn {
   display: inline-block;
+  position: relative;
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.82rem;
   font-weight: 700;
@@ -779,13 +786,41 @@ body {
   transition: background 0.28s, transform 0.22s, box-shadow 0.28s;
   box-shadow: 0 6px 28px rgba(201,165,102,0.28);
 }
+.cta-btn::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 4px;
+  padding: 1.5px;
+  background: conic-gradient(from 0deg, transparent 0%, var(--gold-lt) 6%, transparent 16%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0;
+  animation: cta-border-flash 3.4s ease-in-out infinite;
+  pointer-events: none;
+}
 .cta-btn:hover {
   background: var(--gold-lt);
   transform: translateY(-2px);
   box-shadow: 0 10px 36px rgba(201,165,102,0.42);
 }
+.cta-btn:hover::after { animation-play-state: paused; opacity: 0; }
 .cta-btn:active { transform: translateY(0); }
 
+@keyframes cta-pulse {
+  0%, 55%, 100% { transform: scale(1); }
+  72%           { transform: scale(1.035); }
+}
+@keyframes cta-border-flash {
+  0%, 50%   { opacity: 0; transform: rotate(0deg); }
+  55%       { opacity: 1; }
+  80%       { opacity: 1; transform: rotate(340deg); }
+  90%, 100% { opacity: 0; transform: rotate(340deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cta-btn-wrap, .cta-btn::after { animation: none; }
+}
 .cta-btn-alt {
   display: inline-block;
   margin-top: 2.2rem;
@@ -1272,10 +1307,11 @@ sup.footnote-ref {
     </p>
 
     <div class="reveal d3">
-      <a href="https://calendar.app.google/jJSGsxCCZwAWgHLQ6" target="_blank" rel="noopener" class="cta-btn">
-        May We Please Schedule A Conversation With You?
-      </a>
-    </div>
+     <span class="cta-btn-wrap">
+        <a href="https://calendar.app.google/jJSGsxCCZwAWgHLQ6" target="_blank" rel="noopener" class="cta-btn">
+          May We Please Schedule A Conversation With You?
+        </a>
+      </span>
 
     <div class="cta-verse reveal d4">
       "For no one can lay any foundation other than the one already laid, which is Jesus Christ."
