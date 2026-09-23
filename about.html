@@ -364,6 +364,138 @@ sup { font-size: 0.62em; color: var(--gold); font-weight: 600; }
   line-height: 2;
 }
 
+/* ─────────────────────────────────────────────
+   WHO WE ARE — founders
+───────────────────────────────────────────── */
+.founders {
+  border: 1px solid var(--border-g);
+  border-top: 3px solid var(--gold);
+  background: linear-gradient(to bottom, rgba(201,165,102,0.07), transparent 60%);
+  padding: 2.4rem 2rem 2rem;
+  margin-bottom: 2.6rem;
+}
+.founders .h2 { margin-bottom: 1.6rem; }
+
+.founders-top {
+  display: grid;
+  grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+  gap: 2.4rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+/* photo with an offset gold frame */
+.founders-photo { margin: 0; }
+.founders-frame { position: relative; margin: 0 14px 14px 0; }
+.founders-frame::before {
+  content: '';
+  position: absolute;
+  inset: 14px -14px -14px 14px;
+  border: 1px solid var(--gold);
+  opacity: 0.55;
+  border-radius: 3px;
+  pointer-events: none;
+}
+.founders-photo img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 30%;
+  border-radius: 3px;
+  box-shadow: 0 18px 44px rgba(0,0,0,0.5);
+}
+.founders-photo figcaption {
+  position: relative;
+  margin-top: 0.4rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-lt);
+  line-height: 1.8;
+}
+.founders-photo figcaption strong { display: block; color: var(--gold-lt); font-weight: 600; }
+
+.founders-intro p { color: rgba(237,232,220,0.82); font-size: 0.95rem; margin-bottom: 1rem; }
+.founders-intro .pullquote { font-size: 1.12rem; margin-top: 1.2rem; }
+
+.bio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+}
+.bio {
+  border: 1px solid var(--border-g);
+  border-radius: 3px;
+  background: rgba(201,165,102,0.05);
+  padding: 1.6rem 1.5rem 1.4rem;
+}
+.bio-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--cream);
+  line-height: 1.25;
+}
+.bio-role {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0.35rem 0 1.1rem;
+}
+.bio p { font-size: 0.9rem; color: rgba(237,232,220,0.78); margin-bottom: 1rem; }
+.creds { list-style: none; border-top: 1px solid var(--border-g); padding-top: 0.9rem; }
+.creds li {
+  font-size: 0.84rem;
+  color: rgba(237,232,220,0.85);
+  line-height: 1.45;
+  margin-bottom: 0.55rem;
+}
+.creds li span {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted-lt);
+}
+
+.strengths { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.6rem; }
+.strengths span {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--border-g);
+  border-radius: 2px;
+  padding: 0.3rem 0.75rem;
+}
+
+.clinical-note {
+  margin-top: 1.6rem;
+  padding-top: 1.3rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.88rem;
+  color: rgba(237,232,220,0.78);
+}
+.clinical-note strong { color: var(--gold-lt); font-weight: 600; }
+
+@media (max-width: 760px) {
+  .founders { padding: 1.8rem 1.2rem 1.5rem; }
+  .founders-top { grid-template-columns: 1fr; gap: 1.6rem; }
+  .founders-photo { max-width: 320px; margin: 0 auto; width: 100%; }
+  .founders-photo figcaption { text-align: center; }
+  .bio-grid { grid-template-columns: 1fr; }
+}
+
 .print-only { display: none; }
 
 /* ═════════════════════════════════════════════
@@ -456,6 +588,35 @@ sup { font-size: 0.62em; color: var(--gold); font-weight: 600; }
   .qr-cap { color: #2b2f36 !important; font-size: 8.6pt; }
   .qr-cap strong { color: #8a6a1f !important; font-size: 7.5pt; }
   .qr-cap a { color: #2b2f36 !important; border-bottom: none; }
+
+  /* founders */
+  .founders {
+    background: #fff !important;
+    border: 1px solid #cbd2dc;
+    border-top: 3px solid #a8842f;
+    padding: 0.22in;
+    margin-bottom: 0.22in;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .founders-top { grid-template-columns: 2.1in 1fr !important; gap: 0.25in; margin-bottom: 0.18in; }
+  .founders-photo { margin: 0; max-width: none; width: auto; }
+  .founders-frame { margin: 0; }
+  .founders-frame::before { display: none; }
+  .founders-photo img { box-shadow: none; }
+  .founders-photo figcaption { color: #5c636e !important; font-size: 6.8pt; margin-top: 0.08in; text-align: left; }
+  .founders-photo figcaption strong { color: #8a6a1f !important; }
+  .founders-intro p { color: #2b2f36 !important; font-size: 9.4pt; }
+  .bio-grid { grid-template-columns: 1fr 1fr !important; gap: 0.18in; }
+  .bio { background: #fff !important; border: 1px solid #cbd2dc; padding: 0.15in; }
+  .bio-name { color: #16181d !important; font-size: 11pt; }
+  .bio-role { color: #8a6a1f !important; font-size: 7pt; margin-bottom: 0.08in; }
+  .bio p, .creds li, .clinical-note { color: #2b2f36 !important; font-size: 8.8pt; }
+  .creds { border-top: 1px solid #cbd2dc; }
+  .creds li span { color: #5c636e !important; font-size: 6.8pt; }
+  .strengths span { color: #8a6a1f !important; border-color: #cbd2dc; font-size: 7pt; }
+  .clinical-note strong { color: #16181d !important; }
+  .clinical-note { border-top: 1px solid #cbd2dc; }
 
   .page-break { break-before: page; page-break-before: always; }
   h2, .h2, .eyebrow { break-after: avoid; page-break-after: avoid; }
@@ -556,13 +717,76 @@ sup { font-size: 0.62em; color: var(--gold); font-weight: 600; }
     </div>
 
     <div class="card">
-      <h3>Who We Are</h3>
-      <p>The Denning and Delay families have come together with a God-sized dream to transform the mental health market and deliver a sustainable force of Gospel-equipped, clinical professionals across America. This is a missional wellness company, building teamwork with ministires for maximum impact. In a future phase, we are designing to promote Christian Mental Health Service Provider paid residencies so that mission minded Christians have a clear path from graduate school to licensure and to help solve the provider shortage across the nation by producing more Christian therapists.</p>
-
-      <p class="lead-in">The Opportunity</p>
+      <h3>The Opportunity</h3>
       <p>In addition to taking on an existential threat to America, you get an embedded, credentialed, Gospel-centered therapist on your campus — no cost to you, we walk together through administrative setup details, no new ministry to manage. We handle everything. You provide space and a warm welcome. We become a specialized extension of your care services, and together we begin making a lasting difference in America's mental health crisis.</p>
+
+      <p class="lead-in">Where This Goes</p>
+      <p>The Denning and Delay families have come together with a God-sized dream to transform the mental health market and deliver a sustainable force of Gospel-equipped, clinical professionals across America. This is a missional wellness company, building teamwork with ministries for maximum impact. In a future phase, we are designing to promote Christian Mental Health Service Provider paid residencies so that mission-minded Christians have a clear path from graduate school to licensure — helping solve the provider shortage across the nation by producing more Christian therapists.</p>
     </div>
   </div>
+
+  <!-- ── who we are: founders ── -->
+  <section class="founders" id="who-we-are">
+    <p class="eyebrow">Who We Are</p>
+    <div class="rule"></div>
+    <h2 class="h2">Meet the founders</h2>
+
+    <div class="founders-top">
+      <figure class="founders-photo">
+        <div class="founders-frame">
+          <img src="founders-denning.jpg" width="960" height="1200" loading="lazy"
+               alt="Dave and Dr. Reta Kae Denning, founders of ONE FOUNDATION, standing together in a sunflower field">
+        </div>
+        <figcaption><strong>Dave &amp; Dr. Reta Kae Denning</strong>Married 18 years &nbsp;·&nbsp; Parents of ten</figcaption>
+      </figure>
+
+      <div class="founders-intro">
+        <p>We're Dave and Reta Kae Denning. We are both pastor's kids — we grew up in the church, watching our parents carry the weight and joy of caring for people. Eighteen years ago we married, and a Navy career has since taken our family, now with ten wonderful children, into communities all across America.</p>
+        <p>Everywhere we have lived, we've seen the same thing: people who are anxious, grieving, and isolated searching for help — and a local church nearby that holds what they need most.</p>
+        <blockquote class="pullquote">
+          After seeing the mental health crisis firsthand all over America, and through much prayer and planning, God has made our next mission clear. We love God and we love the people who make up our country, so we are launching ONE FOUNDATION with local churches and Christian professional counselors to push back on the evil of our times and build our communities on genuine faith in Christ and meaningful relationships in the local church.
+          <cite>Dave &amp; Reta Kae Denning, Founders</cite>
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="bio-grid">
+      <div class="bio">
+        <div class="bio-name">Dr. Reta Kae Denning, DSL</div>
+        <div class="bio-role">Co-Founder</div>
+        <p>Raised in a pastor's home and trained in both theology and human services, Reta Kae understands the church and the care systems people turn to when life breaks down. Her doctoral work in strategic leadership equips her to help churches and therapists build something that lasts — Gospel-centered, people-first, and sustainable for years to come.</p>
+        <ul class="creds">
+          <li><span>Doctorate</span>Doctor of Strategic Leadership — Liberty University</li>
+          <li><span>Graduate</span>M.A., Human Services — Liberty University</li>
+          <li><span>Undergraduate</span>B.S., Religion — Liberty University</li>
+        </ul>
+      </div>
+
+      <div class="bio">
+        <div class="bio-name">Dave Denning, MBA, SPHR</div>
+        <div class="bio-role">Co-Founder</div>
+        <p>Also a pastor's kid, Dave has spent an 18-year Navy career leading and developing people across the country. His training in economics, business, and human resources is aimed at the hardest parts of this mission: recruiting, developing, and sustaining excellent Christian therapists, and building a model that pays for itself so partner churches carry no cost.</p>
+        <ul class="creds">
+          <li><span>Graduate</span>MBA — University of Michigan</li>
+          <li><span>Undergraduate</span>B.A., Economics — University of Virginia</li>
+          <li><span>Certification</span>Senior Professional in Human Resources (SPHR)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="strengths" aria-label="Combined strengths">
+      <span>Theology &amp; Ministry</span>
+      <span>Human Services</span>
+      <span>Strategic Leadership</span>
+      <span>Economics &amp; Business</span>
+      <span>Human Resources</span>
+      <span>Licensed Clinical Partners</span>
+    </div>
+
+    <p class="clinical-note"><strong>Clinical leadership.</strong> Our founding clinical partner is Life Wellness Clinic, PLLC, led by Aaron Delay, LPC-MHSP, and Heather Delay, FNP-C — the licensed professionals behind the clinical care our therapists deliver.</p>
+
+    <p class="fn">Reference to Dave's Navy service is biographical only. ONE FOUNDATION is a private organization, and its activities are not sponsored or endorsed by the U.S. Navy or the Department of Defense.</p>
+  </section>
 
   <!-- ── invitation ── -->
   <section class="invite">
@@ -630,7 +854,7 @@ sup { font-size: 0.62em; color: var(--gold); font-weight: 600; }
 
   <p class="credits">
     © 2026 ONE FOUNDATION Missional Wellness Services LLC (in formation) &nbsp;·&nbsp; Lakeland, Tennessee<br>
-    Founders: Dave Denning, MBA, SPHR &nbsp;·&nbsp; Reta Kae Denning, Doctor of Strategic Leadership<br>
+    Founders: Dave Denning, MBA, SPHR &nbsp;·&nbsp; Dr. Reta Kae Denning, DSL<br>
     Clinical Partners: Aaron Delay, LPC-MHSP &nbsp;·&nbsp; Heather Delay, FNP-C
   </p>
 
