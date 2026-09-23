@@ -625,6 +625,284 @@ sup { font-size: 0.62em; color: var(--gold); font-weight: 600; }
 </head>
 
 <body>
+<!-- ═══════════════════════════════════════════
+     SITE MENU  (identical on index.html and about.html)
+     Paste directly after the opening <body> tag.
+═══════════════════════════════════════════ -->
+<style>
+.of-burger {
+  position: fixed; top: 14px; left: 14px; z-index: 1001;
+  width: 48px; height: 48px; padding: 0;
+  display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 6px;
+  background: rgba(7,9,13,0.45); border: none; border-radius: 50%;
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  cursor: pointer; -webkit-tap-highlight-color: transparent;
+}
+.of-burger span {
+  display: block; width: 26px; height: 2px; border-radius: 2px;
+  background: #c9a566;
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), opacity 0.25s, background 0.25s;
+}
+.of-burger:hover span, .of-burger:focus-visible span { background: #e3c07e; }
+.of-burger:focus-visible { outline: 1px solid #c9a566; outline-offset: 2px; }
+/* gentle pulse until the menu has been opened once */
+.of-burger.of-hint span { animation: of-pulse 2.6s ease-in-out infinite; }
+.of-burger.of-hint span:nth-child(2) { animation-delay: 0.12s; }
+.of-burger.of-hint span:nth-child(3) { animation-delay: 0.24s; }
+@keyframes of-pulse {
+  0%, 60%, 100% { opacity: 1;    box-shadow: none; }
+  30%           { opacity: 0.55; box-shadow: 0 0 8px rgba(227,192,126,0.8); }
+}
+/* lines fold into an X when open */
+.of-open .of-burger span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.of-open .of-burger span:nth-child(2) { opacity: 0; }
+.of-open .of-burger span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+.of-scrim {
+  position: fixed; inset: 0; z-index: 999;
+  background: rgba(3,4,7,0.62);
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s;
+}
+.of-open .of-scrim { opacity: 1; visibility: visible; }
+
+.of-panel {
+  position: fixed; top: 0; left: 0; bottom: 0; z-index: 1000;
+  width: min(330px, 86vw);
+  display: flex; flex-direction: column;
+  padding: 5.4rem 1.8rem 2rem;
+  background: #0c1018;
+  border-right: 1px solid rgba(201,165,102,0.3);
+  box-shadow: 18px 0 50px rgba(0,0,0,0.5);
+  transform: translateX(-102%); visibility: hidden;
+  transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), visibility 0.45s;
+  overflow-y: auto;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.of-open .of-panel { transform: translateX(0); visibility: visible; }
+.of-brand {
+  font-size: 0.66rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase;
+  color: #c9a566; padding-bottom: 1.1rem; margin-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(201,165,102,0.2);
+}
+.of-panel nav { display: flex; flex-direction: column; }
+.of-link {
+  display: flex; align-items: center; gap: 0.9rem;
+  padding: 1rem 0.2rem;
+  font: 600 0.82rem/1.3 'Space Grotesk', sans-serif; letter-spacing: 0.14em; text-transform: uppercase;
+  color: #ede8dc; text-decoration: none; text-align: left;
+  background: none; border: none; border-bottom: 1px solid rgba(255,255,255,0.06);
+  cursor: pointer; transition: color 0.2s, padding-left 0.25s;
+}
+.of-link svg { width: 18px; height: 18px; flex: 0 0 18px; fill: none; stroke: #c9a566; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.of-link:hover, .of-link:focus-visible { color: #e3c07e; padding-left: 0.6rem; outline: none; }
+.of-link[aria-current="page"] { color: #c9a566; }
+.of-link[aria-current="page"]::after { content: '•'; margin-left: auto; color: #c9a566; }
+.of-panel-verse {
+  margin-top: auto; padding-top: 2rem;
+  font: italic 0.95rem/1.55 'Cormorant Garamond', serif; color: #8a939f;
+}
+
+/* desktop pop-ups (call / share) */
+.of-modal {
+  position: fixed; inset: 0; z-index: 1002;
+  display: flex; align-items: center; justify-content: center; padding: 1rem;
+  background: rgba(3,4,7,0.7);
+  opacity: 0; visibility: hidden; transition: opacity 0.25s, visibility 0.25s;
+}
+.of-modal.of-show { opacity: 1; visibility: visible; }
+.of-card {
+  position: relative; width: min(400px, 100%);
+  background: #0c1018; border: 1px solid rgba(201,165,102,0.3); border-top: 3px solid #c9a566;
+  padding: 2rem 1.8rem 1.7rem; text-align: center;
+  font-family: 'Inter', sans-serif; color: #ede8dc;
+}
+.of-card h3 { font: 600 0.68rem 'Space Grotesk', sans-serif; letter-spacing: 0.3em; text-transform: uppercase; color: #c9a566; margin-bottom: 0.9rem; }
+.of-card p { font-size: 0.9rem; line-height: 1.6; color: #8a939f; margin: 0 0 1.1rem; }
+.of-num { display: block; font: 700 1.7rem 'Space Grotesk', sans-serif; letter-spacing: 0.04em; color: #ede8dc; margin-bottom: 1.1rem; }
+.of-qr { display: block; width: 132px; height: 132px; margin: 0 auto 0.5rem; background: #fff; padding: 6px; border-radius: 3px; image-rendering: pixelated; }
+.of-qr-cap { font: 0.62rem 'Space Grotesk', sans-serif !important; letter-spacing: 0.16em; text-transform: uppercase; color: #4e5669 !important; }
+.of-btns { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; }
+.of-btn {
+  flex: 1 1 140px;
+  font: 700 0.68rem 'Space Grotesk', sans-serif; letter-spacing: 0.16em; text-transform: uppercase;
+  text-decoration: none; text-align: center;
+  padding: 0.85rem 1rem; border-radius: 2px; cursor: pointer;
+  color: #c9a566; background: transparent; border: 1px solid rgba(201,165,102,0.35);
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+.of-btn:hover, .of-btn:focus-visible { background: rgba(201,165,102,0.15); border-color: #c9a566; color: #e3c07e; outline: none; }
+.of-btn--solid { color: #07090d; background: #c9a566; border-color: #c9a566; }
+.of-btn--solid:hover, .of-btn--solid:focus-visible { background: #e3c07e; color: #07090d; }
+.of-x {
+  position: absolute; top: 0.5rem; right: 0.6rem; width: 36px; height: 36px;
+  background: none; border: none; color: #8a939f; font-size: 1.5rem; line-height: 1; cursor: pointer;
+}
+.of-x:hover { color: #e3c07e; }
+
+/* keep the about page's top bar clear of the menu button */
+.printbar:not(.printbar--foot) { padding-left: 3.4rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .of-burger.of-hint span { animation: none; }
+}
+@media print {
+  .of-burger, .of-scrim, .of-panel, .of-modal { display: none !important; }
+  .printbar:not(.printbar--foot) { padding-left: 0; }
+}
+</style>
+
+<button class="of-burger of-hint" id="of-burger" aria-label="Open menu" aria-expanded="false" aria-controls="of-panel">
+  <span></span><span></span><span></span>
+</button>
+<div class="of-scrim" id="of-scrim"></div>
+
+<aside class="of-panel" id="of-panel" aria-label="Site menu">
+  <p class="of-brand">ONE FOUNDATION</p>
+  <nav>
+    <a class="of-link" href="index.html" data-page="home">
+      <svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>Home</a>
+    <a class="of-link" href="about.html" data-page="about">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6"/><path d="M12 7.5v.01"/></svg>About</a>
+    <a class="of-link" href="https://calendar.app.google/jJSGsxCCZwAWgHLQ6" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Schedule a Conversation</a>
+    <a class="of-link" href="tel:+12486603926" id="of-call">
+      <svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Call Dave Now</a>
+    <button class="of-link" type="button" id="of-share">
+      <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>Share with a Colleague</button>
+  </nav>
+  <p class="of-panel-verse">"No one can lay a foundation other than that which is laid, which is Jesus Christ."<br>— 1 Corinthians 3:11</p>
+</aside>
+
+<!-- desktop: call pop-up -->
+<div class="of-modal" id="of-call-modal" role="dialog" aria-modal="true" aria-labelledby="of-call-h">
+  <div class="of-card">
+    <button class="of-x" type="button" data-close aria-label="Close">&times;</button>
+    <h3 id="of-call-h">Call Dave</h3>
+    <span class="of-num">248-660-3926</span>
+    <img class="of-qr" alt="QR code that dials Dave from your phone" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKIAAACiAQAAAADqiSu2AAABS0lEQVR4nM2XwW3kMBAEa5YE/BwCDsChMASHZGxIlwEZymVAPQWM0H5oF/e4W/9E3nwk9KcLIqfRMvH39Ns/RLhMPczM7DBjs0w3MyvXub1QXVKDehQASXGl2wu1WwHIEHCYXev2Wk26h7cTZjpDPh9HRr8/0+grGG5QNUijQt8LSZrOkNkMiI9fx0cDDPDJDOg5SQ0/X9tkhvA/KZVGDW/4ZIZbGl1SkpLaUWD70liwm3mz3Swg6Q4cs3OSgCSFC29Qw1vMPgvO2xiQBmkgaT5DeNOoQQ1XGhVvC/YC8HZapzOsVnyHoEKNc09X3IfwJjVJuOKpLMnJcztwhc/PyUePgrqbBZ0F+fDsUX5/GxXq1W4v1G4Fti8gb5bXMDxmLyS1NHpe1KOS+tv4hLqXcaHbjz0KOApsBn06w7NH5QdG9hrvkxnsP/jP+gbyPMDDZ2DnigAAAABJRU5ErkJggg==">
+    <p class="of-qr-cap">Scan with your phone's camera to dial</p>
+    <p>Calling from a computer needs a phone app linked to it (like iPhone on a Mac, Phone Link on Windows, or Teams). Otherwise, dial the number from your phone.</p>
+    <div class="of-btns">
+      <button class="of-btn" type="button" id="of-copy-num">Copy number</button>
+      <a class="of-btn of-btn--solid" href="tel:+12486603926">Call from this computer</a>
+    </div>
+  </div>
+</div>
+
+<!-- desktop: share pop-up -->
+<div class="of-modal" id="of-share-modal" role="dialog" aria-modal="true" aria-labelledby="of-share-h">
+  <div class="of-card">
+    <button class="of-x" type="button" data-close aria-label="Close">&times;</button>
+    <h3 id="of-share-h">Share with a Colleague</h3>
+    <p>Send this to a pastor or ministry leader using whichever email you use.</p>
+    <div class="of-btns">
+      <a class="of-btn" id="of-gmail" target="_blank" rel="noopener">Gmail</a>
+      <a class="of-btn" id="of-outlook" target="_blank" rel="noopener">Outlook</a>
+      <a class="of-btn" id="of-mailto">Email App</a>
+      <button class="of-btn of-btn--solid" type="button" id="of-copy-link">Copy link</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var SITE    = 'https://dauntless120.github.io/ONE-FOUNDATION/';
+  var SUBJECT = 'Thought of you — ONE FOUNDATION';
+  var MSG     = 'I thought of you when I saw this. ONE FOUNDATION places credentialed, Gospel-centered therapists in local churches at no cost to the church, and points people into the life of the church. Worth a look:';
+  var PHONE   = '248-660-3926';
+
+  var root    = document.documentElement;
+  var burger  = document.getElementById('of-burger');
+  var panel   = document.getElementById('of-panel');
+  var scrim   = document.getElementById('of-scrim');
+  var callM   = document.getElementById('of-call-modal');
+  var shareM  = document.getElementById('of-share-modal');
+  var isPhone = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+  var lastFocus = null;
+
+  // mark the page they're on
+  var onAbout = /about(\.html)?\/?$/i.test(location.pathname);
+  var cur = document.querySelector('.of-link[data-page="' + (onAbout ? 'about' : 'home') + '"]');
+  if (cur) cur.setAttribute('aria-current', 'page');
+
+  // stop the pulse once they've found the menu
+  try { if (sessionStorage.getItem('of-menu-seen')) burger.classList.remove('of-hint'); } catch (e) {}
+
+  function openMenu() {
+    lastFocus = document.activeElement;
+    root.classList.add('of-open');
+    burger.setAttribute('aria-expanded', 'true');
+    burger.setAttribute('aria-label', 'Close menu');
+    burger.classList.remove('of-hint');
+    try { sessionStorage.setItem('of-menu-seen', '1'); } catch (e) {}
+    document.body.style.overflow = 'hidden';
+    setTimeout(function () { var f = panel.querySelector('.of-link'); if (f) f.focus(); }, 60);
+  }
+  function closeMenu(keepFocus) {
+    root.classList.remove('of-open');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-label', 'Open menu');
+    document.body.style.overflow = '';
+    if (!keepFocus) burger.focus();
+  }
+  burger.addEventListener('click', function () {
+    root.classList.contains('of-open') ? closeMenu() : openMenu();
+  });
+  scrim.addEventListener('click', function () { closeMenu(); });
+  panel.querySelectorAll('a.of-link').forEach(function (a) {
+    a.addEventListener('click', function () { if (a.id !== 'of-call' || isPhone) closeMenu(true); });
+  });
+
+  function showModal(m) { closeMenu(true); m.classList.add('of-show'); var b = m.querySelector('.of-btn'); if (b) b.focus(); }
+  function hideModals() {
+    [callM, shareM].forEach(function (m) { m.classList.remove('of-show'); });
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  [callM, shareM].forEach(function (m) {
+    m.addEventListener('click', function (e) { if (e.target === m || e.target.hasAttribute('data-close')) hideModals(); });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    if (callM.classList.contains('of-show') || shareM.classList.contains('of-show')) hideModals();
+    else if (root.classList.contains('of-open')) closeMenu();
+  });
+
+  function copy(text, btn) {
+    var done = function () { var t = btn.textContent; btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = t; }, 1600); };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(done, function () { window.prompt('Copy this:', text); });
+    } else { window.prompt('Copy this:', text); }
+  }
+
+  // Call Dave: phones dial directly; computers get the pop-up
+  document.getElementById('of-call').addEventListener('click', function (e) {
+    if (isPhone) return;
+    e.preventDefault();
+    showModal(callM);
+  });
+  document.getElementById('of-copy-num').addEventListener('click', function () { copy(PHONE, this); });
+
+  // Share: phones get the native share sheet (text fallback); computers get email choices
+  var body = MSG + '\n\n' + SITE;
+  document.getElementById('of-gmail').href   = 'https://mail.google.com/mail/?view=cm&fs=1&su=' + encodeURIComponent(SUBJECT) + '&body=' + encodeURIComponent(body);
+  document.getElementById('of-outlook').href = 'https://outlook.live.com/mail/0/deeplink/compose?subject=' + encodeURIComponent(SUBJECT) + '&body=' + encodeURIComponent(body);
+  document.getElementById('of-mailto').href  = 'mailto:?subject=' + encodeURIComponent(SUBJECT) + '&body=' + encodeURIComponent(body);
+  document.getElementById('of-copy-link').addEventListener('click', function () { copy(SITE, this); });
+  shareM.querySelectorAll('a.of-btn').forEach(function (a) { a.addEventListener('click', function () { setTimeout(hideModals, 300); }); });
+
+  document.getElementById('of-share').addEventListener('click', function () {
+    if (!isPhone) { showModal(shareM); return; }
+    closeMenu(true);
+    if (navigator.share) {
+      navigator.share({ title: 'ONE FOUNDATION Missional Wellness Services', text: MSG, url: SITE }).catch(function () {});
+    } else {
+      location.href = 'sms:?&body=' + encodeURIComponent(body);
+    }
+  });
+})();
+</script>
+<!-- ═══════════ END SITE MENU ═══════════ -->   
 <div class="sheet">
 
   <!-- ── print bar (top) ── -->
