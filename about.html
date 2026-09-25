@@ -488,9 +488,28 @@ sup { font-size: 0.62em; color: var(--gold); font-weight: 600; }
 }
 .clinical-note strong { color: var(--gold-lt); font-weight: 600; }
 
+/* clinical partners sub-block */
+.partners {
+  margin-top: 2.4rem;
+  padding-top: 2.2rem;
+  border-top: 1px solid var(--border-g);
+}
+.partners .h2 { margin-bottom: 1.6rem; }
+/* photo on the right, mirrored frame */
+.founders-top--flip { grid-template-columns: minmax(0, 1fr) minmax(0, 300px); }
+.founders-top--flip .founders-photo { order: 2; }
+.founders-top--flip .founders-frame { margin: 0 0 14px 14px; }
+.founders-top--flip .founders-frame::before { inset: 14px 14px -14px -14px; }
+.founders-top--flip figcaption { text-align: right; }
+
 @media (max-width: 760px) {
   .founders { padding: 1.8rem 1.2rem 1.5rem; }
-  .founders-top { grid-template-columns: 1fr; gap: 1.6rem; }
+  .founders-top, .founders-top--flip { grid-template-columns: 1fr; gap: 1.6rem; }
+  .founders-top--flip .founders-photo { order: 0; }
+  .founders-top--flip .founders-frame { margin: 0 14px 14px 0; }
+  .founders-top--flip .founders-frame::before { inset: 14px -14px -14px 14px; }
+  .founders-top--flip figcaption { text-align: center; }
+  .partners { margin-top: 2rem; padding-top: 1.8rem; }
   .founders-photo { max-width: 320px; margin: 0 auto; width: 100%; }
   .founders-photo figcaption { text-align: center; }
   .bio-grid { grid-template-columns: 1fr; }
@@ -596,9 +615,10 @@ sup { font-size: 0.62em; color: var(--gold); font-weight: 600; }
     border-top: 3px solid #a8842f;
     padding: 0.22in;
     margin-bottom: 0.22in;
-    break-inside: avoid;
-    page-break-inside: avoid;
   }
+  .founders-top, .bio-grid, .bio { break-inside: avoid; page-break-inside: avoid; }
+  .partners { break-before: page; page-break-before: always; border-top: none; margin-top: 0; padding-top: 0; }
+  .founders-top.founders-top--flip { grid-template-columns: 1fr 2.1in !important; }
   .founders-top { grid-template-columns: 2.1in 1fr !important; gap: 0.25in; margin-bottom: 0.18in; }
   .founders-photo { margin: 0; max-width: none; width: auto; }
   .founders-frame { margin: 0; }
@@ -1052,16 +1072,64 @@ sup { font-size: 0.62em; color: var(--gold); font-weight: 600; }
       </div>
     </div>
 
-    <div class="strengths" aria-label="Combined strengths">
+    <!-- ── clinical partners ── -->
+    <div class="partners" id="clinical-partners">
+      <p class="eyebrow">Founding Clinical Partner &nbsp;·&nbsp; Life Wellness Clinic</p>
+      <div class="rule"></div>
+      <h2 class="h2">Meet Aaron &amp; Heather Delay</h2>
+
+      <div class="founders-top founders-top--flip">
+        <figure class="founders-photo">
+          <div class="founders-frame">
+            <img src="clinical-partners-delay.jpg" width="960" height="1200" loading="lazy"
+                 alt="Aaron and Heather Delay, founders of Life Wellness Clinic, standing together in front of a rustic barn">
+          </div>
+          <figcaption><strong>Aaron &amp; Heather Delay</strong>Founders, Life Wellness Clinic &nbsp;·&nbsp; Parents of two</figcaption>
+        </figure>
+
+        <div class="founders-intro">
+          <p>After more than two decades of professional counseling, Aaron kept seeing the same gap in his clients' lives: their mental health and their physical health were being treated by people who never spoke to each other. In 2020, he and Heather began dreaming of something Memphis didn't have — care for the <em>whole</em> person: physical health, mental health, relationships, and spiritual growth. So they built it.</p>
+          <p>At Life Wellness Clinic, the therapist and the nurse practitioner talk to one another and build one plan together — not only naming the problem, but understanding where it came from and walking with each person toward health. Today the practice sees around ten thousand sessions a year, and it is the clinical home behind every ONE FOUNDATION therapist.</p>
+          <blockquote class="pullquote">
+            I've sat with a lot of marriages at their worst hour. I'm also married, with two kids and the same tired Tuesday evenings as everyone else. None of this is theory I admire from a distance. It's what my wife and I actually use, and what I keep watching work in the room.
+            <cite>Aaron Delay, LPC-MHSP</cite>
+          </blockquote>
+        </div>
+      </div>
+
+      <div class="bio-grid">
+        <div class="bio">
+          <div class="bio-name">Aaron Delay, LPC-MHSP</div>
+          <div class="bio-role">Co-Founder, Life Wellness Clinic</div>
+          <p>Aaron has counseled individuals, couples, and families for over twenty years, and he is also a credentialed minister — as at home with a pastor as he is in the counseling room. He brings the clinical depth, the supervision, and the day-to-day practice experience that let a church trust the care happening on its campus.</p>
+          <ul class="creds">
+            <li><span>License</span>Licensed Professional Counselor – Mental Health Service Provider (Tennessee)</li>
+            <li><span>Ministry</span>Credentialed Minister</li>
+            <li><span>Experience</span>20+ years of professional counseling</li>
+          </ul>
+        </div>
+
+        <div class="bio">
+          <div class="bio-name">Heather Delay, FNP-C</div>
+          <div class="bio-role">Co-Founder, Life Wellness Clinic</div>
+          <p>Heather leads the medical side of Life Wellness Clinic's whole-person model. As a certified family nurse practitioner, she works hand in hand with the counseling team so that a client's physical and mental health are addressed together, in one coordinated plan rather than two disconnected ones.</p>
+          <ul class="creds">
+            <li><span>Certification</span>Family Nurse Practitioner – Certified (FNP-C)</li>
+            <li><span>Focus</span>Integrated medical and mental health care</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="strengths" aria-label="Combined team strengths">
       <span>Theology &amp; Ministry</span>
       <span>Human Services</span>
       <span>Strategic Leadership</span>
       <span>Economics &amp; Business</span>
       <span>Human Resources</span>
-      <span>Licensed Clinical Partners</span>
+      <span>Licensed Counseling</span>
+      <span>Integrated Medical Care</span>
     </div>
-
-    <p class="clinical-note"><strong>Clinical leadership.</strong> Our founding clinical partner is Life Wellness Clinic, PLLC, led by Aaron Delay, LPC-MHSP, and Heather Delay, FNP-C — the licensed professionals behind the clinical care our therapists deliver.</p>
 
     <p class="fn">Reference to Dave's Navy service is biographical only. ONE FOUNDATION is a private organization, and its activities are not sponsored or endorsed by the U.S. Navy or the Department of Defense.</p>
   </section>
