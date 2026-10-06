@@ -646,7 +646,7 @@ sup { font-size: 0.62em; color: var(--gold); font-weight: 600; }
 
 <body>
 <!-- ═══════════════════════════════════════════
-     SITE MENU  (identical on index.html and about.html)
+     SITE MENU  (identical on index.html, about.html and why.html)
      Paste directly after the opening <body> tag.
 ═══════════════════════════════════════════ -->
 <style>
@@ -784,6 +784,8 @@ sup { font-size: 0.62em; color: var(--gold); font-weight: 600; }
       <svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>Home</a>
     <a class="of-link" href="about.html" data-page="about">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6"/><path d="M12 7.5v.01"/></svg>About</a>
+    <a class="of-link" href="why.html" data-page="why">
+      <svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5V5.5"/><path d="M8 7.5h8M8 11h6"/></svg>Our Why</a>
     <a class="of-link" href="https://calendar.app.google/jJSGsxCCZwAWgHLQ6" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Schedule a Conversation</a>
     <a class="of-link" href="tel:+12486603926" id="of-call">
@@ -827,9 +829,9 @@ sup { font-size: 0.62em; color: var(--gold); font-weight: 600; }
 
 <script>
 (function () {
-  var SITE    = 'https://dauntless120.github.io/ONE-FOUNDATION/';
+  var SITE    = document.body.getAttribute('data-share-url') || 'https://dauntless120.github.io/ONE-FOUNDATION/';
   var SUBJECT = 'Thought of you — ONE FOUNDATION';
-  var MSG     = 'I thought of you when I saw this. ONE FOUNDATION places credentialed, Gospel-centered therapists in local churches at no cost to the church, and points people into the life of the church. Worth a look!';
+  var MSG     = document.body.getAttribute('data-share-msg') || 'I thought of you when I saw this. ONE FOUNDATION places credentialed, Gospel-centered therapists in local churches at no cost to the church, and points people into the life of the church. Worth a look!';
   var PHONE   = '248-660-3926';
 
   var root    = document.documentElement;
@@ -842,8 +844,9 @@ sup { font-size: 0.62em; color: var(--gold); font-weight: 600; }
   var lastFocus = null;
 
   // mark the page they're on
-  var onAbout = /about(\.html)?\/?$/i.test(location.pathname);
-  var cur = document.querySelector('.of-link[data-page="' + (onAbout ? 'about' : 'home') + '"]');
+  var path = location.pathname;
+  var page = /why(\.html)?\/?$/i.test(path) ? 'why' : (/about(\.html)?\/?$/i.test(path) ? 'about' : 'home');
+  var cur = document.querySelector('.of-link[data-page="' + page + '"]');
   if (cur) cur.setAttribute('aria-current', 'page');
 
   // stop the pulse once they've found the menu
@@ -915,7 +918,7 @@ sup { font-size: 0.62em; color: var(--gold); font-weight: 600; }
     if (!isPhone) { showModal(shareM); return; }
     closeMenu(true);
     if (navigator.share) {
-      navigator.share({ title: 'ONE FOUNDATION Missional Wellness Services', text: MSG, url: SITE }).catch(function () {});
+      navigator.share({ title: document.body.getAttribute('data-share-title') || 'ONE FOUNDATION Missional Wellness Services', text: MSG, url: SITE }).catch(function () {});
     } else {
       location.href = 'sms:?&body=' + encodeURIComponent(body);
     }
@@ -954,13 +957,14 @@ sup { font-size: 0.62em; color: var(--gold); font-weight: 600; }
    <section class="block">
     <p class="eyebrow">Our Vision</p>
     <div class="rule"></div>
-    <p>We exist to be the definitive missional therapy network in America carrying the Gospel and pointing people into the local church — delivering professional, community-embedded mental health care through world-class therapists who personally know that lasting life wellness is built on One Foundation (1&nbsp;Cor.&nbsp;3) and flows from a living relationship with Jesus Christ. We will build the largest unified Gospel-powered mental health workforce in the country, while meeting people exactly where society is already looking — one partnering therapist, one partnering church, and one foundation to build on together.</p>
+    <p>Hurting neighbors in every community finding excellent care in a local church, and leaving restored to the life they were built for: rooted in Christ, belonging to His body, and sent.</p>
   </section>
 
   <section class="block">
     <p class="eyebrow">Our Mission</p>
     <div class="rule"></div>
-    <p>We recruit, develop, deploy, and sustain world-class therapists who personally know lasting life wellness comes from knowing and loving the author and sustainer of life, Jesus Christ — who have the same talent and discretion as mental health professionals to be bold with their faith when there is opportunity, and to be clandestine Gospel agents, prayer warriors, and esteemed members of their communities when there is not — who consistently ready themselves for opportunity while they faithfully deliver professional, clinical care, in obedience to the Great Commission.</p>
+    <p>We recruit, develop, and place licensed Christian therapists in local churches, and equip those churches with a culture of care, so neighbors receive excellent clinical care, experience the love of Christ, and are welcomed into the life of the church.</p>
+    <p>Our therapists practice with clinical excellence and integrity, pray faithfully for those they serve, and stay ready to share the hope within them whenever they’re invited (1&nbsp;Pet.&nbsp;3:15).</p>
   </section>
 
   <!-- ── what we do ── -->
@@ -968,7 +972,7 @@ sup { font-size: 0.62em; color: var(--gold); font-weight: 600; }
   <div class="grid2">
     <div class="card">
       <h3>The Partnership</h3>
-      <p>We build teamwork between local churches and Therapists through ONE FOUNDATION's proprietary missional wellness system allowing embedded mental health care delivery alongside your existing ministries — at no cost to you. Your community gains access to professional mental health care while building trust and familiarity with your church environment. Your pastoral and missions teams gain a clinical partner for the care needs your community is actively seeking.</p>
+      <p>We build teamwork between local churches and Therapists through ONE FOUNDATION's proprietary missional wellness system allowing embedded mental health care delivery alongside your existing ministries. Counseling is funded through clients’ insurance, not church budgets, so it never relies on your church for subsidy. Your community gains access to professional mental health care while building trust and familiarity with your church environment. Your pastoral and missions teams gain a clinical partner for the care needs your community is actively seeking.</p>
 
       <p class="lead-in">You Provide</p>
       <ul class="ticks">
@@ -1008,7 +1012,7 @@ sup { font-size: 0.62em; color: var(--gold); font-weight: 600; }
       <p>1 in 5 Americans lives with mental illness, yet only 26% of mental health needs are being met. More than 122 million Americans live in areas with a shortage of mental health professionals<sup>1</sup>, and HRSA projects a deficit of nearly 90,000 counselors by 2037<sup>2</sup>. The need is not slowing down. The system is not catching up.</p>
 
       <p class="lead-in">The Deeper Truth</p>
-      <p>A therapy company that does not carry the Gospel is managing symptoms at best, not delivering transformation. A Christian Counseling practice that openly markets themselves as Christians and declines to take insurance payments may be meeting the needs of the saints, but is missing an opportunity to engage the lost.  We quietly carry the power of Christ into the marketplace for genuine change. "If anyone is in Christ, he is a new creation; the old has gone, the new has come." (2&nbsp;Cor.&nbsp;5:17) We are not a loud evangelical movement. Rather, we are intentionally and competitively meeting a tremendous need — professionally credentialed, marketplace-aligned — but carrying a deeper truth that is foundational to human flourishing.</p>
+      <p>Therapy without the Gospel can bring real relief, and sometimes real change, but its limit is eternity. A Christian Counseling practice that openly markets themselves as Christians and declines to take insurance payments may be meeting the needs of the saints, but is missing an opportunity to engage the lost.  We quietly carry the power of Christ into the marketplace for genuine change. "If anyone is in Christ, he is a new creation; the old has gone, the new has come." (2&nbsp;Cor.&nbsp;5:17) We are not a loud evangelical movement. Rather, we are intentionally and competitively meeting a tremendous need — professionally credentialed, marketplace-aligned — but carrying a deeper truth that is foundational to human flourishing.</p>
       <p>We have this treasure in earthen vessels, to show that the surpassing power belongs to God and not to us. We don't apologize for it.</p>
 
       <p class="fn">
@@ -1019,7 +1023,7 @@ sup { font-size: 0.62em; color: var(--gold); font-weight: 600; }
 
     <div class="card">
       <h3>The Opportunity</h3>
-      <p>In addition to taking on an existential threat to America, you get an embedded, credentialed, Gospel-centered therapist on your campus — no cost to you, we walk together through administrative setup details, no new ministry to manage. We handle everything. You provide space and a warm welcome. We become a specialized extension of your care services, and together we begin making a lasting difference in America's mental health crisis.</p>
+      <p>In addition to taking on an existential threat to America, you get an embedded, credentialed, Gospel-centered therapist on your campus. Counseling never relies on your church budget, we walk together through administrative setup details, and we help you strengthen the care ministry you already have. We handle the clinical and administrative side. You provide space and a warm welcome. We become a specialized extension of your care services, and together we begin making a lasting difference in America's mental health crisis.</p>
 
       <p class="lead-in">Where This Goes</p>
       <p>The Denning and Delay families have come together with a God-sized dream to transform the mental health market and deliver a sustainable force of Gospel-equipped, clinical professionals across America. This is a missional wellness company, building teamwork with ministries for maximum impact. In a future phase, we are designing to promote Christian Mental Health Service Provider paid residencies so that mission-minded Christians have a clear path from graduate school to licensure — helping solve the provider shortage across the nation by producing more Christian therapists.</p>

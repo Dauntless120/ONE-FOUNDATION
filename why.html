@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07090d">
+<title>The New One-Hour Religion — ONE FOUNDATION</title>
+<meta name="description" content="A ONE FOUNDATION white paper for pastors and church staff: why the church must bring care back home, and how Missional Wellness builds care for sending, not keeping.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dauntless120.github.io/ONE-FOUNDATION/why.html">
+<meta property="og:title" content="The New One-Hour Religion: Why the Church Must Bring Care Back Home">
+<meta property="og:description" content="Wellness has become America's newest religion. The church has what wellness lacks: a reason to get well.">
+<meta property="og:site_name" content="ONE FOUNDATION Missional Wellness Services">
+<meta property="og:image" content="https://dauntless120.github.io/ONE-FOUNDATION/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dauntless120.github.io/ONE-FOUNDATION/og-image.png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>
+  /* apply the reader's saved day/night choice before paint */
+  (function () { try { var t = localStorage.getItem('of-paper-theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch (e) {} })();
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── NIGHT (default, matches the site) ── */
+:root, [data-theme="dark"] {
+  --bg: #07090d; --bg2: #0c1018; --bg3: #111620;
+  --ink: #ede8dc; --body: #cfd3d9; --muted: #8a939f; --faint: #4e5669;
+  --gold: #c9a566; --gold-lt: #e3c07e; --gold-dim: rgba(201,165,102,0.12);
+  --border: rgba(255,255,255,0.07); --border-g: rgba(201,165,102,0.25);
+  --btn-ink: #07090d; --link: #e3c07e; --shadow: 0 18px 50px rgba(0,0,0,0.45);
+  --d-edge: #6b7482; --d-tint: rgba(201,165,102,0.07);
+  color-scheme: dark;
+}
+/* ── DAY ── */
+[data-theme="light"] {
+  --bg: #f8f5ee; --bg2: #efe9dc; --bg3: #e6dfcf;
+  --ink: #1a2030; --body: #2a3140; --muted: #5a6373; --faint: #8b93a0;
+  --gold: #85662c; --gold-lt: #6d521f; --gold-dim: rgba(133,102,44,0.10);
+  --border: rgba(20,24,33,0.10); --border-g: rgba(133,102,44,0.35);
+  --btn-ink: #ffffff; --link: #7a5c22; --shadow: 0 14px 40px rgba(30,25,15,0.14);
+  --d-edge: #8b93a0; --d-tint: rgba(133,102,44,0.07);
+  color-scheme: light;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+body {
+  background: var(--bg); color: var(--body);
+  font-family: 'Inter', sans-serif; font-size: 1.04rem; line-height: 1.78;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+a { color: var(--link); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { color: var(--gold); }
+strong { color: var(--ink); font-weight: 600; }
+em { font-style: italic; }
+
+/* reading progress */
+.progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; z-index: 1003; background: linear-gradient(to right, var(--gold), var(--gold-lt)); transition: width 0.1s linear; }
+
+/* menu button readable in day mode */
+[data-theme="light"] .of-burger { background: rgba(248,245,238,0.85); box-shadow: 0 0 0 1px rgba(133,102,44,0.3); }
+[data-theme="light"] .of-burger span { background: #85662c; }
+
+/* top-right tools: day/night */
+.tools { position: fixed; top: 14px; right: 14px; z-index: 990; display: flex; gap: 8px; }
+.tool {
+  height: 48px; min-width: 48px; padding: 0 14px; border-radius: 24px; border: 1px solid var(--border-g);
+  display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+  background: color-mix(in srgb, var(--bg) 70%, transparent); color: var(--gold);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  font: 600 0.66rem 'Space Grotesk', sans-serif; letter-spacing: 0.18em; text-transform: uppercase;
+}
+.tool:hover, .tool:focus-visible { color: var(--gold-lt); border-color: var(--gold); outline: none; }
+.tool svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.tool .ic-sun { display: none; }
+[data-theme="dark"] .tool .ic-sun { display: block; }
+[data-theme="dark"] .tool .ic-moon { display: none; }
+
+/* ── HERO ── */
+.hero {
+  position: relative; padding: 7.5rem 1.4rem 3.5rem; text-align: center;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% -10%, rgba(45,106,159,0.18) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 35% at 85% 95%, var(--gold-dim) 0%, transparent 60%),
+    var(--bg);
+  border-bottom: 1px solid var(--border-g);
+}
+[data-theme="light"] .hero { background: radial-gradient(ellipse 70% 60% at 50% -10%, rgba(45,106,159,0.10) 0%, transparent 65%), var(--bg2); }
+.eyebrow { font: 600 0.68rem 'Space Grotesk', sans-serif; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.4rem; }
+.hero h1 {
+  font: 700 clamp(2.1rem, 5.6vw, 3.9rem)/1.05 'Space Grotesk', sans-serif; letter-spacing: -0.025em;
+  color: var(--ink); max-width: 900px; margin: 0 auto;
+}
+.hero h1 .sub { display: block; color: var(--gold); font-size: 0.58em; letter-spacing: -0.01em; margin-top: 0.7rem; font-weight: 600; }
+.hero-rule { width: 64px; height: 1px; margin: 2rem auto 1.6rem; background: linear-gradient(to right, transparent, var(--gold), transparent); }
+.tagline { font: italic 300 clamp(1.15rem, 2.6vw, 1.55rem)/1.45 'Cormorant Garamond', serif; color: var(--muted); max-width: 640px; margin: 0 auto 1.6rem; }
+[data-theme="light"] .tagline { color: var(--body); }
+.byline { font: 500 0.78rem 'Space Grotesk', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.byline b { color: var(--ink); font-weight: 600; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; justify-content: center; margin-top: 2.2rem; }
+
+/* buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+  font: 700 0.7rem 'Space Grotesk', sans-serif; letter-spacing: 0.16em; text-transform: uppercase;
+  text-decoration: none; padding: 0.95rem 1.4rem; border-radius: 2px; cursor: pointer;
+  color: var(--gold); background: transparent; border: 1px solid var(--border-g);
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
+}
+.btn:hover, .btn:focus-visible { background: var(--gold-dim); border-color: var(--gold); color: var(--gold-lt); outline: none; }
+.btn svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.btn--solid { color: var(--btn-ink); background: var(--gold); border-color: var(--gold); }
+.btn--solid:hover, .btn--solid:focus-visible { background: var(--gold-lt); border-color: var(--gold-lt); color: var(--btn-ink); transform: translateY(-1px); }
+.btn--lg { font-size: 0.8rem; padding: 1.15rem 2rem; }
+
+/* ── LAYOUT ── */
+.layout { max-width: 1180px; margin: 0 auto; padding: 0 1.4rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: 3rem; }
+@media (min-width: 1180px) { .layout { grid-template-columns: minmax(0, 720px) 260px; justify-content: center; gap: 4.5rem; } }
+article { max-width: 720px; width: 100%; margin: 0 auto; padding: 3rem 0 4rem; }
+
+/* intro + audio */
+.lead { font-size: 1.08rem; color: var(--body); padding: 0 0 2rem; }
+.listen {
+  border: 1px solid var(--border-g); background: var(--bg2); border-radius: 4px;
+  padding: 1.3rem 1.4rem; margin: 0 0 2.6rem;
+}
+.listen-head { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.9rem; }
+.listen-head svg { width: 22px; height: 22px; fill: none; stroke: var(--gold); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; flex: 0 0 22px; }
+.listen-k { font: 600 0.72rem 'Space Grotesk', sans-serif; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); }
+.listen-sub { font-size: 0.9rem; color: var(--muted); }
+.listen audio { width: 100%; margin: 0.4rem 0 0.8rem; }
+.chapters { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.chapters .btn { padding: 0.7rem 1rem; font-size: 0.64rem; }
+.listen-soon { font-size: 0.92rem; color: var(--muted); }
+.listen.is-ready .listen-soon, .listen:not(.is-ready) audio, .listen:not(.is-ready) .chapters { display: none; }
+
+/* sections */
+.sec { padding-top: 1rem; }
+.sec + .sec { margin-top: 2.4rem; }
+h2 {
+  font: 600 clamp(1.45rem, 3.2vw, 1.9rem)/1.2 'Space Grotesk', sans-serif; letter-spacing: -0.015em;
+  color: var(--ink); margin: 0 0 1.1rem;
+}
+.sec h2::before { content: ''; display: block; width: 36px; height: 1px; background: var(--gold); opacity: 0.7; margin-bottom: 1rem; }
+article p { margin: 0 0 1.15rem; }
+article ul, article ol { margin: 0 0 1.3rem 1.3rem; }
+article li { margin: 0 0 0.7rem; padding-left: 0.3rem; }
+article li::marker { color: var(--gold); }
+
+/* 3-minute card */
+.three {
+  background: var(--bg2); border: 1px solid var(--border-g); border-top: 3px solid var(--gold);
+  padding: 2rem 1.6rem 1.8rem; border-radius: 3px; box-shadow: var(--shadow);
+}
+@media (min-width: 640px) { .three { padding: 2.4rem 2.6rem 2.2rem; } }
+.three-k { font: 600 0.66rem 'Space Grotesk', sans-serif; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem !important; }
+
+/* calls to action */
+.cta { text-align: center; margin: 2.2rem 0 0.4rem; padding: 2rem 1rem; border-top: 1px solid var(--border-g); }
+.cta-k { font: 600 1.05rem/1.4 'Space Grotesk', sans-serif; color: var(--ink); margin-bottom: 1.2rem !important; }
+.cta-sub { font-size: 0.88rem; color: var(--muted); margin: 1rem 0 0 !important; }
+.cta--end { border: 1px solid var(--border-g); border-top: 3px solid var(--gold); background: var(--bg2); margin-top: 2.6rem; border-radius: 3px; padding: 2.4rem 1.2rem; }
+
+/* full-paper divider */
+.full-divider { text-align: center; margin: 4rem 0 2.4rem; }
+.fd-line { display: block; width: 100%; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); opacity: 0.7; }
+.fd-k { font: 700 0.82rem 'Space Grotesk', sans-serif; letter-spacing: 0.34em; text-transform: uppercase; color: var(--gold); margin: 1.4rem 0 0.3rem !important; }
+.fd-sub { font: italic 1.05rem 'Cormorant Garamond', serif; color: var(--muted); margin: 0 0 1.4rem !important; }
+
+/* tables */
+.table-wrap { overflow-x: auto; margin: 0.4rem 0 1.6rem; border: 1px solid var(--border); border-radius: 3px; -webkit-overflow-scrolling: touch; }
+table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 0.92rem; line-height: 1.55; }
+th, td { text-align: left; vertical-align: top; padding: 0.8rem 0.9rem; border-bottom: 1px solid var(--border); }
+thead th { font: 600 0.68rem 'Space Grotesk', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); background: var(--bg2); }
+tbody tr:last-child td { border-bottom: none; }
+td:first-child { color: var(--ink); }
+
+/* diagram */
+.diagram { margin: 1.8rem 0 1.4rem; padding: 1rem; background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; }
+.diagram svg { width: 100%; height: auto; display: block; font-family: 'Inter', sans-serif; }
+.diagram figcaption { font-size: 0.82rem; color: var(--muted); text-align: center; margin-top: 0.6rem; }
+.d-title { font: 600 15px 'Space Grotesk', sans-serif; fill: var(--ink); }
+.d-name { font: 600 13px 'Space Grotesk', sans-serif; fill: var(--ink); }
+.d-l { font-size: 11.5px; fill: var(--body); }
+.d-q { font-size: 11.5px; fill: var(--muted); }
+.d-box { fill: none; stroke: var(--d-edge); stroke-width: 1.25; }
+.d-box--accent { fill: var(--gold-dim); stroke: var(--gold); stroke-width: 2; }
+.d-found { fill: var(--d-tint); stroke: var(--d-edge); stroke-width: 1.25; }
+.d-conn path { fill: none; stroke: var(--d-edge); stroke-width: 1.25; }
+.d-fill-edge { fill: var(--d-edge); }
+
+/* small sections */
+.sec--small { font-size: 0.92rem; }
+.sec--small li { margin-bottom: 0.45rem; }
+.csb { font-size: 0.82rem; color: var(--muted); margin-top: 1.6rem !important; }
+
+/* ── CONTENTS ── */
+.toc-rail { display: none; }
+@media (min-width: 1180px) {
+  .toc-rail { display: block; padding-top: 3rem; }
+  .toc-rail .toc { position: sticky; top: 90px; max-height: calc(100vh - 120px); overflow-y: auto; }
+  .toc-fab { display: none !important; }
+}
+.toc-title { font: 600 0.66rem 'Space Grotesk', sans-serif; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
+.toc ol { list-style: none; margin: 0; padding: 0; }
+.toc li a {
+  display: flex; justify-content: space-between; gap: 0.8rem; padding: 0.45rem 0 0.45rem 0.8rem;
+  font-size: 0.86rem; line-height: 1.35; color: var(--muted); text-decoration: none; border-left: 2px solid var(--border);
+}
+.toc li a:hover { color: var(--ink); }
+.toc li a.active { color: var(--ink); border-left-color: var(--gold); }
+.toc .m { font: 500 0.7rem 'Space Grotesk', sans-serif; color: var(--faint); white-space: nowrap; padding-top: 0.12rem; }
+.toc-sep { font: 600 0.6rem 'Space Grotesk', sans-serif; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold); margin: 1rem 0 0.4rem; padding-left: 0.8rem; }
+
+/* mobile contents button + sheet */
+.toc-fab {
+  position: fixed; right: 14px; bottom: 16px; z-index: 990;
+  display: inline-flex; align-items: center; gap: 0.5rem; height: 46px; padding: 0 1.1rem; border-radius: 23px;
+  font: 700 0.66rem 'Space Grotesk', sans-serif; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--btn-ink); background: var(--gold); border: none; cursor: pointer; box-shadow: var(--shadow);
+  opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity 0.25s, transform 0.25s;
+}
+.toc-fab.show { opacity: 1; transform: none; pointer-events: auto; }
+.toc-fab svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.sheet-scrim { position: fixed; inset: 0; z-index: 995; background: rgba(3,4,7,0.55); opacity: 0; visibility: hidden; transition: opacity 0.25s, visibility 0.25s; }
+.sheet {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 996; max-height: 78vh; overflow-y: auto;
+  background: var(--bg2); border-top: 3px solid var(--gold); border-radius: 12px 12px 0 0;
+  padding: 1.4rem 1.4rem 2rem; transform: translateY(105%); visibility: hidden; transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), visibility 0.35s;
+}
+.sheet-open .sheet { transform: none; visibility: visible; }
+.sheet-open .sheet-scrim { opacity: 1; visibility: visible; }
+.sheet-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem; }
+.sheet-x { background: none; border: none; color: var(--muted); font-size: 1.6rem; line-height: 1; width: 40px; height: 40px; cursor: pointer; }
+.sheet .toc li a { padding-top: 0.65rem; padding-bottom: 0.65rem; font-size: 0.95rem; }
+
+/* footer */
+.foot { border-top: 1px solid var(--border-g); padding: 2.4rem 1.4rem 5rem; text-align: center; font-size: 0.85rem; color: var(--muted); }
+.foot a { color: var(--gold); text-decoration: none; margin: 0 0.6rem; }
+.foot .verse { font: italic 1rem 'Cormorant Garamond', serif; margin-top: 1rem; }
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+
+/* print: always light, no floating UI */
+@media print {
+  :root, [data-theme] { --bg: #fff; --bg2: #fff; --ink: #000; --body: #111; --muted: #444; --gold: #6d521f; --gold-lt: #6d521f; --border: #ccc; --border-g: #bbb; --d-edge: #777; }
+  .progress, .tools, .toc-rail, .toc-fab, .sheet, .sheet-scrim, .listen, .hero-actions, .cta .btn { display: none !important; }
+  .hero { padding-top: 1rem; background: none; }
+  .three, .cta--end, .diagram { box-shadow: none; }
+  a { color: #000; }
+}
+</style>
+</head>
+<body data-share-url="https://dauntless120.github.io/ONE-FOUNDATION/why.html"
+      data-share-msg="I thought of you when I read this. It's a short white paper from ONE FOUNDATION on why the church must bring care back home, and how Christian therapists in local churches can help. There's a 3-minute version at the top. Worth a look!"
+      data-share-title="The New One-Hour Religion — ONE FOUNDATION">
+<!-- ═══════════════════════════════════════════
+     SITE MENU  (identical on index.html, about.html and why.html)
+     Paste directly after the opening <body> tag.
+═══════════════════════════════════════════ -->
+<style>
+.of-burger {
+  position: fixed; top: 14px; left: 14px; z-index: 1001;
+  width: 48px; height: 48px; padding: 0;
+  display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 6px;
+  background: rgba(7,9,13,0.45); border: none; border-radius: 50%;
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  cursor: pointer; -webkit-tap-highlight-color: transparent;
+}
+.of-burger span {
+  display: block; width: 26px; height: 2px; border-radius: 2px;
+  background: #c9a566;
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), opacity 0.25s, background 0.25s;
+}
+.of-burger:hover span, .of-burger:focus-visible span { background: #e3c07e; }
+.of-burger:focus-visible { outline: 1px solid #c9a566; outline-offset: 2px; }
+/* gentle pulse until the menu has been opened once */
+.of-burger.of-hint span { animation: of-pulse 2.6s ease-in-out infinite; }
+.of-burger.of-hint span:nth-child(2) { animation-delay: 0.12s; }
+.of-burger.of-hint span:nth-child(3) { animation-delay: 0.24s; }
+@keyframes of-pulse {
+  0%, 60%, 100% { opacity: 1;    box-shadow: none; }
+  30%           { opacity: 0.55; box-shadow: 0 0 8px rgba(227,192,126,0.8); }
+}
+/* lines fold into an X when open */
+.of-open .of-burger span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.of-open .of-burger span:nth-child(2) { opacity: 0; }
+.of-open .of-burger span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+.of-scrim {
+  position: fixed; inset: 0; z-index: 999;
+  background: rgba(3,4,7,0.62);
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s;
+}
+.of-open .of-scrim { opacity: 1; visibility: visible; }
+
+.of-panel {
+  position: fixed; top: 0; left: 0; bottom: 0; z-index: 1000;
+  width: min(330px, 86vw);
+  display: flex; flex-direction: column;
+  padding: 5.4rem 1.8rem 2rem;
+  background: #0c1018;
+  border-right: 1px solid rgba(201,165,102,0.3);
+  box-shadow: 18px 0 50px rgba(0,0,0,0.5);
+  transform: translateX(-102%); visibility: hidden;
+  transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), visibility 0.45s;
+  overflow-y: auto;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.of-open .of-panel { transform: translateX(0); visibility: visible; }
+.of-brand {
+  font-size: 0.66rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase;
+  color: #c9a566; padding-bottom: 1.1rem; margin-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(201,165,102,0.2);
+}
+.of-panel nav { display: flex; flex-direction: column; }
+.of-link {
+  display: flex; align-items: center; gap: 0.9rem;
+  padding: 1rem 0.2rem;
+  font: 600 0.82rem/1.3 'Space Grotesk', sans-serif; letter-spacing: 0.14em; text-transform: uppercase;
+  color: #ede8dc; text-decoration: none; text-align: left;
+  background: none; border: none; border-bottom: 1px solid rgba(255,255,255,0.06);
+  cursor: pointer; transition: color 0.2s, padding-left 0.25s;
+}
+.of-link svg { width: 18px; height: 18px; flex: 0 0 18px; fill: none; stroke: #c9a566; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.of-link:hover, .of-link:focus-visible { color: #e3c07e; padding-left: 0.6rem; outline: none; }
+.of-link[aria-current="page"] { color: #c9a566; }
+.of-link[aria-current="page"]::after { content: '•'; margin-left: auto; color: #c9a566; }
+.of-panel-verse {
+  margin-top: auto; padding-top: 2rem;
+  font: italic 0.95rem/1.55 'Cormorant Garamond', serif; color: #8a939f;
+}
+
+/* desktop pop-ups (call / share) */
+.of-modal {
+  position: fixed; inset: 0; z-index: 1002;
+  display: flex; align-items: center; justify-content: center; padding: 1rem;
+  background: rgba(3,4,7,0.7);
+  opacity: 0; visibility: hidden; transition: opacity 0.25s, visibility 0.25s;
+}
+.of-modal.of-show { opacity: 1; visibility: visible; }
+.of-card {
+  position: relative; width: min(400px, 100%);
+  background: #0c1018; border: 1px solid rgba(201,165,102,0.3); border-top: 3px solid #c9a566;
+  padding: 2rem 1.8rem 1.7rem; text-align: center;
+  font-family: 'Inter', sans-serif; color: #ede8dc;
+}
+.of-card h3 { font: 600 0.68rem 'Space Grotesk', sans-serif; letter-spacing: 0.3em; text-transform: uppercase; color: #c9a566; margin-bottom: 0.9rem; }
+.of-card p { font-size: 0.9rem; line-height: 1.6; color: #8a939f; margin: 0 0 1.1rem; }
+.of-num { display: block; font: 700 1.7rem 'Space Grotesk', sans-serif; letter-spacing: 0.04em; color: #ede8dc; margin-bottom: 1.1rem; }
+.of-qr { display: block; width: 132px; height: 132px; margin: 0 auto 0.5rem; background: #fff; padding: 6px; border-radius: 3px; image-rendering: pixelated; }
+.of-qr-cap { font: 0.62rem 'Space Grotesk', sans-serif !important; letter-spacing: 0.16em; text-transform: uppercase; color: #4e5669 !important; }
+.of-btns { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; }
+.of-btn {
+  flex: 1 1 140px;
+  font: 700 0.68rem 'Space Grotesk', sans-serif; letter-spacing: 0.16em; text-transform: uppercase;
+  text-decoration: none; text-align: center;
+  padding: 0.85rem 1rem; border-radius: 2px; cursor: pointer;
+  color: #c9a566; background: transparent; border: 1px solid rgba(201,165,102,0.35);
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+.of-btn:hover, .of-btn:focus-visible { background: rgba(201,165,102,0.15); border-color: #c9a566; color: #e3c07e; outline: none; }
+.of-btn--solid { color: #07090d; background: #c9a566; border-color: #c9a566; }
+.of-btn--solid:hover, .of-btn--solid:focus-visible { background: #e3c07e; color: #07090d; }
+.of-x {
+  position: absolute; top: 0.5rem; right: 0.6rem; width: 36px; height: 36px;
+  background: none; border: none; color: #8a939f; font-size: 1.5rem; line-height: 1; cursor: pointer;
+}
+.of-x:hover { color: #e3c07e; }
+
+/* keep the about page's top bar clear of the menu button */
+.printbar:not(.printbar--foot) { padding-left: 3.4rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .of-burger.of-hint span { animation: none; }
+}
+@media print {
+  .of-burger, .of-scrim, .of-panel, .of-modal { display: none !important; }
+  .printbar:not(.printbar--foot) { padding-left: 0; }
+}
+</style>
+
+<button class="of-burger of-hint" id="of-burger" aria-label="Open menu" aria-expanded="false" aria-controls="of-panel">
+  <span></span><span></span><span></span>
+</button>
+<div class="of-scrim" id="of-scrim"></div>
+
+<aside class="of-panel" id="of-panel" aria-label="Site menu">
+  <p class="of-brand">ONE FOUNDATION</p>
+  <nav>
+    <a class="of-link" href="index.html" data-page="home">
+      <svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>Home</a>
+    <a class="of-link" href="about.html" data-page="about">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6"/><path d="M12 7.5v.01"/></svg>About</a>
+    <a class="of-link" href="why.html" data-page="why">
+      <svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5V5.5"/><path d="M8 7.5h8M8 11h6"/></svg>Our Why</a>
+    <a class="of-link" href="https://calendar.app.google/jJSGsxCCZwAWgHLQ6" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Schedule a Conversation</a>
+    <a class="of-link" href="tel:+12486603926" id="of-call">
+      <svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Call Dave Now</a>
+    <button class="of-link" type="button" id="of-share">
+      <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>Share with a Colleague</button>
+  </nav>
+  <p class="of-panel-verse">"No one can lay a foundation other than that which is laid, which is Jesus Christ."<br>— 1 Corinthians 3:11</p>
+</aside>
+
+<!-- desktop: call pop-up -->
+<div class="of-modal" id="of-call-modal" role="dialog" aria-modal="true" aria-labelledby="of-call-h">
+  <div class="of-card">
+    <button class="of-x" type="button" data-close aria-label="Close">&times;</button>
+    <h3 id="of-call-h">Call Dave</h3>
+    <span class="of-num">248-660-3926</span>
+    <img class="of-qr" alt="QR code that dials Dave from your phone" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKIAAACiAQAAAADqiSu2AAABS0lEQVR4nM2XwW3kMBAEa5YE/BwCDsChMASHZGxIlwEZymVAPQWM0H5oF/e4W/9E3nwk9KcLIqfRMvH39Ns/RLhMPczM7DBjs0w3MyvXub1QXVKDehQASXGl2wu1WwHIEHCYXev2Wk26h7cTZjpDPh9HRr8/0+grGG5QNUijQt8LSZrOkNkMiI9fx0cDDPDJDOg5SQ0/X9tkhvA/KZVGDW/4ZIZbGl1SkpLaUWD70liwm3mz3Swg6Q4cs3OSgCSFC29Qw1vMPgvO2xiQBmkgaT5DeNOoQQ1XGhVvC/YC8HZapzOsVnyHoEKNc09X3IfwJjVJuOKpLMnJcztwhc/PyUePgrqbBZ0F+fDsUX5/GxXq1W4v1G4Fti8gb5bXMDxmLyS1NHpe1KOS+tv4hLqXcaHbjz0KOApsBn06w7NH5QdG9hrvkxnsP/jP+gbyPMDDZ2DnigAAAABJRU5ErkJggg==">
+    <p class="of-qr-cap">Scan with your phone's camera to dial</p>
+    <p>Calling from a computer needs a phone app linked to it (like iPhone on a Mac, Phone Link on Windows, or Teams). Otherwise, dial the number from your phone.</p>
+    <div class="of-btns">
+      <button class="of-btn" type="button" id="of-copy-num">Copy number</button>
+      <a class="of-btn of-btn--solid" href="tel:+12486603926">Call from this computer</a>
+    </div>
+  </div>
+</div>
+
+<!-- desktop: share pop-up -->
+<div class="of-modal" id="of-share-modal" role="dialog" aria-modal="true" aria-labelledby="of-share-h">
+  <div class="of-card">
+    <button class="of-x" type="button" data-close aria-label="Close">&times;</button>
+    <h3 id="of-share-h">Share with a Colleague</h3>
+    <p>Send this to a pastor or ministry leader using whichever email you use.</p>
+    <div class="of-btns">
+      <a class="of-btn" id="of-gmail" target="_blank" rel="noopener">Gmail</a>
+      <a class="of-btn" id="of-outlook" target="_blank" rel="noopener">Outlook</a>
+      <a class="of-btn" id="of-mailto">Email App</a>
+      <button class="of-btn of-btn--solid" type="button" id="of-copy-link">Copy link</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var SITE    = document.body.getAttribute('data-share-url') || 'https://dauntless120.github.io/ONE-FOUNDATION/';
+  var SUBJECT = 'Thought of you — ONE FOUNDATION';
+  var MSG     = document.body.getAttribute('data-share-msg') || 'I thought of you when I saw this. ONE FOUNDATION places credentialed, Gospel-centered therapists in local churches at no cost to the church, and points people into the life of the church. Worth a look!';
+  var PHONE   = '248-660-3926';
+
+  var root    = document.documentElement;
+  var burger  = document.getElementById('of-burger');
+  var panel   = document.getElementById('of-panel');
+  var scrim   = document.getElementById('of-scrim');
+  var callM   = document.getElementById('of-call-modal');
+  var shareM  = document.getElementById('of-share-modal');
+  var isPhone = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+  var lastFocus = null;
+
+  // mark the page they're on
+  var path = location.pathname;
+  var page = /why(\.html)?\/?$/i.test(path) ? 'why' : (/about(\.html)?\/?$/i.test(path) ? 'about' : 'home');
+  var cur = document.querySelector('.of-link[data-page="' + page + '"]');
+  if (cur) cur.setAttribute('aria-current', 'page');
+
+  // stop the pulse once they've found the menu
+  try { if (sessionStorage.getItem('of-menu-seen')) burger.classList.remove('of-hint'); } catch (e) {}
+
+  function openMenu() {
+    lastFocus = document.activeElement;
+    root.classList.add('of-open');
+    burger.setAttribute('aria-expanded', 'true');
+    burger.setAttribute('aria-label', 'Close menu');
+    burger.classList.remove('of-hint');
+    try { sessionStorage.setItem('of-menu-seen', '1'); } catch (e) {}
+    document.body.style.overflow = 'hidden';
+    setTimeout(function () { var f = panel.querySelector('.of-link'); if (f) f.focus(); }, 60);
+  }
+  function closeMenu(keepFocus) {
+    root.classList.remove('of-open');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-label', 'Open menu');
+    document.body.style.overflow = '';
+    if (!keepFocus) burger.focus();
+  }
+  burger.addEventListener('click', function () {
+    root.classList.contains('of-open') ? closeMenu() : openMenu();
+  });
+  scrim.addEventListener('click', function () { closeMenu(); });
+  panel.querySelectorAll('a.of-link').forEach(function (a) {
+    a.addEventListener('click', function () { if (a.id !== 'of-call' || isPhone) closeMenu(true); });
+  });
+
+  function showModal(m) { closeMenu(true); m.classList.add('of-show'); var b = m.querySelector('.of-btn'); if (b) b.focus(); }
+  function hideModals() {
+    [callM, shareM].forEach(function (m) { m.classList.remove('of-show'); });
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  [callM, shareM].forEach(function (m) {
+    m.addEventListener('click', function (e) { if (e.target === m || e.target.hasAttribute('data-close')) hideModals(); });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    if (callM.classList.contains('of-show') || shareM.classList.contains('of-show')) hideModals();
+    else if (root.classList.contains('of-open')) closeMenu();
+  });
+
+  function copy(text, btn) {
+    var done = function () { var t = btn.textContent; btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = t; }, 1600); };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(done, function () { window.prompt('Copy this:', text); });
+    } else { window.prompt('Copy this:', text); }
+  }
+
+  // Call Dave: phones dial directly; computers get the pop-up
+  document.getElementById('of-call').addEventListener('click', function (e) {
+    if (isPhone) return;
+    e.preventDefault();
+    showModal(callM);
+  });
+  document.getElementById('of-copy-num').addEventListener('click', function () { copy(PHONE, this); });
+
+  // Share: phones get the native share sheet (text fallback); computers get email choices
+  var body = MSG + '\n\n' + SITE;
+  document.getElementById('of-gmail').href   = 'https://mail.google.com/mail/?view=cm&fs=1&su=' + encodeURIComponent(SUBJECT) + '&body=' + encodeURIComponent(body);
+  document.getElementById('of-outlook').href = 'https://outlook.live.com/mail/0/deeplink/compose?subject=' + encodeURIComponent(SUBJECT) + '&body=' + encodeURIComponent(body);
+  document.getElementById('of-mailto').href  = 'mailto:?subject=' + encodeURIComponent(SUBJECT) + '&body=' + encodeURIComponent(body);
+  document.getElementById('of-copy-link').addEventListener('click', function () { copy(SITE, this); });
+  shareM.querySelectorAll('a.of-btn').forEach(function (a) { a.addEventListener('click', function () { setTimeout(hideModals, 300); }); });
+
+  document.getElementById('of-share').addEventListener('click', function () {
+    if (!isPhone) { showModal(shareM); return; }
+    closeMenu(true);
+    if (navigator.share) {
+      navigator.share({ title: document.body.getAttribute('data-share-title') || 'ONE FOUNDATION Missional Wellness Services', text: MSG, url: SITE }).catch(function () {});
+    } else {
+      location.href = 'sms:?&body=' + encodeURIComponent(body);
+    }
+  });
+})();
+</script>
+<!-- ═══════════ END SITE MENU ═══════════ -->
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<div class="tools">
+  <button class="tool" id="theme-toggle" type="button" aria-label="Switch to day mode">
+    <svg class="ic-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    <svg class="ic-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+    <span id="theme-label">Day</span>
+  </button>
+</div>
+
+<header class="hero">
+  <p class="eyebrow">A ONE FOUNDATION White Paper</p>
+  <h1>The New One-Hour Religion<span class="sub">Why the Church Must Bring Care Back Home</span></h1>
+  <div class="hero-rule"></div>
+  <p class="tagline">Wellness has become America’s newest religion. But the church has what wellness lacks: a reason to get well.</p>
+  <p class="byline">By <b>Dave Denning</b> &amp; <b>Dr. Reta Kae Denning</b>, ONE FOUNDATION Founders · October 6, 2026</p>
+  <div class="hero-actions">
+    <a class="btn" href="#three-minute">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Read in 3 Minutes</a>
+    <a class="btn" href="#listen">
+      <svg viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1"/><rect x="17" y="14" width="4" height="6" rx="1"/></svg>Listen</a>
+    <a class="btn btn--solid" href="https://calendar.app.google/jJSGsxCCZwAWgHLQ6" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Schedule a Conversation</a>
+  </div>
+</header>
+
+<div class="layout">
+<article id="article">
+  <div class="lead"><p><strong>A ONE FOUNDATION white paper for pastors and church staff.</strong> It makes the case that the church should bring care back inside its walls, and that this care must be built for sending, not for keeping. It draws on theology, economics, psychology, sociology, and public health data. It looks honestly at the strengths and drifts of secular therapy, Christian counseling, and pastoral care, and describes the Missional Wellness model ONE FOUNDATION is building. Scripture quotations are from the Christian Standard Bible (CSB).</p></div>
+
+  <!-- AUDIO: upload the recording to the site as why-audio.mp3.
+       Set data-full-start to the second where the full paper begins (e.g. 210 for 3:30). -->
+  <section class="listen" id="listen" aria-label="Audio edition" data-src="why-audio.mp3" data-full-start="">
+    <div class="listen-head">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1"/><rect x="17" y="14" width="4" height="6" rx="1"/></svg>
+      <div><p class="listen-k">Listen to our Why</p><p class="listen-sub">The 3-minute version and the full paper, in one recording. Made for the drive.</p></div>
+    </div>
+    <audio id="audio" controls preload="metadata"></audio>
+    <div class="chapters">
+      <button class="btn" type="button" data-seek="0">▶ 3-Minute Version</button>
+      <button class="btn" type="button" data-seek="full" id="seek-full">▶ Full Paper</button>
+    </div>
+    <p class="listen-soon">The audio edition is coming soon. In the meantime, the 3-minute version below takes about as long as a cup of coffee.</p>
+  </section>
+
+<section class="three" id="three-minute" aria-labelledby="h-three-minute"><p class="three-k">Start here</p><h2 id="h-three-minute">The 3-Minute Version</h2><p><strong>The problem.</strong> Therapy has become America’s New One-Hour Religion. It has a weekly hour of confession, a trained listener, and a $547 billion global mental wellness market, with the self at the center and no destination. Wellness pursued for its own sake turns inward, and a soul made for mission, stuck in endless maintenance, becomes malformed. An industry built around the weekly hour can keep it that way. None of this will surprise you. But we believe the church needs to take it more seriously, and we’re offering to help lead the way.</p>
+<p><strong>Why it matters to the church now.</strong> The pain is real, and it’s loud.</p>
+<ul>
+<li>The share of adults aged 18 to 44 in mental health treatment rose from 18.5 to 23.2 percent between 2019 and 2021.</li>
+<li>Young people’s in-person time with friends fell by almost 70 percent between 2003 and 2020.</li>
+<li>People are paying for fifty minutes of undivided attention.</li>
+<li>52 percent of Christians want their church to offer counseling, but only 31 percent of pastors agree.</li>
+</ul>
+<p><strong>When the church stays silent</strong>, the conversation drifts to the therapy office, and the language of the self fills the space the church left empty. <strong>When church and counseling stay separate</strong>, both are weakened. Pastors aren’t immune to letting compassion hold truth captive. And in isolation, even well-meaning Christian therapists can slip into a god complex, becoming the sought-after experts in a profession walled off from the church.</p>
+<p><strong>What Scripture says.</strong> The heart is deceitful (Jer. 17:9). It is known by being searched by God, not by searching itself (17:10). In Christ, a person’s standing doesn’t depend on how they feel: they are clothed in His righteousness (Gal. 3:27), and they bear fruit by remaining in the Vine (John 15:5). Healing has a destination. Jesus called the Twelve “to be with him” and “to send them out” (Mark 3:14).</p>
+<p><strong>What we propose: Missional Wellness.</strong></p>
+<ul>
+<li>A licensed counselor who accepts insurance and is found in the open marketplace, but whose genuine faith you and your staff know personally. They meet clients on your church campus, so you reach neighbors who would never search for “Christian counseling.”</li>
+<li>A culture of care built on Christ’s teachings but designed for how people experience care today, so those who come for help find a church ready to love them when their session ends.</li>
+<li>Clear lines: therapists invite faith but never impose it; names are never shared with the pastor; clinical decisions stay with clinicians; discipleship stays with the church; and concerns go through ONE FOUNDATION’s leadership.</li>
+<li>Honest safeguards against the incentives that keep people in treatment: every plan has goals, an end, and a planned step-down into the life of the church.</li>
+<li>A partner organization that doesn’t bill the church for counseling or burn out your volunteers. Instead, it sustainably coordinates care your community is asking for, and keeps everyone building on the only foundation that matters: Jesus Christ.</li>
+</ul>
+<p><strong>What you gain.</strong> You know the counselor’s faith before anyone books a session. Your community gets care without leaving the neighborhood. And you stop carrying the parts of mental health care that were never assigned to you.</p>
+<p><strong>Care without compromise.</strong> When you and your people are properly equipped, a culture of care is Christ’s love expressed effectively in today’s America: care people experience, not just hear about from leaders. When care is systematic and intentional, the church grows in confidence to speak even hard truths from God’s Word. Truth stands firm, and it lands deeper. As the old saying goes, “People don’t care how much you know until they know how much you care.”</p>
+
+<div class="cta" role="region" aria-label="Schedule a conversation">
+  <p class="cta-k">Ready to talk it through?</p>
+  <a class="btn btn--solid btn--lg" href="https://calendar.app.google/jJSGsxCCZwAWgHLQ6" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+    Schedule a Conversation</a>
+  <p class="cta-sub">Or keep reading for the full case.</p>
+</div></section>
+
+<div class="full-divider" id="full-paper">
+  <span class="fd-line"></span>
+  <p class="fd-k">The Full Paper</p>
+  <p class="fd-sub">about 30 minutes to read</p>
+  <span class="fd-line"></span>
+</div>
+<section class="sec" id="built-for-something" aria-labelledby="h-built-for-something"><h2 id="h-built-for-something">Built for Something</h2><p>Dave spent years on Navy ships, at sea and in port. Every Sailor learns a truth that the writer John A. Shedd put into words in his 1928 collection <em>Salt from My Attic</em>: “A ship in harbor is safe, but that is not what ships are built for.”</p>
+<p>A warship is built to go into harm’s way. It defends people who will never know its name. So it gets beaten up. Salt eats the steel, storms crack the fittings, and long deployments wear down the crew and the machinery alike.</p>
+<p>Then the ship comes home to be repaired. Nobody on the pier thinks the repairs are the point. The ship is fixed so it can go back to sea. Sooner or later, the ship leaves the harbor again. It has a mission, and without one, a ship doesn’t make sense.</p>
+<p>Everyone aboard knows what happens when a crew forgets this. A ship that settles into the harbor slowly turns into a museum. Maintenance becomes the mission. Purpose drains out of the crew one watch at a time. Good commanding officers remind their Sailors every day that the work of keeping the ship running serves something greater than the ship.</p>
+<p>We’ve come to believe the same is true of the human mind, body, and soul. We’re being repaired in a culture that has forgotten what we were built for.</p>
+</section>
+<section class="sec" id="the-new-one-hour-religion" aria-labelledby="h-the-new-one-hour-religion"><h2 id="h-the-new-one-hour-religion">The New One-Hour Religion</h2><p>Americans used to give God one hour on Sunday. Now many give an hour on Tuesday afternoon to a different kind of worship.</p>
+<p>It has its own sacred time: the 50-minute session. It has confession, a trained listener, a vocabulary of healing, and a weekly payment. It also has a booming economy. The Global Wellness Institute’s most recent <a href="https://globalwellnessinstitute.org/press-room/press-releases/the-global-wellness-economy-hits-a-record-6-8-trillion/" target="_blank" rel="noopener">Global Wellness Economy Monitor</a> (November 2025) valued the world’s wellness economy at $6.8 trillion in 2024, including $547 billion in mental wellness alone. Wellness is no longer just a practice. It’s a product, and more and more it’s an identity.</p>
+<p>This isn’t a new observation. In <em>The Triumph of the Therapeutic</em> (1966), the sociologist Philip Rieff warned: “Religious man was born to be saved; psychological man is born to be pleased.” A decade later, the psychologist Paul Vitz argued in <em>Psychology as Religion: The Cult of Self-Worship</em> (1977) that popular psychology had become a faith of its own, with the self at the center. The New One-Hour Religion promises healing, but its god is the self and its heaven is feeling okay. No one gets sent anywhere. The harbor is the whole voyage.</p>
+<p>That’s why wellness turns into an idol. Health is a gift. Paul tells Timothy that “the training of the body has limited benefit” (1 Tim. 4:8), and caring well for mind and body honors God. But a gift pursued for its own sake turns inward, and then into idolatry. The more you examine the hull, the more flaws you find. A soul made for mission, stuck in endless maintenance, doesn’t just stall. It becomes malformed.</p>
+</section>
+<section class="sec" id="the-deceitful-heart" aria-labelledby="h-the-deceitful-heart"><h2 id="h-the-deceitful-heart">The Deceitful Heart</h2><p>Jeremiah 17 may be the most honest diagnosis of the human condition ever written. It also explains why endless self-examination makes people worse.</p>
+<p>The chapter opens with two plants. “Cursed is the person who trusts in mankind. He makes human flesh his strength … He will be like a juniper in the Arabah” (Jer. 17:5–6). “The person who trusts in the LORD, whose confidence indeed is the LORD, is blessed. He will be like a tree planted by water … It will not worry in a year of drought or cease producing fruit” (17:7–8). Notice what makes the tree healthy: it is rooted in something outside itself. And its health has a purpose. It bears fruit.</p>
+<p>Then comes the verse everyone quotes: “The heart is more deceitful than anything else, and incurable—who can understand it?” (17:9). The next verse is the one people forget, and it answers the question: “I, the LORD, examine the mind, I test the heart” (17:10). The heart can’t be understood by searching itself even with a trained guide. It is understood by being searched by God.</p>
+<p>This is where the New One-Hour Religion goes wrong. Its method is introspection, and its authority is the self. “Live your truth” assumes the one witness Jeremiah says can’t be trusted. Give a deceitful heart fifty minutes a week to explain itself, and it gets better at explaining itself. The result is often mental gymnastics: more sophisticated stories about why we are the way we are, and fewer changed lives.</p>
+<p>Psychological research points the same way. In a 2002 meta-analysis in <em>Psychological Bulletin</em>, researchers Nilly Mor and Jennifer Winquist pooled 226 effect sizes and found that <a href="https://cris.huji.ac.il/en/publications/self-focused-attention-and-negative-affect-a-meta-analysis/" target="_blank" rel="noopener">self-focused attention is consistently linked to negative emotion</a>. Rumination, the repetitive kind of self-focus, showed the strongest link to depression and anxiety. Turning ever inward doesn’t heal the heart. It gives the heart more of what already hurts it.</p>
+<p>This isn’t a verdict against counseling. Scripture honors a wise outside voice: “Counsel in a person’s heart is deep water; but a person of understanding draws it out” (Prov. 20:5). The best clinical tools agree with Jeremiah. Cognitive behavioral therapy, one of the most researched approaches in psychology, trains people not to trust their automatic thoughts, but to test them. The problem isn’t counsel. The problem is a heart consulting only itself.</p>
+<p>Paul refused even to be his own final judge: “I don’t even judge myself … It is the Lord who judges me” (1 Cor. 4:3–4). The psalmist asked to be searched: “Search me, God, and know my heart; test me and know my concerns” (Ps. 139:23). And the heart Jeremiah calls “incurable” is not beyond God. He promises, “I will put my teaching within them and write it on their hearts” (Jer. 31:33), and “I will give you a new heart and put a new spirit within you” (Ezek. 36:26). Jeremiah’s own prayer, a few verses later, is the gospel in one line: “Heal me, LORD, and I will be healed; save me, and I will be saved” (Jer. 17:14).</p>
+<p>In that verse, healing and saving belong together. The healing is real, and it has a destination. The tree is watered so it can bear fruit. The ship is repaired so it can be sent.</p>
+</section>
+<section class="sec" id="clothed-in-christ" aria-labelledby="h-clothed-in-christ"><h2 id="h-clothed-in-christ">Clothed in Christ</h2><p>The world answers a hurting heart by trying to make it feel better about itself. The gospel’s answer is better news. A person who comes to Christ is declared righteous before they feel anything, and that standing holds no matter how they feel.</p>
+<p>Paul puts it plainly: “He made the one who did not know sin to be sin for us, so that in him we might become the righteousness of God” (2 Cor. 5:21). Theologians call this justification. Martin Luther, in his 1519 sermon “Two Kinds of Righteousness,” called it an <em>alien</em> righteousness. It comes from outside us, the way Jeremiah’s tree draws its life from water outside itself. “Therefore, there is now no condemnation for those in Christ Jesus” (Rom. 8:1).</p>
+<p>Scripture pictures this as being clothed. “He has clothed me with the garments of salvation and wrapped me in a robe of righteousness” (Isa. 61:10). “Those of you who were baptized into Christ have been clothed with Christ” (Gal. 3:27). Every Sailor understands this. You don’t feel your way into the uniform. You’re sworn in, and the uniform tells everyone, including you on your worst day, who you are and whom you serve.</p>
+<p>That changes how the church cares for someone in pain. Feelings are real, and they matter. But they aren’t the judge. John writes to believers whose hearts accuse them: “Whenever our hearts condemn us … God is greater than our hearts, and he knows all things” (1 John 3:20). That is the gospel’s answer to Jeremiah 17:9. The deceitful heart doesn’t get the last word. God does.</p>
+<p>So a Christian’s worth has two anchors. The first is creation: every person is made in the image of God (Gen. 1:27). The second is redemption: the believer is clothed in Christ’s own righteousness. Therapy at its best can help a person feel differently about themselves. Only Christ can change who they are before God. “He saved us—not by works of righteousness that we had done, but according to his mercy—through the washing of regeneration and renewal by the Holy Spirit” (Titus 3:5).</p>
+<p>Then comes the life that flows from that standing. Jesus says, “Remain in me, and I in you. Just as a branch is unable to produce fruit by itself unless it remains on the vine, neither can you unless you remain in me” (John 15:4). (Older translations say <em>abide</em>.) “The one who remains in me and I in him produces much fruit, because you can do nothing without me” (15:5). “My Father is glorified by this: that you produce much fruit and prove to be my disciples” (15:8).</p>
+<p>The fruit isn’t produced by strain. It grows from staying connected. That’s the order Missional Wellness follows. Remaining in Christ comes first. Wellness is a byproduct of that life, not its goal. Fruit, meaning love, service, and mission, is the evidence. A branch cut off from the vine can be tended for years and still bear nothing. A branch that remains in the vine will bear fruit, even in a year of drought.</p>
+</section>
+<section class="sec" id="the-poverty-of-attention" aria-labelledby="h-the-poverty-of-attention"><h2 id="h-the-poverty-of-attention">The Poverty of Attention</h2><p>In 1971 the Nobel Prize–winning economist Herbert Simon saw what was coming. Writing about how organizations should handle information, he warned: “A wealth of information creates a poverty of attention.” Fifty years later, attention is the scarcest thing we have, and the most valuable. Wealth, credibility, and even authority now flow to whoever can capture it. Our phones are built to take it from us, and they’re very good at it.</p>
+<p>The cost shows up at home. In his 2023 advisory <em>Our Epidemic of Loneliness and Isolation</em>, U.S. Surgeon General Vivek Murthy reported that young people aged 15 to 24 went from about 150 minutes a day of in-person time with friends in 2003 to about 40 minutes in 2020, <a href="https://www.smithsonianmag.com/smart-news/an-epidemic-of-loneliness-threatenes-health-of-americans-surgeon-general-says-180982142/" target="_blank" rel="noopener">a drop of almost 70 percent</a>. The same advisory found that the share of adults with three or fewer close friends rose from about 27 percent in 1990 to 49 percent in 2021. Families eat in the same room while looking at different screens. Children compete with a device for a parent’s eye contact.</p>
+<p>That helps explain why therapy has grown so fast. A therapy session is one of the last places in modern life where a person gets fifty minutes of undivided, face-to-face attention. No one checks a phone. No one changes the subject. Someone remembers what you said last week. People aren’t only paying for technique. Many are paying to be <em>attended to</em>.</p>
+<p>There’s a danger here, and a gift. The danger is that the attention economy teaches us that worth comes from being noticed. It doesn’t. Human worth comes from being made in God’s image (Gen. 1:27) and from the love He showed us before anyone was looking: “While we were still sinners, Christ died for us” (Rom. 5:8). The attention economy sells a counterfeit version of that worth.</p>
+<p>The gift is that the church has always been an attention community. Jesus stopped for one woman in a crowd who touched His cloak (Mark 5:30–34). When the rich young man came to Him, “Looking at him, Jesus loved him” (Mark 10:21). The body of Christ is told to “carry one another’s burdens” (Gal. 6:2), which you can’t do without noticing them.</p>
+<p>Yet the church often struggles here. In <em>A Culture of Care</em>, Pastor Matt Anzivino cites research from Barna and ChurchPulse showing that relational connection, meaning feeling known, supported, and genuinely cared for, is consistently one of the weakest areas of church life, even in congregations with strong attendance. He adds that many church leaders estimate only 20 to 30 percent of their people feel deeply known and cared for. As Anzivino puts it, “Care that is assumed is not the same as care that is felt, and people know the difference.” <strong>A church that recovers the ministry of attention will have something the market can only sell by the hour.</strong></p>
+</section>
+<section class="sec" id="when-care-becomes-captivity" aria-labelledby="h-when-care-becomes-captivity"><h2 id="h-when-care-becomes-captivity">When Care Becomes Captivity</h2><p>Economists teach one lesson before all others: people respond to incentives. Subsidize something and you tend to get more of it. That’s true of harmful behavior too, even when the subsidy comes from love. Good intentions don’t cancel incentives. Sometimes they hide them.</p>
+<p>Mental health care has learned this the hard way:</p>
+<ul>
+<li><strong>Debriefing.</strong> For years, trauma survivors were routinely brought in to talk through the event soon afterward. A 2002 Cochrane systematic review by Suzanna Rose, Jonathan Bisson, and colleagues found that single-session debriefing <a href="https://www.cochrane.org/evidence/CD000560_psychological-debriefing-preventing-post-traumatic-stress-disorder-ptsd" target="_blank" rel="noopener">did not prevent PTSD</a>. One trial found a higher risk of PTSD a year later among those who were debriefed. The reviewers concluded that compulsory debriefing “should cease.”</li>
+<li><strong>Trigger warnings.</strong> In a 2023 meta-analysis of 12 studies in <em>Clinical Psychological Science</em>, Victoria Bridgland, Payton Jones, and Benjamin Bellet found that content warnings <a href="https://www.psychologicalscience.org/news/2023-october-content-warnings-distress.html" target="_blank" rel="noopener">raised anxiety beforehand and did not reduce distress</a>. A kindness designed to protect people left them more afraid.</li>
+<li><strong>Awareness.</strong> Writing in <em>New Ideas in Psychology</em> (2023), researchers Lucy Foulkes and Jack Andrews proposed a <a href="https://www.suicideinfo.ca/resource/are-mental-health-awareness-efforts-contributing-to-the-rise-in-reported-mental-health-problems-a-call-to-test-the-prevalence-inflation-hypothesis/" target="_blank" rel="noopener">“prevalence inflation” hypothesis</a>. It suggests that awareness campaigns help people recognize real disorders, but may also lead some to read ordinary distress as illness, and that the label itself can make symptoms worse. The authors present it as a hypothesis still to be tested. But it names a risk every caregiver should take seriously.</li>
+</ul>
+<p>The mechanics aren’t mysterious. Avoidance brings relief now and more fear later. A diagnosis that explains suffering can become an identity that excuses it. Sympathy is a real reward, and a person’s pain can start to earn more attention than their growth. None of this makes anyone a bad actor. It makes them human, and it means care must be designed with incentives in mind.</p>
+<p>The money matters too, on both sides of the counseling room.</p>
+<p>On the client’s side, insurance is a subsidy, but it doesn’t make care free. Copays and deductibles remain. The economist Gary Becker showed in “A Theory of the Allocation of Time” (1965) that the full price of anything includes the time it takes. For counseling, that means the drive, the hour away from work, and the childcare. Price clearly affects who gets care. In the RAND Health Insurance Experiment, one of the largest randomized studies of health insurance ever run, economists Willard Manning, Kenneth Wells, and Bernadette Benjamin found (1986) that <a href="https://www.rand.org/pubs/reports/R3277.html" target="_blank" rel="noopener">adding cost-sharing lowered the chance people used outpatient mental health care at all</a>, though it didn’t change how much care they received once they started. Lower the price and more people come in. That’s a gift to people who need help and couldn’t otherwise afford it. It also means the design of the care, not just its price, has to steer people toward health.</p>
+<p>On the provider’s side, insurance generally pays only when there is a diagnosis, and counselors are paid by the session. Neither is evil, and both are how excellent care gets funded. But both reward labeling people and keeping them in treatment, whether or not that’s what the person needs. Any honest model, including ours, has to say this out loud (see “Owning Our Own Incentives” below).</p>
+<p>Scripture saw all this long before economics did.</p>
+<ul>
+<li><strong>Burdens and loads.</strong> “Carry one another’s burdens” (Gal. 6:2), and a few verses later, “each person will have to carry his own load” (Gal. 6:5). Both are true. Anzivino puts it well in <em>A Culture of Care</em>: “Rescue says, ‘Let me carry this for you.’ Care says, ‘I’ll walk with you. But you have to carry what’s yours.’”</li>
+<li><strong>The question Jesus asks.</strong> At the pool of Bethesda, Jesus meets a man who has been disabled for thirty-eight years and asks, “Do you want to get well?” (John 5:6). Then He says, “Get up … pick up your mat and walk” (5:8). Jesus honors the man’s agency as He heals him.</li>
+<li><strong>Strengthen the weak knees.</strong> “Strengthen your tired hands and weakened knees, and make straight paths for your feet, so that what is lame may not be dislocated but healed instead” (Heb. 12:12–13). Care aims at strength, not comfort alone.</li>
+</ul>
+<p>One guardrail is essential. Real victims exist, and God defends them: “The LORD is near the brokenhearted; he saves those crushed in spirit” (Ps. 34:18). The church must never dismiss real harm, abuse, or injustice. The line isn’t between people who were wronged and people who weren’t. It’s between a wound that gets tended and a wound that becomes a person’s name. In Christ, the name is new: “If anyone is in Christ, he is a new creation; the old has passed away, and see, the new has come!” (2 Cor. 5:17).</p>
+</section>
+<section class="sec" id="not-every-harbor-is-the-same" aria-labelledby="h-not-every-harbor-is-the-same"><h2 id="h-not-every-harbor-is-the-same">Not Every Harbor Is the Same</h2><p>Missional wellness isn’t a rejection of counseling. As Matt Anzivino writes in the introduction to <em>A Culture of Care</em>, trained counselors “provide essential, life-giving care. Their work is a gift, and the church should value it, respect it, and partner with it whenever appropriate.” We agree. Good therapy has kept people alive, saved marriages, and given words to pain that had none. The critique here comes from people who want more of that, not less.</p>
+<p>Still, the harbors have drifted, and in different ways.</p>
+<p><strong>Secular therapy</strong> is usually skilled at repair and has no destination. It can lower symptoms but can’t say what a restored life is for. The risk isn’t bad technique. The risk is a hull that gets inspected forever. In <em>Resisting Therapy Culture</em>, physician Matthew Loftus warns that therapy culture “teaches us to be observers of our own existence” (as quoted in <a href="https://www.thegospelcoalition.org/reviews/resisting-therapy-culture/" target="_blank" rel="noopener">The Gospel Coalition’s review</a>). Pastors tell us they see the same pattern: a person’s sense of agency shrinks, dependence on the weekly session grows, and identity slowly reorganizes around the wound.</p>
+<p><strong>Christian counseling</strong> often has the right destination and limited reach. Many practices are cash-pay, marketed to people who already believe, and set apart from the places where hurting people actually look for help. Others use Christian vocabulary on a model that is still aimed at the self. Some sound biblical care holds the truth but has lost the warmth. Anzivino describes three dimensions of healthy care: orthodoxy (right doctrine), orthopraxy (right ministry), and orthopathy (right affection). He warns that “right doctrine without compassionate presence can feel cold,” and it can push people back toward secular counseling.</p>
+<p>Pastors can fall into the same trap. Anzivino describes care in which “the leader carries more and more responsibility while the individual being helped carries less.” Pastors and therapists can both do this well or badly. His line fits both: “Rescue removes responsibility. Support strengthens capacity.”</p>
+<p>We also shouldn’t assume that more specialized care is always better care. When churches are afraid of risk and generalists are scarce, people get referred up to ever more specialized help. Costs climb, and the local church drops out of the story.</p>
+<p>Faithfulness requires more than cursing the harbor. An old maxim, often attributed to Michelangelo, gives the better way: <em>criticize by creating.</em> So this isn’t only a complaint. It proposes a different kind of shipyard.</p>
+</section>
+<section class="sec" id="the-megaphone-is-already-on" aria-labelledby="h-the-megaphone-is-already-on"><h2 id="h-the-megaphone-is-already-on">The Megaphone Is Already On</h2><p>In <em>The Problem of Pain</em> (1940), C. S. Lewis wrote: “God whispers to us in our pleasures, speaks in our conscience, but shouts in our pains: it is His megaphone to rouse a deaf world.”</p>
+<p>That megaphone is loud right now. According to a data brief from the CDC’s National Center for Health Statistics, the share of U.S. adults aged 18 to 44 receiving mental health treatment rose from 18.5 percent in 2019 to <a href="https://www.cdc.gov/nchs/data/databriefs/db444.pdf" target="_blank" rel="noopener">23.2 percent in 2021</a>. People who would never walk into a sanctuary are booking appointments, saying out loud that something is wrong, and paying to be heard.</p>
+<p>This is the most open door the church has had in a generation. The world won’t come to a revival tent. It will come to a counseling office. People already believe care is the right response to pain. They just don’t know who it comes from.</p>
+<p>Other signs point the same way. Gallup’s July 2025 Consumption Habits poll found that only <a href="https://www.bevnet.com/spirits/2025/gallup-poll-record-low-54-of-us-adults-drink-alcoholic-beverages/" target="_blank" rel="noopener">54 percent of U.S. adults drink alcohol</a>, a record low, and two-thirds of adults under 35 now say drinking is bad for their health. The bar is losing its hold as the default “third place,” the sociologist Ray Oldenburg’s term, from <em>The Great Good Place</em> (1989), for the informal gathering spots between home and work. Run clubs, supper clubs, and other in-person gatherings are springing up to fill the gap. And Barna’s 2025 State of the Church research reports that Gen Z and Millennial Christians are now <a href="https://access.barna.com/articles/young-adults-lead-resurgence-in-church-attendance" target="_blank" rel="noopener">the most regular churchgoers of any generation</a>, at about 1.9 times a month for Gen Z. A generation raised on screens wants to be known in person. They want care, and they want to matter, but modern life has made it hard to know where to find either.</p>
+<p>Many in our pews feel the same way. A <a href="https://assets.christianpost.com/news/most-christians-believe-churches-should-provide-counseling-care.html" target="_blank" rel="noopener">2022 Barna study</a> found that 52 percent of Christians believe churches should offer counseling, but only 31 percent of pastors agree. The people are asking. Many shepherds are hesitating, often for good reasons: limited capacity, liability, and knowing they aren’t trained clinicians. Those are exactly the problems missional wellness was designed to solve.</p>
+</section>
+<section class="sec" id="the-cost-of-silence-and-segregated-care" aria-labelledby="h-the-cost-of-silence-and-segregated-care"><h2 id="h-the-cost-of-silence-and-segregated-care">The Cost of Silence and Segregated Care</h2><p>Pastors have good reasons to be cautious about therapy culture. But caution has too often turned into silence and segregation, both having consequences.</p>
+<p>The data shows the problem isn’t mainly pastors fighting therapy. It’s pastors saying nothing. A 2014 study that Lifeway Research conducted with Focus on the Family found that <a href="https://research.lifeway.com/?p=1466" target="_blank" rel="noopener">49 percent of Protestant pastors</a> rarely or never speak to their church about mental illness. Meanwhile, 65 percent of family members of people with mental illness wanted their church to talk about it openly so it wouldn’t be taboo. Sixty-eight percent of pastors said their church kept a list of mental health resources, but only 28 percent of families knew it existed. That study is more than a decade old, and many churches have grown since. But the pattern it describes is still familiar.</p>
+<p>The pastor stays quiet, the referral happens where no one sees it, and the care happens somewhere else. Nobody decided to hand the conversation to the therapy office. It just drifted there. Once it’s there, the vocabulary of the self fills the space the church left empty. People learn to explain their lives in the language of the office, not the language of the Word.</p>
+<p>A pastor who stays silent to guard his flock from therapy culture doesn’t keep therapy culture out. He just ensures his people meet it alone. The unhealthy parts, like dependence, the inward turn, and an identity built on the wound, grow best where the church isn’t present.</p>
+<p>Pastors now face three paths. They can keep watching the conversation move out of the church and into therapy offices. They can watch their communities go there without them. Or they can bring the conversation home, and build a model that addresses isolation, the need for attention, clinical care, discipleship, and mission together. That third path is what missional wellness is for.</p>
+</section>
+<section class="sec" id="repaired-to-be-sent" aria-labelledby="h-repaired-to-be-sent"><h2 id="h-repaired-to-be-sent">Repaired to Be Sent</h2><p>ONE FOUNDATION <a href="https://dauntless120.github.io/ONE-FOUNDATION/about.html" target="_blank" rel="noopener">defines Missional Wellness</a> this way: it “intentionally positions counselors, who are Christians, in the public therapy marketplace where lost people are actively looking for relief.” Those counselors are rooted in a local church. They accept insurance, they’re held to professional standards, and they meet people who would never search for “Christian counseling.”</p>
+<p>This model differs from the harbors above in four ways.</p>
+<ol type="1">
+<li><strong>It has a destination.</strong> Mark tells us Jesus “appointed twelve … to be with him, to send them out to preach” (Mark 3:14). First with Him, then sent: that’s the dry dock and the open sea. “We are his workmanship, created in Christ Jesus for good works, which God prepared ahead of time for us to do” (Eph. 2:10). Wellness isn’t the goal. It’s the refit for the mission.</li>
+<li><strong>Its foundation isn’t the self.</strong> “No one can lay any foundation other than what has been laid down. That foundation is Jesus Christ” (1 Cor. 3:11). Therapy without the gospel can bring real relief, and sometimes real change. But its limit isn’t technique. Its limit is eternity. “What does it benefit someone to gain the whole world and yet lose his life?” (Mark 8:36). However real a change appears, a person restored to function but still apart from Christ is still lost. Our identity is a new name in Christ, not a diagnosis, a wound, or even a care program.</li>
+<li><strong>It meets people before they know the way.</strong> Anzivino writes that “your commitment to the vision of the church determines the church’s ability to meet your needs.” His point isn’t that people must already be aligned before they receive care. It’s that they must want to go where the vision leads: a commitment up front that they don’t want to stay broken or stay in sin. That’s wise stewardship. A church’s care resources are limited, and leaders need discernment when someone is using the church rather than seeking to grow. It echoes Jesus’ own question at Bethesda: “Do you want to get well?” Missional Wellness adds one thing. A counselor in the public marketplace meets people before they know the church has a vision at all. For the lost, and for many of the found, disconnection from the body is itself a symptom of the sickness. The counseling office is often where a person first discovers they want to be well, and first hears there’s a body to belong to. When they say yes, the church’s deeper care is ready for them.</li>
+<li><strong>It creates transparency, teamwork, and accountability.</strong> Most church–counselor arrangements are two parties and a handshake. A church lends a room, a counselor sees clients, and no one is responsible for the relationship itself. Missional Wellness adds a third party. ONE FOUNDATION serves as a management services organization: it doesn’t provide clinical care, and it doesn’t run the church. It manages the partnership between them. The church leads its own ministry. The partner clinic employs, supervises, and stands behind the counselor’s clinical work. ONE FOUNDATION matches the right counselor to the right church, guides the setup, coaches the culture of care, monitors how the partnership is working, and mediates concerns before they become conflicts. That’s why church leaders bring concerns to us rather than to the counselor directly. This lets each party focus on what it does best, the same principle that led the apostles in Acts 6 to appoint others to serve tables so they could devote themselves to prayer and the ministry of the word. It also guards against the outcomes no one intends: theological drift, poor service, neighbors who can’t get care, and care that is talked about but never experienced. “A cord of three strands is not easily broken” (Eccl. 4:12). And it’s the layer that lets this model multiply from one church to many, so the church can intentionally shape communities across America for God’s glory. This is a movement Jesus already started and we’re just trying to be obedient.</li>
+</ol>
+<p>One line needs to stay clear. A licensed counselor serves the client’s goals, and faith is invited, never imposed. Missional wellness doesn’t turn therapy sessions into sermons. It puts excellent clinical care in proximity to God’s people who are ready to love the person when the session ends. The counselor provides the clinical care. The church provides community. Christ provides the identity and mission.</p>
+</section>
+<section class="sec" id="different-callings-one-harbor" aria-labelledby="h-different-callings-one-harbor"><h2 id="h-different-callings-one-harbor">Different Callings, One Harbor</h2><p>The church and the professional counselor have different missions. Neither should try to do the other’s job. When they work side by side, each does its own job better.</p>
+<div class="table-wrap"><table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>The church</th>
+<th>The Christian counselor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Ultimate aim</strong></td>
+<td>Reconcile people to God and make disciples who are sent (Matt. 28:19–20)</td>
+<td>Relieve suffering and restore healthy functioning</td>
+</tr>
+<tr class="even">
+<td><strong>Authority</strong></td>
+<td>The Word of God, exercised by pastors and elders (1 Pet. 5:2–3)</td>
+<td>Professional ethics, the state licensing board, and clinical supervision</td>
+</tr>
+<tr class="odd">
+<td><strong>Tools</strong></td>
+<td>Preaching, prayer, the sacraments, discipleship, and community</td>
+<td>Assessment, diagnosis, and evidence-based treatment</td>
+</tr>
+<tr class="even">
+<td><strong>Time frame</strong></td>
+<td>A lifetime, and eternity</td>
+<td>An episode of care with goals and an end</td>
+</tr>
+<tr class="odd">
+<td><strong>What it cannot do</strong></td>
+<td>Diagnose or treat clinical disorders</td>
+<td>Make anyone righteous before God</td>
+</tr>
+</tbody>
+</table></div>
+<p>The last row matters most. The work Christ does in a person has no equal. The gospel “is the power of God for salvation to everyone who believes” (Rom. 1:16). A counselor can help someone understand their patterns, calm their anxiety, and repair a marriage. Only God can raise the spiritually dead, clothe a sinner in righteousness, and give a new heart. No clinical technique comes close, and none should pretend to.</p>
+<p>That’s a real temptation in the counseling room. A counselor holds people’s secrets, earns deep trust, and is often the first person who has really listened. Clients can start to treat the counselor as the one who understands them best, and the counselor can start to believe it. It’s an easy step from there to quietly playing God: becoming the source of meaning, the final word on who someone is, or the one they can’t do without.</p>
+<p>A Christian counselor grounded in Scripture knows their limits. Paul describes ministry this way: “I planted, Apollos watered, but God gave the growth. So, then, neither the one who plants nor the one who waters is anything, but only God who gives the growth” (1 Cor. 3:6–7). Jesus says it more bluntly: “You can do nothing without me” (John 15:5). That humility isn’t only good theology. It’s good practice. A counselor who knows they aren’t the Savior is far less likely to build dependence on themselves. Their posture is John the Baptist’s: “He must increase, but I must decrease” (John 3:30).</p>
+<p>Collaboration makes each partner better. The church gives what therapy can’t: community, continuity after care ends, a purpose beyond the self, and the Word of God. The counselor gives what the church often can’t: clinical skill, capacity, and a trusted referral that keeps a hurting person close to the body instead of sending them away. In <em>A Culture of Care</em>, Anzivino describes one case where this happened: “The counselor provided the clinical expertise they needed, and the church provided the relational support, encouragement, accountability, and community they needed.”</p>
+</section>
+<section class="sec" id="a-shipyard-in-every-church" aria-labelledby="h-a-shipyard-in-every-church"><h2 id="h-a-shipyard-in-every-church">A Shipyard in Every Church</h2><p>Picture a licensed counselor with an office on your church campus. Your neighbors find that counselor the same way they’d find any other: through their insurance, a search, or a friend’s referral. They walk onto church grounds to get help and see a church that is open on a Tuesday.</p>
+<p>The counselor handles clinical care. Trained care coaches and small groups surround each person with relationship, accountability, and next steps that belong to them. The questions change from “How do you feel about that?” to include “What do you believe your next step is?” and, eventually, “What were you made for?”</p>
+<p>A good commanding officer doesn’t let a ship stay in the yard any longer than it needs to, and a good care culture doesn’t either. The aim is people who are stronger, not more dependent. They go from surviving to serving, and in the end they’re the ones sitting across from the next person in the storm.</p>
+</section>
+<section class="sec" id="the-one-foundation-model" aria-labelledby="h-the-one-foundation-model"><h2 id="h-the-one-foundation-model">The ONE FOUNDATION Model</h2><p>ONE FOUNDATION is building Missional Wellness as a new model. It isn’t a variation on Christian counseling, and it isn’t a counseling center that rents space from a church. It brings together three things that usually stay separate: clinical excellence, a church host, and a purpose beyond being well.</p>
+<ol type="1">
+<li><strong>A licensed Christian counselor placed with a partner church.</strong> The counselor contracts through a ONE FOUNDATION partner clinic and practices on the church campus. Care is billed to insurance, so the counselor meets neighbors who would never search for “Christian counseling.”</li>
+<li><strong>A culture of care around the counselor.</strong> A counselor isn’t simply dropped into a church. The church builds a healthy culture of care around them, supported by simple systems which may include: a designated care leader, trained care coaches, clear referral pathways, courses and small groups, follow-up rhythms, staff trained to hand people off well, and a crisis protocol. This doesn’t change the church’s mission. It strengthens the church’s ability to do its part and to reach people in an age of distraction. It also keeps wellness from becoming about wellness, and keeps identity from drifting away from Christ and deeper into the self. ONE FOUNDATION’s Church Partnership Agreement includes help building this culture. One excellent example of what it can look like is Pastor Matt Anzivino’s <em>A Culture of Care</em>: a practical way for a church to deliver Christ’s love to its community in a way the community actually experiences and desperately needs. Matt is open to assisting churches and can be contacted through ONE FOUNDATION.</li>
+<li><strong>Patience before launch.</strong> Culture is built through ownership, patience, and consistency. That’s why we ask partner churches to treat the first year as a setup process, not an event. Before any counseling session is held, church leaders and the counselor spend real time together building teamwork and mutual trust, and the church has a clear point to decide whether to move forward. <a href="https://calendar.app.google/jJSGsxCCZwAWgHLQ6" target="_blank" rel="noopener">Schedule a conversation with us</a> to walk through how the first year works.</li>
+<li><strong>A destination.</strong> Every part of the model points to the same end: people remaining in Christ, rooted in the body, and sent.</li>
+</ol>
+
+<figure class="diagram" aria-labelledby="dia-cap">
+<svg viewBox="0 0 760 424" role="img" aria-label="Care that restores people and sends them back out">
+  <defs><marker id="cyc-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="d-fill-edge"/></marker></defs>
+  <text x="24" y="34" class="d-title">Care that restores people and sends them back out</text>
+  <g class="d-conn">
+    <path d="M304 108H456" marker-end="url(#cyc-arrow)"/>
+    <path d="M596 152V232" marker-end="url(#cyc-arrow)"/>
+    <path d="M456 276H304" marker-end="url(#cyc-arrow)"/>
+    <path d="M164 232V152" marker-end="url(#cyc-arrow)"/>
+  </g>
+  <text x="380" y="100" text-anchor="middle" class="d-q">finds care on campus</text>
+  <text x="606" y="196" class="d-q">planned step-down</text>
+  <text x="380" y="268" text-anchor="middle" class="d-q">grows in ownership</text>
+  <text x="174" y="196" class="d-q">brings neighbors</text>
+  <g><rect x="24" y="64" width="280" height="88" rx="8" class="d-box"/>
+    <text x="40" y="88" class="d-name">1  A neighbor in pain</text>
+    <text x="40" y="108" class="d-l">Searches, uses insurance, or is</text>
+    <text x="40" y="124" class="d-l">referred by a friend or pastor</text>
+    <text x="40" y="140" class="d-q">Pain is God’s megaphone</text></g>
+  <g><rect x="456" y="64" width="280" height="88" rx="8" class="d-box"/>
+    <text x="472" y="88" class="d-name">2  Repair on the church campus</text>
+    <text x="472" y="108" class="d-l">Licensed Christian counselor</text>
+    <text x="472" y="124" class="d-l">Insurance accepted; clear goals</text>
+    <text x="472" y="140" class="d-q">Faith invited, never imposed</text></g>
+  <g><rect x="456" y="232" width="280" height="88" rx="8" class="d-box"/>
+    <text x="472" y="256" class="d-name">3  Surrounded by the body</text>
+    <text x="472" y="276" class="d-l">Care coaches, small groups,</text>
+    <text x="472" y="292" class="d-l">courses, and follow-up</text>
+    <text x="472" y="308" class="d-q">You carry what’s yours</text></g>
+  <g><rect x="24" y="232" width="280" height="88" rx="8" class="d-box d-box--accent"/>
+    <text x="40" y="256" class="d-name">4  Sent: serving and mission</text>
+    <text x="40" y="276" class="d-l">Serving in the church</text>
+    <text x="40" y="292" class="d-l">Loving neighbors</text>
+    <text x="40" y="308" class="d-q">Carrying the gospel outward</text></g>
+  <g><rect x="24" y="352" width="712" height="48" rx="8" class="d-found"/>
+    <text x="380" y="380" text-anchor="middle" class="d-l">Foundation: Jesus Christ (1 Cor. 3:11) and a local church with a culture of care</text></g>
+</svg>
+<figcaption id="dia-cap">The ONE FOUNDATION refit cycle: four stages built on one foundation.</figcaption>
+</figure><p>The cycle doesn’t end at repair. The person who was once the neighbor in pain becomes the one who brings the next neighbor in.</p>
+</section>
+<section class="sec" id="what-pastors-gain-and-what-they-don-t" aria-labelledby="h-what-pastors-gain-and-what-they-don-t"><h2 id="h-what-pastors-gain-and-what-they-don-t">What Pastors Gain, and What They Don&#x27;t</h2><p>When a church’s members see a counselor across town, the pastor usually knows nothing: not the counselor’s name, not their convictions, not what the counseling is aimed at. Bringing care back onto the church campus changes that, within clear limits.</p>
+<p><strong>What pastors gain:</strong></p>
+<ul>
+<li><strong>They know the counselor before anyone else does.</strong> Before any session is held, pastors and elders spend real time with the counselor. They hear the counselor’s testimony, ask the question Anzivino recommends, “Tell me about your spiritual journey,” pray together, and work through the church’s care challenges side by side. They won’t ever know anyone’s clinical story. They will know the faith of the person their people are trusting.</li>
+<li><strong>A real voice, through the right channel.</strong> If church leaders have concerns about the counselor’s faith, character, or conduct in the life of the church, they bring them to ONE FOUNDATION’s leadership, never directly to the counselor. Before care begins, the church can decline the counselor. After launch, concerns go to the same place. This protects the pastor’s role as shepherd, the counselor’s clinical independence, and the client’s care.</li>
+<li><strong>A clearer view of the flock’s needs.</strong> As the partnership matures, the church can receive aggregate, de-identified summaries of the themes showing up in care: marriage strain, grief, anxiety among teenagers, addiction. The pastor can then do what only a pastor can do: bring the Word of God to bear on those burdens from the pulpit, in small groups, and in discipleship. We’re shaping this reporting with our first partner churches before formalizing it.</li>
+<li><strong>A path back into the body.</strong> Referral no longer sends people away. As Anzivino writes, “Referral doesn’t remove someone from care.” Here, it doesn’t even take them away from the church. The person gets clinical care down the hall and is surrounded by the life of the church on the way in and out.</li>
+<li><strong>Shared weight.</strong> The pastor no longer has to be the only counselor, and the congregation learns that asking for help is normal.</li>
+</ul>
+<p><strong>What pastors don’t get, by design:</strong></p>
+<ul>
+<li><strong>No names, no details, no attendance lists.</strong> The pastor never learns <em>who</em> is in counseling unless the person chooses to tell him. The whole model depends on congregants trusting that this is true.</li>
+<li><strong>No authority over clinical care.</strong> Clinical decisions belong to the licensed counselor, their clinical supervisor, and the state licensing board. A pastor who steers treatment undermines both the counselor’s ethics and the care itself.</li>
+<li><strong>No small-number reports.</strong> In a church of 200, “three couples in crisis” can identify real people. Under the HIPAA Privacy Rule, any community summary must be truly de-identified. That means setting a minimum group size before anything is shared, pooling church and community clients together, describing themes rather than counts, disclosing the practice in client consent paperwork, and following stricter federal rules (42 CFR Part 2) for substance-use treatment records.</li>
+</ul>
+<p>These limits don’t weaken the pastor’s role. They protect it. A pastor who can be trusted not to know becomes a pastor people trust with what they choose to share.</p>
+</section>
+<section class="sec" id="owning-our-own-incentives" aria-labelledby="h-owning-our-own-incentives"><h2 id="h-owning-our-own-incentives">Owning Our Own Incentives</h2><p>Missional Wellness bills insurance. We do it on purpose, for two reasons.</p>
+<ol type="1">
+<li><strong>Substitution.</strong> Economists call it the substitution effect: when one option gets more expensive, people switch to a cheaper one. If a church-based counselor charges full cash rates, a hurting neighbor with insurance won’t stay away from counseling. They’ll go down the street to an in-network provider who may never point them to Christ or to a church. Accepting insurance keeps us in the marketplace where the lost are looking for relief.</li>
+<li><strong>Reach and multiplication.</strong> Insurance keeps the out-of-pocket cost within reach for more of the people who actually need care. It also makes it possible to pay Christian counselors a sustainable living in the ordinary marketplace, which lets us multiply marketplace missionaries instead of depending on donations or cash-pay clients.</li>
+</ol>
+<p>But insurance requires a diagnosis, and counselors are paid by the session. So the incentives described above apply to us too. We’d rather say that first than have a skeptical elder say it for us. Paul wrote, “We are giving careful thought to do what is right, not only before the Lord but also before people” (2 Cor. 8:21). A model that asks for a church’s trust has to show where its own temptations lie.</p>
+<p>The principle underneath is simple. “The worker is worthy of his wages” (1 Tim. 5:18), so funding excellent care through insurance is legitimate. But shepherds are to serve “not out of greed for money but eagerly” (1 Pet. 5:2), and “it is required that managers be found faithful” (1 Cor. 4:2). Faithfulness here means designing care so that what’s good for the business is what’s good for the person.</p>
+<p>The safeguards we commit to:</p>
+<div class="table-wrap"><table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Safeguard</th>
+<th>What it means in practice</th>
+<th>Biblical principle</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A diagnosis is a tool, not an identity</td>
+<td>The code is explained as what insurance requires. Counselors speak of a person who is struggling, not a disorder walking in.</td>
+<td>“If anyone is in Christ, he is a new creation” (2 Cor. 5:17)</td>
+</tr>
+<tr class="even">
+<td>Every plan has goals and an end</td>
+<td>Written treatment goals and standardized outcome measures at intake and at regular intervals, so progress is visible and success can be seen.</td>
+<td>“Let each person examine his own work” (Gal. 6:4)</td>
+</tr>
+<tr class="odd">
+<td>Planned step-down into the church</td>
+<td>Every plan includes the handoff from clinical care to care coaching, small groups, and serving. Healthy completion is celebrated as success.</td>
+<td>“To equip the saints for the work of ministry, to build up the body of Christ” (Eph. 4:12)</td>
+</tr>
+<tr class="even">
+<td>Skills over dependence</td>
+<td>A preference for evidence-based approaches that build a person’s own abilities over open-ended processing.</td>
+<td>“Strengthen your tired hands and weakened knees” (Heb. 12:12)</td>
+</tr>
+<tr class="odd">
+<td>Right-sized referral</td>
+<td>Escalate to specialists when truly needed, and step back down when the need passes, without either rescuing or holding on too long.</td>
+<td>“Everything is to be done decently and in order” (1 Cor. 14:40)</td>
+</tr>
+<tr class="even">
+<td>Faith invited, never imposed</td>
+<td>Clients set their own goals. Faith enters counseling at the client’s invitation, and the church community is always open to them.</td>
+<td>“Do this with gentleness and reverence” (1 Pet. 3:16)</td>
+</tr>
+<tr class="odd">
+<td>The counselor is not the Savior</td>
+<td>Counselors point people to Christ and to the body, not to themselves.</td>
+<td>“He must increase, but I must decrease” (John 3:30)</td>
+</tr>
+<tr class="even">
+<td>Measures that reward health</td>
+<td>We measure success by progress and healthy completions, not session volume alone.</td>
+<td>“Whoever is faithful in very little is also faithful in much” (Luke 16:10)</td>
+</tr>
+</tbody>
+</table></div>
+<p>A model that measures its success by how many people no longer need it is a model built for sending, not for keeping.</p>
+</section>
+<section class="sec" id="the-invitation" aria-labelledby="h-the-invitation"><h2 id="h-the-invitation">The Invitation</h2><p>Pastor, you don’t have to become a therapist. You also don’t have to send your wounded people to a harbor with no way back to your church. Anzivino puts it plainly: “Leaders do not carry what was never assigned to them.” We can build something better, and that’s what criticizing by creating looks like.</p>
+<p>The world is in pain and asking for care. God is using that megaphone. The only question is whether the church will become the shipyard its community needs, and whether it will remember to send the ships back out.</p>
+<p>A ship in harbor is safe. But that’s not what we were built for.</p>
+
+<div class="cta cta--end" role="region" aria-label="Schedule a conversation">
+  <p class="cta-k">Ready to explore what this could look like in your church?</p>
+  <a class="btn btn--solid btn--lg" href="https://calendar.app.google/jJSGsxCCZwAWgHLQ6" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+    Schedule a Conversation</a>
+  <p class="cta-sub">A short, no-pressure call with Dave and Reta Kae.</p>
+</div></section>
+<section class="sec sec--small" id="about-the-authors" aria-labelledby="h-about-the-authors"><h2 id="h-about-the-authors">About the Authors</h2><p><strong>Dave Denning</strong> is a co-founder of ONE FOUNDATION. He has spent years leading in the U.S. Navy, at sea and in port. He holds a B.A. in Economics from the University of Virginia and an MBA from the University of Michigan.</p>
+<p><strong>Dr. Reta Kae Denning</strong> is a co-founder of ONE FOUNDATION. She holds a B.S. in Religion, an M.A. in Human Services, and a Doctor of Strategic Leadership, all from Liberty University.</p>
+</section>
+<section class="sec sec--small" id="sources" aria-labelledby="h-sources"><h2 id="h-sources">Sources</h2><ul>
+<li>Anzivino, Matt. <em>A Culture of Care</em>.</li>
+<li>Barna Group. Survey of Christians and pastors on church-provided counseling, 2022. <a href="https://assets.christianpost.com/news/most-christians-believe-churches-should-provide-counseling-care.html" target="_blank" rel="noopener">Reported by The Christian Post</a>.</li>
+<li>Barna Group. “<a href="https://access.barna.com/articles/young-adults-lead-resurgence-in-church-attendance" target="_blank" rel="noopener">Young Adults Lead a Resurgence in Church Attendance</a>.” State of the Church, 2025.</li>
+<li>Becker, Gary S. “A Theory of the Allocation of Time.” <em>The Economic Journal</em> 75, no. 299 (1965).</li>
+<li>Bridgland, Victoria M. E., Payton J. Jones, and Benjamin W. Bellet. “A Meta-Analysis of the Efficacy of Trigger Warnings, Content Warnings, and Content Notes.” <em>Clinical Psychological Science</em> (2023). <a href="https://www.psychologicalscience.org/news/2023-october-content-warnings-distress.html" target="_blank" rel="noopener">Summary from the Association for Psychological Science</a>.</li>
+<li>Centers for Disease Control and Prevention, National Center for Health Statistics. “<a href="https://www.cdc.gov/nchs/data/databriefs/db444.pdf" target="_blank" rel="noopener">Mental Health Treatment Among Adults Aged 18–44: United States, 2019–2021</a>.” NCHS Data Brief No. 444 (2022).</li>
+<li>Foulkes, Lucy, and Jack L. Andrews. “Are Mental Health Awareness Efforts Contributing to the Rise in Reported Mental Health Problems? A Call to Test the Prevalence Inflation Hypothesis.” <em>New Ideas in Psychology</em> (2023). <a href="https://www.suicideinfo.ca/resource/are-mental-health-awareness-efforts-contributing-to-the-rise-in-reported-mental-health-problems-a-call-to-test-the-prevalence-inflation-hypothesis/" target="_blank" rel="noopener">Summary</a>.</li>
+<li>Gallup. Consumption Habits poll, July 2025. <a href="https://www.bevnet.com/spirits/2025/gallup-poll-record-low-54-of-us-adults-drink-alcoholic-beverages/" target="_blank" rel="noopener">Reported by BevNET</a>.</li>
+<li>Global Wellness Institute. “<a href="https://globalwellnessinstitute.org/press-room/press-releases/the-global-wellness-economy-hits-a-record-6-8-trillion/" target="_blank" rel="noopener">The Global Wellness Economy Hits a Record $6.8 Trillion</a>.” November 2025.</li>
+<li>Lewis, C. S. <em>The Problem of Pain</em>. 1940.</li>
+<li>Lifeway Research and Focus on the Family. “<a href="https://research.lifeway.com/?p=1466" target="_blank" rel="noopener">Mental Illness Remains Taboo Topic for Many Pastors</a>.” 2014.</li>
+<li>Loftus, Matthew. <em>Resisting Therapy Culture</em>. InterVarsity Press. <a href="https://www.thegospelcoalition.org/reviews/resisting-therapy-culture/" target="_blank" rel="noopener">Reviewed by Beth Claes, The Gospel Coalition, 2026</a>.</li>
+<li>Luther, Martin. “Two Kinds of Righteousness.” Sermon, 1519.</li>
+<li>Manning, Willard G., Kenneth B. Wells, and Bernadette Benjamin. “<a href="https://www.rand.org/pubs/reports/R3277.html" target="_blank" rel="noopener">Use of Outpatient Mental Health Care</a>.” RAND Corporation, 1986.</li>
+<li>Mor, Nilly, and Jennifer Winquist. “<a href="https://cris.huji.ac.il/en/publications/self-focused-attention-and-negative-affect-a-meta-analysis/" target="_blank" rel="noopener">Self-Focused Attention and Negative Affect: A Meta-Analysis</a>.” <em>Psychological Bulletin</em> 128, no. 4 (2002).</li>
+<li>Murthy, Vivek H. <em>Our Epidemic of Loneliness and Isolation: The U.S. Surgeon General’s Advisory</em>. 2023. <a href="https://www.smithsonianmag.com/smart-news/an-epidemic-of-loneliness-threatenes-health-of-americans-surgeon-general-says-180982142/" target="_blank" rel="noopener">Summary from Smithsonian</a>.</li>
+<li>Oldenburg, Ray. <em>The Great Good Place</em>. 1989.</li>
+<li>ONE FOUNDATION. “<a href="https://dauntless120.github.io/ONE-FOUNDATION/about.html" target="_blank" rel="noopener">About</a>.”</li>
+<li>Rieff, Philip. <em>The Triumph of the Therapeutic</em>. 1966.</li>
+<li>Rose, Suzanna, Jonathan Bisson, Rachel Churchill, and Simon Wessely. “<a href="https://www.cochrane.org/evidence/CD000560_psychological-debriefing-preventing-post-traumatic-stress-disorder-ptsd" target="_blank" rel="noopener">Psychological Debriefing for Preventing Post Traumatic Stress Disorder</a>.” <em>Cochrane Database of Systematic Reviews</em> (2002).</li>
+<li>Shedd, John A. <em>Salt from My Attic</em>. 1928.</li>
+<li>Simon, Herbert A. “Designing Organizations for an Information-Rich World.” In <em>Computers, Communications, and the Public Interest</em>, 1971.</li>
+<li>Vitz, Paul C. <em>Psychology as Religion: The Cult of Self-Worship</em>. 1977.</li>
+</ul>
+<p class="csb"><em>Scripture quotations marked CSB have been taken from the Christian Standard Bible®, Copyright © 2017 by Holman Bible Publishers. Used by permission. Christian Standard Bible® and CSB® are federally registered trademarks of Holman Bible Publishers.</em></p>
+</section>
+</article>
+
+<aside class="toc-rail" aria-label="Contents">
+  <nav class="toc">
+    <p class="toc-title">Contents</p>
+    <ol>
+<li><a href="#three-minute" data-target="three-minute"><span class="t">The 3-Minute Version</span><span class="m">3 min</span></a></li>
+<li class="toc-sep">The Full Paper</li>
+<li><a href="#built-for-something" data-target="built-for-something"><span class="t">Built for Something</span><span class="m">1 min</span></a></li>
+<li><a href="#the-new-one-hour-religion" data-target="the-new-one-hour-religion"><span class="t">The New One-Hour Religion</span><span class="m">1 min</span></a></li>
+<li><a href="#the-deceitful-heart" data-target="the-deceitful-heart"><span class="t">The Deceitful Heart</span><span class="m">2 min</span></a></li>
+<li><a href="#clothed-in-christ" data-target="clothed-in-christ"><span class="t">Clothed in Christ</span><span class="m">2 min</span></a></li>
+<li><a href="#the-poverty-of-attention" data-target="the-poverty-of-attention"><span class="t">The Poverty of Attention</span><span class="m">2 min</span></a></li>
+<li><a href="#when-care-becomes-captivity" data-target="when-care-becomes-captivity"><span class="t">When Care Becomes Captivity</span><span class="m">3 min</span></a></li>
+<li><a href="#not-every-harbor-is-the-same" data-target="not-every-harbor-is-the-same"><span class="t">Not Every Harbor Is the Same</span><span class="m">2 min</span></a></li>
+<li><a href="#the-megaphone-is-already-on" data-target="the-megaphone-is-already-on"><span class="t">The Megaphone Is Already On</span><span class="m">2 min</span></a></li>
+<li><a href="#the-cost-of-silence-and-segregated-care" data-target="the-cost-of-silence-and-segregated-care"><span class="t">The Cost of Silence and Segregated Care</span><span class="m">1 min</span></a></li>
+<li><a href="#repaired-to-be-sent" data-target="repaired-to-be-sent"><span class="t">Repaired to Be Sent</span><span class="m">3 min</span></a></li>
+<li><a href="#different-callings-one-harbor" data-target="different-callings-one-harbor"><span class="t">Different Callings, One Harbor</span><span class="m">2 min</span></a></li>
+<li><a href="#a-shipyard-in-every-church" data-target="a-shipyard-in-every-church"><span class="t">A Shipyard in Every Church</span><span class="m">1 min</span></a></li>
+<li><a href="#the-one-foundation-model" data-target="the-one-foundation-model"><span class="t">The ONE FOUNDATION Model</span><span class="m">2 min</span></a></li>
+<li><a href="#what-pastors-gain-and-what-they-don-t" data-target="what-pastors-gain-and-what-they-don-t"><span class="t">What Pastors Gain, and What They Don&#x27;t</span><span class="m">2 min</span></a></li>
+<li><a href="#owning-our-own-incentives" data-target="owning-our-own-incentives"><span class="t">Owning Our Own Incentives</span><span class="m">3 min</span></a></li>
+<li><a href="#the-invitation" data-target="the-invitation"><span class="t">The Invitation</span><span class="m">1 min</span></a></li>
+<li><a href="#about-the-authors" data-target="about-the-authors"><span class="t">About the Authors</span><span class="m">1 min</span></a></li>
+<li><a href="#sources" data-target="sources"><span class="t">Sources</span></a></li>
+    </ol>
+  </nav>
+</aside>
+</div>
+
+<footer class="foot">
+  <a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="https://calendar.app.google/jJSGsxCCZwAWgHLQ6" target="_blank" rel="noopener">Schedule a Conversation</a>
+  <p class="verse">“No one can lay any foundation other than what has been laid down. That foundation is Jesus Christ.” — 1 Corinthians 3:11 (CSB)</p>
+</footer>
+
+<button class="toc-fab" id="toc-fab" type="button" aria-controls="toc-sheet" aria-expanded="false">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>Contents</button>
+<div class="sheet-scrim" id="sheet-scrim"></div>
+<div class="sheet" id="toc-sheet" role="dialog" aria-modal="true" aria-label="Contents">
+  <div class="sheet-head"><p class="toc-title" style="margin:0">Contents</p><button class="sheet-x" type="button" id="sheet-x" aria-label="Close contents">&times;</button></div>
+  <nav class="toc"><ol>
+<li><a href="#three-minute" data-target="three-minute"><span class="t">The 3-Minute Version</span><span class="m">3 min</span></a></li>
+<li class="toc-sep">The Full Paper</li>
+<li><a href="#built-for-something" data-target="built-for-something"><span class="t">Built for Something</span><span class="m">1 min</span></a></li>
+<li><a href="#the-new-one-hour-religion" data-target="the-new-one-hour-religion"><span class="t">The New One-Hour Religion</span><span class="m">1 min</span></a></li>
+<li><a href="#the-deceitful-heart" data-target="the-deceitful-heart"><span class="t">The Deceitful Heart</span><span class="m">2 min</span></a></li>
+<li><a href="#clothed-in-christ" data-target="clothed-in-christ"><span class="t">Clothed in Christ</span><span class="m">2 min</span></a></li>
+<li><a href="#the-poverty-of-attention" data-target="the-poverty-of-attention"><span class="t">The Poverty of Attention</span><span class="m">2 min</span></a></li>
+<li><a href="#when-care-becomes-captivity" data-target="when-care-becomes-captivity"><span class="t">When Care Becomes Captivity</span><span class="m">3 min</span></a></li>
+<li><a href="#not-every-harbor-is-the-same" data-target="not-every-harbor-is-the-same"><span class="t">Not Every Harbor Is the Same</span><span class="m">2 min</span></a></li>
+<li><a href="#the-megaphone-is-already-on" data-target="the-megaphone-is-already-on"><span class="t">The Megaphone Is Already On</span><span class="m">2 min</span></a></li>
+<li><a href="#the-cost-of-silence-and-segregated-care" data-target="the-cost-of-silence-and-segregated-care"><span class="t">The Cost of Silence and Segregated Care</span><span class="m">1 min</span></a></li>
+<li><a href="#repaired-to-be-sent" data-target="repaired-to-be-sent"><span class="t">Repaired to Be Sent</span><span class="m">3 min</span></a></li>
+<li><a href="#different-callings-one-harbor" data-target="different-callings-one-harbor"><span class="t">Different Callings, One Harbor</span><span class="m">2 min</span></a></li>
+<li><a href="#a-shipyard-in-every-church" data-target="a-shipyard-in-every-church"><span class="t">A Shipyard in Every Church</span><span class="m">1 min</span></a></li>
+<li><a href="#the-one-foundation-model" data-target="the-one-foundation-model"><span class="t">The ONE FOUNDATION Model</span><span class="m">2 min</span></a></li>
+<li><a href="#what-pastors-gain-and-what-they-don-t" data-target="what-pastors-gain-and-what-they-don-t"><span class="t">What Pastors Gain, and What They Don&#x27;t</span><span class="m">2 min</span></a></li>
+<li><a href="#owning-our-own-incentives" data-target="owning-our-own-incentives"><span class="t">Owning Our Own Incentives</span><span class="m">3 min</span></a></li>
+<li><a href="#the-invitation" data-target="the-invitation"><span class="t">The Invitation</span><span class="m">1 min</span></a></li>
+<li><a href="#about-the-authors" data-target="about-the-authors"><span class="t">About the Authors</span><span class="m">1 min</span></a></li>
+<li><a href="#sources" data-target="sources"><span class="t">Sources</span></a></li>
+  </ol></nav>
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+
+  /* day / night */
+  var tBtn = document.getElementById('theme-toggle'), tLbl = document.getElementById('theme-label');
+  var meta = document.querySelector('meta[name="theme-color"]');
+  function syncTheme() {
+    var dark = root.getAttribute('data-theme') !== 'light';
+    tLbl.textContent = dark ? 'Day' : 'Night';
+    tBtn.setAttribute('aria-label', dark ? 'Switch to day mode' : 'Switch to night mode');
+    if (meta) meta.setAttribute('content', dark ? '#07090d' : '#f8f5ee');
+  }
+  tBtn.addEventListener('click', function () {
+    var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('of-paper-theme', next); } catch (e) {}
+    syncTheme();
+  });
+  syncTheme();
+
+  /* reading progress */
+  var bar = document.getElementById('progress'), art = document.getElementById('article');
+  var fab = document.getElementById('toc-fab');
+  function onScroll() {
+    var r = art.getBoundingClientRect(), h = art.offsetHeight - window.innerHeight;
+    var p = Math.min(1, Math.max(0, -r.top / (h > 0 ? h : 1)));
+    bar.style.width = (p * 100) + '%';
+    fab.classList.toggle('show', window.scrollY > window.innerHeight * 0.6);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  onScroll();
+
+  /* contents: highlight the section in view */
+  var links = [].slice.call(document.querySelectorAll('.toc a[data-target]'));
+  var secs = [].slice.call(document.querySelectorAll('article section[id]'));
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (a) { a.classList.toggle('active', a.getAttribute('data-target') === e.target.id); });
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    secs.forEach(function (s) { io.observe(s); });
+  }
+
+  /* mobile contents sheet */
+  var scrim = document.getElementById('sheet-scrim'), sheetX = document.getElementById('sheet-x');
+  function openSheet() { root.classList.add('sheet-open'); fab.setAttribute('aria-expanded', 'true'); sheetX.focus(); }
+  function closeSheet() { root.classList.remove('sheet-open'); fab.setAttribute('aria-expanded', 'false'); }
+  fab.addEventListener('click', openSheet);
+  scrim.addEventListener('click', closeSheet);
+  sheetX.addEventListener('click', closeSheet);
+  document.querySelectorAll('#toc-sheet a').forEach(function (a) { a.addEventListener('click', closeSheet); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeSheet(); });
+
+  /* audio: shows the player only once the recording exists */
+  var box = document.getElementById('listen'), au = document.getElementById('audio');
+  var src = box.getAttribute('data-src'), full = parseFloat(box.getAttribute('data-full-start'));
+  if (!(full > 0)) document.getElementById('seek-full').style.display = 'none';
+  au.addEventListener('loadedmetadata', function () { box.classList.add('is-ready'); });
+  au.addEventListener('error', function () { box.classList.remove('is-ready'); });
+  if (src) au.src = src;
+  box.querySelectorAll('[data-seek]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var t = b.getAttribute('data-seek') === 'full' ? full : 0;
+      au.currentTime = t || 0; au.play();
+    });
+  });
+})();
+</script>
+</body>
+</html>

@@ -6,11 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#07090d">
 <title>ONE FOUNDATION Missional Wellness Services — Church Partnership</title>
-<meta name="description" content="Help us start the missional wellness movement that will actually turn the tide on America’s mental health crisis. A credentialed, Gospel-centered therapist embedded in your church — at no cost to you.">
+<meta name="description" content="Help us start the missional wellness movement that will actually turn the tide on America’s mental health crisis. A credentialed, Gospel-centered therapist embedded in your church, with no cost to the church for counseling.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dauntless120.github.io/ONE-FOUNDATION/?v=3">
 <meta property="og:title" content="ONE FOUNDATION Missional Wellness Services">
-<meta property="og:description" content="A credentialed, Gospel-centered therapist embedded in your church — at no cost to you, and no clinical liability.">
+<meta property="og:description" content="A credentialed, Gospel-centered therapist embedded in your church, with no cost to the church for counseling and no clinical liability.">
 <meta property="og:site_name" content="ONE FOUNDATION Missional Wellness Services">
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:image" content="https://dauntless120.github.io/ONE-FOUNDATION/og-image.png">
@@ -1062,7 +1062,7 @@ sup.footnote-ref {
 
 <body>
 <!-- ═══════════════════════════════════════════
-     SITE MENU  (identical on index.html and about.html)
+     SITE MENU  (identical on index.html, about.html and why.html)
      Paste directly after the opening <body> tag.
 ═══════════════════════════════════════════ -->
 <style>
@@ -1200,6 +1200,8 @@ sup.footnote-ref {
       <svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>Home</a>
     <a class="of-link" href="about.html" data-page="about">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6"/><path d="M12 7.5v.01"/></svg>About</a>
+    <a class="of-link" href="why.html" data-page="why">
+      <svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5V5.5"/><path d="M8 7.5h8M8 11h6"/></svg>Our Why</a>
     <a class="of-link" href="https://calendar.app.google/jJSGsxCCZwAWgHLQ6" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Schedule a Conversation</a>
     <a class="of-link" href="tel:+12486603926" id="of-call">
@@ -1243,9 +1245,9 @@ sup.footnote-ref {
 
 <script>
 (function () {
-  var SITE    = 'https://dauntless120.github.io/ONE-FOUNDATION/';
+  var SITE    = document.body.getAttribute('data-share-url') || 'https://dauntless120.github.io/ONE-FOUNDATION/';
   var SUBJECT = 'Thought of you — ONE FOUNDATION';
-  var MSG     = 'I thought of you when I saw this. ONE FOUNDATION places credentialed, Gospel-centered therapists in local churches at no cost to the church, and points people into the life of the church. Worth a look!';
+  var MSG     = document.body.getAttribute('data-share-msg') || 'I thought of you when I saw this. ONE FOUNDATION places credentialed, Gospel-centered therapists in local churches at no cost to the church, and points people into the life of the church. Worth a look!';
   var PHONE   = '248-660-3926';
 
   var root    = document.documentElement;
@@ -1258,8 +1260,9 @@ sup.footnote-ref {
   var lastFocus = null;
 
   // mark the page they're on
-  var onAbout = /about(\.html)?\/?$/i.test(location.pathname);
-  var cur = document.querySelector('.of-link[data-page="' + (onAbout ? 'about' : 'home') + '"]');
+  var path = location.pathname;
+  var page = /why(\.html)?\/?$/i.test(path) ? 'why' : (/about(\.html)?\/?$/i.test(path) ? 'about' : 'home');
+  var cur = document.querySelector('.of-link[data-page="' + page + '"]');
   if (cur) cur.setAttribute('aria-current', 'page');
 
   // stop the pulse once they've found the menu
@@ -1331,7 +1334,7 @@ sup.footnote-ref {
     if (!isPhone) { showModal(shareM); return; }
     closeMenu(true);
     if (navigator.share) {
-      navigator.share({ title: 'ONE FOUNDATION Missional Wellness Services', text: MSG, url: SITE }).catch(function () {});
+      navigator.share({ title: document.body.getAttribute('data-share-title') || 'ONE FOUNDATION Missional Wellness Services', text: MSG, url: SITE }).catch(function () {});
     } else {
       location.href = 'sms:?&body=' + encodeURIComponent(body);
     }
